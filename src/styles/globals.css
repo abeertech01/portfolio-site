@@ -4,7 +4,7 @@
 
 @layer base {
   .page {
-    @apply w-full h-screen overflow-hidden;
+    @apply w-full h-screen;
   }
   .body-tag {
     @apply hidden lg:block text-[2.5rem] lg:text-[3rem] text-gray-600;
@@ -12,12 +12,15 @@
   .h1-tag {
     @apply hidden lg:block text-[2.5rem] lg:text-[3rem] text-gray-600;
   }
+  .nav-icon-style {
+    @apply h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem];
+  }
 }
 
 html,
 body {
   font-size: 10px;
-  overflow: hidden;
+  background-color: rgb(17, 24, 39);
 }
 
 .name-gradient {
