@@ -2,26 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  .page {
+    @apply w-full h-screen overflow-hidden;
+  }
+  .body-tag {
+    @apply hidden lg:block text-[2.5rem] lg:text-[3rem] text-gray-600;
+  }
+  .h1-tag {
+    @apply hidden lg:block text-[2.5rem] lg:text-[3rem] text-gray-600;
   }
 }
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.name-gradient {
+  background: linear-gradient(to right, rgb(137, 192, 255), rgb(181, 97, 255));
+  -webkit-background-clip: text; /* For Safari/WebKit based browsers */
+  background-clip: text;
+  color: transparent;
+}
+.web-dev-gradient {
+  background: linear-gradient(to right, rgb(253, 66, 98), rgb(255, 175, 62));
+  -webkit-background-clip: text; /* For Safari/WebKit based browsers */
+  background-clip: text;
+  color: transparent;
 }
