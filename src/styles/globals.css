@@ -21,7 +21,7 @@ body {
 }
 
 .name-gradient {
-  background: linear-gradient(to right, rgb(137, 192, 255), rgb(181, 97, 255));
+  background: linear-gradient(to right, #77cadd, #00cdfb);
   -webkit-background-clip: text; /* For Safari/WebKit based browsers */
   background-clip: text;
   color: transparent;

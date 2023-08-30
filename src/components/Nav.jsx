@@ -10,44 +10,48 @@ const navData = [
   {
     name: "home",
     path: "/",
-    icon: <FaHome className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />,
+    icon: <FaHome className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />,
   },
   {
     name: "about",
     path: "/about",
-    icon: <FaUserAlt className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />,
+    icon: (
+      <FaUserAlt className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />
+    ),
   },
   {
     name: "skills",
     path: "/skills",
     icon: (
-      <AiFillSetting className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />
+      <AiFillSetting className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />
     ),
   },
   {
     name: "projects",
     path: "/projects",
     icon: (
-      <AiFillProject className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />
+      <AiFillProject className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />
     ),
   },
   {
     name: "experience",
     path: "/experience",
-    icon: <FaUserTie className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />,
+    icon: (
+      <FaUserTie className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />
+    ),
   },
   {
     name: "contact",
     path: "/contact",
     icon: (
-      <FaPaperPlane className="h-[3rem] lg:h-[2rem] w-[3rem] lg:w-[2rem]" />
+      <FaPaperPlane className="h-[3rem] lg:h-[1.8rem] w-[3rem] lg:w-[1.8rem]" />
     ),
   },
 ]
 
 const Nav = () => {
   return (
-    <div className="fixed flex items-center bottom-0 right-0 lg:right-[2rem] left-0 lg:top-[50%] lg:-translate-y-[50%] lg:left-auto lg:bottom-auto px-[1.8rem] lg:py-[2rem] w-full lg:w-[5rem] h-[8rem] lg:h-auto bg-white/20 lg:rounded-full">
+    <div className="fixed flex items-center bottom-0 right-0 lg:right-[2rem] left-0 lg:top-[50%] lg:-translate-y-[50%] lg:left-auto lg:bottom-auto px-[1.8rem] lg:py-[2rem] w-full lg:w-[4rem] h-[8rem] lg:h-auto bg-white/20 lg:rounded-full">
       <ul className="w-full h-full flex flex-row lg:flex-col items-center justify-between lg:gap-y-[2.5rem]">
         {navData.map((item) => (
           <li key={item.name}>

@@ -3,6 +3,8 @@ import { twMerge } from "tailwind-merge"
 
 import ProjectsBtn from "@/components/ProjectsBtn"
 import Image from "next/image"
+import { BsArrowRight } from "react-icons/bs"
+import Link from "next/link"
 
 const sacramento = Sacramento({
   weight: "400",
@@ -27,7 +29,7 @@ const inter = Inter({ subsets: ["latin"] })
 export default function Home() {
   return (
     <main className="relative w-full h-full flex flex-col justify-center container mx-auto">
-      <div className="hidden lg:block absolute right-0 mix-blend-screen">
+      <div className="hidden lg:block absolute -right-[6rem] mix-blend-screen">
         <Image
           src={"/man-coding.svg"}
           width={550}
@@ -85,10 +87,22 @@ export default function Home() {
         <div
           className={twMerge(
             fira_code.className,
-            "text-center lg:text-left text-[1.7rem] lg:text-[2rem] text-gray-400"
+            "text-center lg:text-left text-[1.7rem] lg:text-[2rem] text-gray-400 mb-2"
           )}
         >
           JavaScript Enthusiast • MERN stack • Next.js Expert
+        </div>
+
+        <div>
+          <Link
+            href={"https://abeer.hashnode.dev"}
+            target="_blank"
+            className={twMerge(
+              "blog-btn text-[1.7rem] border-b text-gray-400 py-2"
+            )}
+          >
+            Visit My Blog <BsArrowRight className="inline-block" />
+          </Link>
         </div>
 
         {/* closing html */}
