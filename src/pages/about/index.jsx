@@ -15,7 +15,7 @@ const About = () => {
         />
       </div>
       <div className="write-up lg:order-1 p-6 lg:p-0 text-center lg:text-left text-[1.9rem]">
-        <h1 className="text-[4rem] lg:text-[5rem] font-bold mb-4 lg:mb-6">
+        <h1 className="text-[3rem] lg:text-[5rem] font-bold mb-4 lg:mb-6">
           About Me
         </h1>
         <p>
