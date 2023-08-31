@@ -8,7 +8,7 @@ const Experience = () => {
         Experience
       </h1>
       <div className="content mx-[1.5rem] lg:mx-0">
-        <div className="moonholding flex flex-col lg:grid lg:grid-cols-[auto_auto] lg:gap-[4rem] gap-6 mb-[8rem] lg:mb-[15rem]">
+        <div className="moonholding flex flex-col lg:grid lg:grid-cols-[auto_auto] lg:gap-[4rem] gap-6 mb-[8rem] lg:mb-[15rem] rounded-lg">
           <div className="image overflow-hidden w-[29rem] lg:w-[54rem] h-[20rem] lg:h-[36rem] border border-gray-700 rounded-xl">
             <Image
               src={"/moonholdings.png"}

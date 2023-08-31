@@ -50,7 +50,7 @@ const projectsData = [
 const Projects = () => {
   return (
     <div className="container mx-auto w-[38rem] lg:w-full min-h-full flex flex-col justify-center py-[10rem]">
-      <h1 className="text-[3rem] mb-[1rem] text-center font-semibold">
+      <h1 className="text-[3rem] mb-[1rem] text-center font-semibold underline">
         Projects
       </h1>
       <p className="mb-[3rem] text-[1.7rem] lg:text-[1.9rem] lg:text-center">
