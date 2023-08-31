@@ -38,7 +38,7 @@ export default function Home() {
         />
       </div>
       {/* Intro */}
-      <div className="-translate-y-[10%] flex flex-col items-center lg:items-start">
+      <div className="-translate-y-[14%] lg:-translate-y-[5%] flex flex-col items-center lg:items-start">
         {/* html */}
         <div
           className={twMerge(
