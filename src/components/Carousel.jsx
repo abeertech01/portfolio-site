@@ -13,9 +13,9 @@ const Carousel = ({ projectsData }) => {
 
   // The carousel items
   const projects = [
-    ...projectsData.map((project) => (
+    ...projectsData.map((project, index) => (
       <div
-        key={project.name}
+        key={index}
         className="relative max-w-[30rem] lg:max-w-[33rem] h-[39rem] lg:h-[42rem] mx-auto rounded-xl p-[2rem] shadow-lg bg-gray-800 border-x-slate-600"
       >
         <div className="image h-[20rem] overflow-hidden rounded-md">
@@ -46,8 +46,9 @@ const Carousel = ({ projectsData }) => {
       </div>
     )),
   ]
+
   return (
-    <div className="">
+    <div>
       <AliceCarousel
         mouseTracking
         items={projects}

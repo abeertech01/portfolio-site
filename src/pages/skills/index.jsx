@@ -32,7 +32,7 @@ const Skills = () => {
             src={"/PNGs/technology.png"}
             width={300}
             height={300}
-            alt="programming"
+            alt="technology"
             className="w-[17rem] h-[17rem] mb-[3rem]"
           />
           <h1 className="text-[3.5rem] font-semibold mb-4">Technology</h1>
@@ -51,7 +51,7 @@ const Skills = () => {
             src={"/PNGs/tools.png"}
             width={300}
             height={300}
-            alt="programming"
+            alt="programming tools"
             className="w-[17rem] h-[17rem] mb-[3rem]"
           />
           <h1 className="text-[3.5rem] font-semibold mb-4">Tools</h1>

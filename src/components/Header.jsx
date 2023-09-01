@@ -31,7 +31,6 @@ const Header = () => {
     <div className="fixed flex flex-col lg:flex-row justify-between items-center right-0 top-0 left-0 p-[1.8rem] lg:px-0 lg:py-[2rem] container mx-auto bg-inherit z-50">
       <div className="mb-2">
         <Link href={"/"} className="text-[3rem]">
-          {/* <Image src={"/letter-a-white.png"} width={40} height={40} alt="A" /> */}
           <span className="font-bold mr-[1rem]">Abeer</span>
           <span className="font-extralight">Abdul Ahad</span>
         </Link>

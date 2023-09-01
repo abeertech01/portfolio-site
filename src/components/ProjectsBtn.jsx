@@ -13,14 +13,14 @@ const ProjectsBtn = () => {
           src={"/PNGs/rounded-text.png"}
           width={128}
           height={135}
-          alt=""
+          alt="rounded-text"
           className="animate-spin-slow"
         />
         <Image
           src={"/click-icon.png"}
           width={50}
           height={50}
-          alt=""
+          alt="click-icon"
           className="w-[5rem] h-[5rem] absolute"
         />
       </Link>

@@ -14,6 +14,7 @@ const Experience = () => {
               src={"/moonholdings.png"}
               width={500}
               height={500}
+              alt="moonholdings ss"
               className="w-full h-full object-cover"
             />
           </div>
@@ -38,6 +39,7 @@ const Experience = () => {
               src={"/freelance-pic.jpg"}
               width={500}
               height={500}
+              alt="freelance-pic"
               className="w-full h-full object-cover"
             />
           </div>
