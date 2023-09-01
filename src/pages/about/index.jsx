@@ -19,16 +19,16 @@ const About = () => {
           About Me
         </h1>
         <p>
-          Hello, My name is Abdul Ahad (happy to be called 'Abeer'), a
+          Hello, My name is Abdul Ahad (happy to be called &apos;Abeer&apos;), a
           JavaScript Developer from Dhaka, Bangladesh 🇧🇩. I started coding in
           2017 with Java right after finishing my 12th grade exam. But I
-          couldn't keep up with the complexity of Java and started exploring
-          JavaScript and the web development world. It has been almost 5 years
-          since I started exloring the web development and I am loving every bit
-          of the time with JavaScript. But for more than 2 years as of now I
-          have done a lot of professional work. Since I have been in this field
-          for quite a long time I have developed the sense of web development
-          and what works in the market and what not. <br />
+          couldn&apos;t keep up with the complexity of Java and started
+          exploring JavaScript and the web development world. It has been almost
+          5 years since I started exloring the web development and I am loving
+          every bit of the time with JavaScript. But for more than 2 years as of
+          now I have done a lot of professional work. Since I have been in this
+          field for quite a long time I have developed the sense of web
+          development and what works in the market and what not. <br />
           <br />
           Nowadays I am more focused on TypeScript and NextJS or overall the
           entire React-ecosystem. I am also focusing a lot on networking and my
