@@ -46,24 +46,6 @@ const Carousel = ({ projectsData }) => {
       </div>
     )),
   ]
-
-  const items = [
-    <div className="item border mr-2" data-value="1">
-      1
-    </div>,
-    <div className="item border mx-2" data-value="2">
-      2
-    </div>,
-    <div className="item border mx-2" data-value="3">
-      3
-    </div>,
-    <div className="item border mx-2" data-value="4">
-      4
-    </div>,
-    <div className="item border ml-2" data-value="5">
-      5
-    </div>,
-  ]
   return (
     <div className="">
       <AliceCarousel
