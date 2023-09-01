@@ -14,7 +14,10 @@ const Carousel = ({ projectsData }) => {
   // The carousel items
   const projects = [
     ...projectsData.map((project) => (
-      <div className="relative max-w-[30rem] lg:max-w-[33rem] h-[39rem] lg:h-[42rem] mx-auto rounded-xl p-[2rem] shadow-lg bg-gray-800 border-x-slate-600">
+      <div
+        key={project.name}
+        className="relative max-w-[30rem] lg:max-w-[33rem] h-[39rem] lg:h-[42rem] mx-auto rounded-xl p-[2rem] shadow-lg bg-gray-800 border-x-slate-600"
+      >
         <div className="image h-[20rem] overflow-hidden rounded-md">
           <Image
             src={project?.image}
