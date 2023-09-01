@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs"
 
 const Skills = () => {
   return (
-    <div className="container mx-auto min-h-full py-[10rem] text-[2rem] px-[3rem] lg:px-0">
+    <div className="container mx-auto min-h-full py-[8rem] text-[2rem] px-[3rem] lg:px-0">
       <h1 className="text-[3rem] font-semibold text-center lg:text-left underline mt-[4rem] mb-[4rem]">
         Skills
       </h1>
@@ -24,6 +24,7 @@ const Skills = () => {
             <li>CSS</li>
             <li>JavaScript</li>
             <li>TypeScript</li>
+            <li>Node.js(Runtime of JS)</li>
             <li>SQL</li>
           </ul>
         </div>
@@ -42,6 +43,8 @@ const Skills = () => {
             <li>Redux</li>
             <li>Zustand</li>
             <li>Vue</li>
+            <li>Express.js</li>
+            <li>GraphQL</li>
             <li>MySQL</li>
             <li>MongoDB</li>
           </ul>

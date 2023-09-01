@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 
 const Experience = () => {
@@ -22,13 +23,34 @@ const Experience = () => {
             <h1 className="text-[2.5rem] lg:text-[3.5] font-medium lg:font-semibold lg:mb-[1.5rem]">
               MoonHoldings
             </h1>
-            <p className="lg:text-[2rem]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-              unde, labore quos accusantium alias aperiam ducimus laudantium
-              natus quae, voluptatem quis aut illo esse blanditiis quia rem!
-              Fuga, expedita cupiditate alias distinctio odio qui? Architecto,
-              deserunt? Deserunt maxime iusto nesciunt velit sit inventore!
-              Fuga, natus!
+            <p className="text-[1.6rem]">
+              I worked at MoonHoldings(
+              <Link
+                href={"https://moonholdings.xyz"}
+                target="_blank"
+                className="underline text-[#7cc0ff]"
+              >
+                moonholdings.xyz
+              </Link>
+              , a web3 startup) for a year, from June, 2022 to May, 2023. During
+              that time, I was a Full-time Fullstack JavaScript Developer. My
+              main focus was on building both the client site, which is what
+              users see and interact with, as well as the backend, which is the
+              behind-the-scenes functionalities for serving the data of the
+              website. I played a significant role in the team, contributing to
+              the development of both these aspects. <br />
+              <br />
+              In terms of the technologies I used, my stack included: <br />
+              <br />
+              1. Vue and Pinia
+              <br />
+              2. React and Next.js 12
+              <br />
+              3. Redux Toolkit for state management
+              <br />
+              4. Node.js and Express.js
+              <br />
+              5. Firebase Firestore as Database
             </p>
           </div>
         </div>
@@ -48,12 +70,13 @@ const Experience = () => {
               Freelance Work
             </h1>
             <p className="lg:text-[2rem]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-              unde, labore quos accusantium alias aperiam ducimus laudantium
-              natus quae, voluptatem quis aut illo esse blanditiis quia rem!
-              Fuga, expedita cupiditate alias distinctio odio qui? Architecto,
-              deserunt? Deserunt maxime iusto nesciunt velit sit inventore!
-              Fuga, natus!
+              Before Joining MoonHoldings, I used to work as a freelance
+              developer. Usually I used to post on discord for hire and I got to
+              have some of the projects from different clients. <br /> <br />
+              At that time mostly I used Vue and Nuxt.js for development
+              although I am mostly focused on React, Next.js and Overall
+              React&apos;s ecosystem at present. <br />
+              <br /> I worked as a freelance developer from 2021 to 2022.
             </p>
           </div>
         </div>
