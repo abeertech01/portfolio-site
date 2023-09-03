@@ -6,6 +6,12 @@ import Image from "next/image"
 import { BsArrowRight } from "react-icons/bs"
 import Link from "next/link"
 
+// framer motion
+import { motion } from "framer-motion"
+
+// variants
+import { fadeIn } from "../variants"
+
 const sacramento = Sacramento({
   weight: "400",
   style: "normal",
@@ -38,7 +44,7 @@ export default function Home() {
         />
       </div>
       {/* Intro */}
-      <div className="-translate-y-[14%] lg:-translate-y-[5%] flex flex-col items-center lg:items-start">
+      <div className="-translate-y-[25%] lg:-translate-y-[5%] flex flex-col items-center lg:items-start">
         {/* html */}
         <div
           className={twMerge(

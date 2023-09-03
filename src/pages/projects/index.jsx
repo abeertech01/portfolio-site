@@ -5,10 +5,10 @@ const projectsData = [
   {
     name: "Messenger Clone",
     description:
-      "Facebook's Messenger Clone App made with Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth and Pusher",
+      "Facebook's Messenger Clone App made with Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth and Pusher. It's under development",
     image: "/project-images/messenger-clone.png",
-    link: "#",
-    github: "#",
+    link: "https://messenger-clone-teal.vercel.app",
+    github: "https://github.com/abeertech01/messenger-clone",
     tech_stack: [
       "Next.js",
       "Tailwind CSS",
