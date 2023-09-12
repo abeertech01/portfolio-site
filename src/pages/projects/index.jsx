@@ -29,6 +29,15 @@ const projectsData = [
     tech_stack: ["Next.js", "Tailwind CSS", "TypeScript", "Firebase"],
   },
   {
+    name: "Responsive Portfolio",
+    description:
+      "This is a responsive portfolio project which has modern animations",
+    image: "/project-images/ethan-smith-portfolio.png",
+    link: "https://next-tw-framer-portfolio.vercel.app/",
+    github: "https://github.com/abeertech01/next-tw-framer-portfolio",
+    tech_stack: ["Next.js", "Tailwind CSS"],
+  },
+  {
     name: "Vue Dishes",
     description:
       "Vue Dishes is a showcase project that I made with Vue Ecosystem",

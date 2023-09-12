@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
@@ -36,12 +37,20 @@ const Carousel = ({ projectsData }) => {
           </p>
         </div>
         <div className="pt-[0.5rem] absolute bottom-[2rem] left-[2rem]">
-          <button className="border-b border-b-[#4b9fff] py-2 mr-[1rem] text-[#4b9fff]">
+          <Link
+            href={project?.link}
+            target="_blank"
+            className="border-b border-b-[#4b9fff] py-2 mr-[1rem] text-[#4b9fff]"
+          >
             Live Website
-          </button>
-          <button className="border-b border-b-[#4b9fff] py-2 text-[#4b9fff]">
+          </Link>
+          <Link
+            href={project?.github}
+            target="_blank"
+            className="border-b border-b-[#4b9fff] py-2 text-[#4b9fff]"
+          >
             Github Repo
-          </button>
+          </Link>
         </div>
       </div>
     )),
