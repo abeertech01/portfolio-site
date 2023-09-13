@@ -69,7 +69,7 @@ const Experience = () => {
             <h1 className="text-[2.5rem] font-medium lg:text-[3.5] lg:font-semibold lg:mb-[1.5rem]">
               Freelance Work
             </h1>
-            <p className="lg:text-[2rem]">
+            <p className="text-[1.6rem]">
               Before Joining MoonHoldings, I used to work as a freelance
               developer. Usually I used to post on discord for hire and I got to
               have some of the projects from different clients. <br /> <br />
