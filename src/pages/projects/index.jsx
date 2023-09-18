@@ -35,7 +35,16 @@ const projectsData = [
     image: "/project-images/ethan-smith-portfolio.png",
     link: "https://next-tw-framer-portfolio.vercel.app/",
     github: "https://github.com/abeertech01/next-tw-framer-portfolio",
-    tech_stack: ["Next.js", "Tailwind CSS"],
+    tech_stack: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    name: "Responsive And Animated Portfolio",
+    description:
+      "This is a responsive portfolio project which has modern and cool animations. This is under development",
+    image: "/project-images/responsive-animated-portfolio.png",
+    link: "https://responsive-animated-portfolio.vercel.app/",
+    github: "https://github.com/abeertech01/responsive-animated-portfolio",
+    tech_stack: ["Next.js", "CSS", "SASS", "Framer Motion"],
   },
   {
     name: "Vue Dishes",
