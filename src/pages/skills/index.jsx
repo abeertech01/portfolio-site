@@ -41,7 +41,6 @@ const Skills = () => {
             <li>React</li>
             <li>Next.js</li>
             <li>Redux</li>
-            <li>Zustand</li>
             <li>Vue</li>
             <li>Express.js</li>
             <li>GraphQL</li>

@@ -59,13 +59,13 @@ const Nav = () => {
           <li key={item.name} className="">
             <Link href={item.path} className="group w-full h-full">
               {/* tooltip */}
-              <div className="absolute pr-14 right-[1rem] hidden lg:group-hover:flex ">
-                <div className="bg-black relative flex text-primary items-center p-[6px] rounded-[3px] shadow-lg shadow-gray-800">
-                  <div className="text-[12px] leading-none font-semibold capitalize">
+              <div className="absolute pr-14 right-[2rem] hidden lg:group-hover:flex ">
+                <div className="bg-gray-700 relative flex text-primary items-center px-[1.8rem] py-[1rem] rounded-[3px] shadow-sm shadow-gray-700">
+                  <div className="text-[1.7rem] leading-none font-medium capitalize">
                     {item.name}
                   </div>
                   {/* triangle */}
-                  <div className="border-solid border-l-black border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2"></div>
+                  <div className="border-solid border-l-gray-700 border-l-[1rem] border-y-transparent border-y-[1rem] border-r-0 absolute -right-2"></div>
                 </div>
               </div>
               {item.icon}
