@@ -29,9 +29,9 @@ const socials = [
 const Header = () => {
   return (
     <div className="fixed flex flex-col lg:flex-row justify-between items-center right-0 top-0 left-0 p-[1.8rem] lg:px-0 lg:py-[2rem] container mx-auto bg-inherit z-50">
-      <div className="lg:block hidden absolute left-[50%] -translate-x-[50%] text-[1.7rem]">
+      {/* <div className="lg:block hidden absolute left-[50%] -translate-x-[50%] text-[1.7rem]">
         <p>This website is under construction</p>
-      </div>
+      </div> */}
 
       <div className="mb-2">
         <Link href={"/"} className="text-[3rem]">

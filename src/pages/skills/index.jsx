@@ -1,7 +1,25 @@
-import Image from "next/image"
-import Link from "next/link"
+import Card from "@/components/Card"
 import React from "react"
-import { BsArrowRight } from "react-icons/bs"
+
+const langauges = [
+  "JavaScript",
+  "TypeScript",
+  "HTML",
+  "CSS",
+  "NodeJS(Runtime)",
+  "SQL",
+]
+const technologies = [
+  "ReactJS",
+  "NextJS",
+  "Redux",
+  "Tailwind CSS",
+  "ExpressJS",
+  "GraphQL",
+  "MongoDB",
+  "PostgreSQL",
+]
+const tools = ["Git", "Github", "Figma", "Firebase", "Prisma", "VS Code"]
 
 const Skills = () => {
   return (
@@ -9,67 +27,18 @@ const Skills = () => {
       <h1 className="text-[3rem] font-semibold text-center lg:text-left underline mt-[4rem] mb-[4rem]">
         Skills
       </h1>
-      <div className="skills flex flex-col lg:flex-row justify-start lg:justify-between gap-[10rem]">
-        <div className="language">
-          <Image
-            src={"/PNGs/programming.png"}
-            width={300}
-            height={300}
-            alt="programming"
-            className="w-[17rem] h-[17rem] mb-[3rem]"
-          />
-          <h1 className="text-[3.5rem] font-semibold mb-4">Language</h1>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>Node.js(Runtime of JS)</li>
-            <li>SQL</li>
-          </ul>
-        </div>
-        <div className="technology">
-          <Image
-            src={"/PNGs/technology.png"}
-            width={300}
-            height={300}
-            alt="technology"
-            className="w-[17rem] h-[17rem] mb-[3rem]"
-          />
-          <h1 className="text-[3.5rem] font-semibold mb-4">Technology</h1>
-          <ul>
-            <li>React</li>
-            <li>Next.js</li>
-            <li>Redux</li>
-            <li>Vue</li>
-            <li>Express.js</li>
-            <li>GraphQL</li>
-            <li>MySQL</li>
-            <li>MongoDB</li>
-          </ul>
-        </div>
-        <div className="tools">
-          <Image
-            src={"/PNGs/tools.png"}
-            width={300}
-            height={300}
-            alt="programming tools"
-            className="w-[17rem] h-[17rem] mb-[3rem]"
-          />
-          <h1 className="text-[3.5rem] font-semibold mb-4">Tools</h1>
-          <ul>
-            <li>VS Code</li>
-            <li>Git</li>
-            <li>Github</li>
-            <li>Firebase</li>
-            <li>Prisma</li>
-          </ul>
-        </div>
-      </div>
-      <div className="mt-[2rem]">
-        <Link href={"/projects"} className="border-b">
-          What I built <BsArrowRight className="inline-block" />
-        </Link>
+      <div className="skills grid grid-rows-[1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-[3rem]">
+        <Card
+          image={"/PNGs/code2.png"}
+          topic={"Programming Languages"}
+          elements={langauges}
+        />
+        <Card
+          image={"/PNGs/innovation.png"}
+          topic={"Technologies"}
+          elements={technologies}
+        />
+        <Card image={"/PNGs/tools.png"} topic={"Tools"} elements={tools} />
       </div>
     </div>
   )
