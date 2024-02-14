@@ -3,6 +3,24 @@ import React from "react"
 
 const projectsData = [
   {
+    name: "Friendsbook (Facebook Clone)",
+    description:
+      "Facebook Clone App named Friendsbook is being developed with ReactJS, NoodeJS, Apollo GraphQL, Prisma, PostgreSQL etc.",
+    image: "/project-images/friendsbook.png",
+    link: "#",
+    github: "https://github.com/abeertech01/friendsbook-client",
+    tech_stack: [
+      "ReactJS",
+      "Tailwind CSS",
+      "TypeScript",
+      "ExpressJS",
+      "Prisma",
+      "Apollo GraphQL",
+      "PostgreSQL",
+      "Redis",
+    ],
+  },
+  {
     name: "Messenger Clone",
     description:
       "Facebook's Messenger Clone App made with Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth and Pusher. It's under development",
