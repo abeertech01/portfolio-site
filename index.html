@@ -19,41 +19,108 @@
   <body class="bg-background font-inter">
     <div
       id="app"
-      class="max-w-[110rem] mx-auto pt-[10rem] grid grid-cols-[43%_auto] gap-[5rem]"
+      class="xl:max-w-[110rem] xl:mx-auto xl:pt-[10rem] pt-[2rem] px-[2rem] xl:px-0"
     >
-      <div class="intro relative min-h-[calc(100vh-10rem)]">
+      <div
+        class="intro xl:fixed block xl:w-[47.3rem] xl:h-[calc(100vh-10rem)] h-auto xl:mb-0 mb-[9rem]"
+      >
         <div
-          class="relative border border-spacing-1 border-white min-h-[13rem] rounded-xl pt-[4rem] flex items-start justify-center mb-[8rem]"
+          class="relative border border-spacing-1 border-white xl:min-h-[13rem] min-h-[8rem] xl:rounded-xl rounded-lg xl:pt-[4rem] pt-[2.1rem] flex items-start justify-center mb-[8rem]"
         >
           <div
-            class="flex gap-[1rem] justify-center items-center text-[2.3rem] w-full text-white"
+            class="flex gap-[0.7rem] justify-center items-center xl:text-[2.3rem] text-[1.8rem] w-full text-white"
           >
             <span>I code with</span>
-            <img src="/images/html.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/css.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/js.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/ts.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/react.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/node.svg" alt="" class="h-[2.3rem]" />
-            <img src="/images/graphql.svg" alt="" class="h-[2.3rem]" />
+            <img
+              src="/public/images/techs/icons8-html.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/public/images/techs/icons8-css.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/public/images/techs/icons8-javascript.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/public/images/techs/icons8-typescript.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/public/images/techs/icons8-react.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/images/node.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
+            <img
+              src="/images/graphql.svg"
+              alt=""
+              class="xl:h-[2.3rem] h-[1.6rem]"
+            />
             <span>.....</span>
           </div>
           <div
-            class="flex items-center bg-background absolute -bottom-[6.5rem] left-[1rem] p-[1rem] before:block before:absolute before:left-[0.5rem] before:top-[0.5rem] before:w-[10rem] before:h-[10rem] before:rounded-t-full"
+            class="flex items-center bg-background absolute xl:-bottom-[6.5rem] -bottom-[4.5rem] left-[1rem] xl:p-[1rem] p-[0.5rem]"
           >
             <img
               src="/images/avatar.svg"
               alt="avatar"
-              class="rounded-full h-[9rem] relative mr-[1rem]"
+              class="rounded-full xl:h-[9rem] h-[6rem] relative mr-[1rem]"
             />
             <div class="text-white">
-              <div class="text-[3.5rem] font-medium">Abdul Ahad Abeer</div>
-              <div class="text-[1.6rem]">Full stack JavaScript Developer</div>
+              <div class="xl:text-[3.5rem] text-[2.5rem] font-medium">
+                Abdul Ahad Abeer
+              </div>
+              <div class="xl:text-[1.6rem] text-[1.4rem]">
+                Full stack JavaScript Developer
+              </div>
             </div>
           </div>
         </div>
-        <div class="text-[1.6rem] font-light mb-[3.5rem] text-grayish">
+        <div class="text-[1.6rem] font-light mb-[5rem] text-grayish">
           I build pixel-perfect, engaging, and <br />fun digital products.
+        </div>
+
+        <!-- Tabs -->
+        <div
+          class="hidden tabs text-grayish text-[1.6rem] font-inter tracking-wider font-medium xl:flex xl:flex-col xl:items-start gap-[1.5rem]"
+        >
+          <button
+            class="about tab-btn flex items-center gap-[2rem] group"
+            data-target="#about"
+          >
+            <div
+              class="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"
+            ></div>
+            <span class="group-hover:text-white">About</span>
+          </button>
+          <button
+            class="experience tab-btn flex items-center gap-[2rem] group"
+            data-target="#experience"
+          >
+            <div
+              class="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"
+            ></div>
+            <span class="group-hover:text-white">Experience</span>
+          </button>
+          <button
+            class="projects tab-btn flex items-center gap-[2rem] group"
+            data-target="#projects"
+          >
+            <div
+              class="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"
+            ></div>
+            <span class="group-hover:text-white">Projects</span>
+          </button>
         </div>
         <!-- <div
           class="all-info text-[1.4rem] font-light flex flex-col gap-[1.7rem]"
@@ -96,16 +163,16 @@
           </div>
         </div> -->
         <div
-          class="social-media flex gap-[1.5rem] absolute bottom-[5rem] text-grayish"
+          class="social-media flex gap-[1.5rem] xl:absolute xl:bottom-[5rem] text-grayish"
         >
           <!-- Github -->
           <a href="https://github.com/abeertech01" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="23"
+              width="20"
+              height="20"
               fill="currentColor"
-              class="bi bi-github"
+              class="bi bi-github xl:w-[2.3rem] xl:h-[2.3rem]"
               viewBox="0 0 16 16"
             >
               <path
@@ -117,10 +184,10 @@
           <a href="https://linkedin.com/in/abeertech01" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="23"
+              width="20"
+              height="20"
               fill="currentColor"
-              class="bi bi-linkedin"
+              class="bi bi-linkedin xl:w-[2.3rem] xl:h-[2.3rem]"
               viewBox="0 0 16 16"
             >
               <path
@@ -132,10 +199,10 @@
           <a href="https://x.com/abeertech01" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="23"
-              height="23"
+              width="20"
+              height="20"
               fill="currentColor"
-              class="bi bi-twitter-x"
+              class="bi bi-twitter-x xl:w-[2.3rem] xl:h-[2.3rem]"
               viewBox="0 0 16 16"
             >
               <path
@@ -145,202 +212,484 @@
           </a>
         </div>
       </div>
-      <div
-        class="details flex flex-col items-end leading-relaxed tracking-wide text-[1.6rem]"
-      >
+      <div class="details xl:grid xl:grid-cols-[43%_auto] xl:gap-[5rem]">
+        <div class="xl:block hidden"></div>
         <div
-          class="about text-grayish w-[54.5rem] px-[2rem] font-roboto font-light mb-[9rem]"
+          class="xl:flex xl:flex-col xl:items-end leading-relaxed tracking-wide text-[1.6rem]"
         >
-          Hello, My name is
-          <span class="text-white font-normal">Abdul Ahad</span> (you can call
-          me '<span class="text-white font-normal">Abeer</span>'), a JavaScript
-          based Full stack Developer from Dhaka, Bangladesh. I started coding in
-          2017 with Java to explore programming in general. After spending some
-          time with Java and Android Development I got interest in web
-          development while exploring the JavaScript World. <br /><br />Since
-          2021, I am working as a professional JavaScript Developer. I started
-          coding with Vue framework but ended up loving the React Realm and MERN
-          stack. I have worked on some freelance projects in 2021.
-          <span class="text-white font-normal"
-            >From 2022, I started working at a startup called MoonHoldings,
-            founded by
-            <a href="https://x.com/leongaban" class="font-normal underline"
-              >Leon Gaban</a
-            ></span
-          >. I handled the Frontend with Vue and NextJS, Backend with ExpressJS
-          and Firebase mostly >. I worked at the startup for a year and it was a
-          great experience. <br /><br />Nowadays I am more focused on TypeScript
-          and NextJS or overall the entire React-ecosystem. I am also focusing a
-          lot on networking and my online presence. By the way, I am trying to
-          be regularly active on Twitter/X. You can follow me here
-          X@abeertech01.
-        </div>
+          <!-- About -->
+          <div
+            id="about"
+            class="about tab text-grayish xl:w-[54.5rem] xl:px-[2rem] font-roboto font-light xl:mb-[9rem] mb-[6rem]"
+          >
+            <h1
+              class="xl:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+            >
+              About
+            </h1>
+            <p class="mb-4">
+              Hello, My name is
+              <span class="text-white font-normal">Abdul Ahad</span> (you can
+              call me '<span class="text-white font-normal">Abeer</span>'), a
+              JavaScript based Full stack Developer from Dhaka, Bangladesh. Back
+              in 2017, I started my coding journey with Java and Android while
+              giving it a trial. I was exploring, wasn&#39;t very serious about
+              it. But, after spending some time with JavaScript I found the real
+              interest in the Web Development World.
+            </p>
+            <p class="mb-4">
+              Since 2021, I am working as a professional JavaScript Developer. I
+              started with Vue but found love in React while I got introduced
+              with MERN stack. So, I learned making Full stack projects. I have
+              worked on some freelance projects in 2021.
+              <span class="text-white font-normal"
+                >From 2022, I started working at a startup called MoonHoldings,
+                founded by
+                <a href="https://x.com/leongaban" class="font-normal underline"
+                  >Leon Gaban</a
+                ></span
+              >. I handled both the Frontend and Backend there. It was a great
+              experience.
+            </p>
+            <p>
+              Now, I am more focused on TypeScript and NextJS or you could say
+              the entire React-ecosystem. Here is a brief list of the
+              technologies that I am comfortable in:
+            </p>
+            <div class="mt-[2rem] flex flex-wrap gap-[0.8rem]">
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/js.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                JavaScript
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/ts.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                TypeScript
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-react.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                React
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-redux.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Redux
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-nextjs.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                NextJS
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-tailwind-css.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Tailwind CSS
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-nodejs.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Node
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-express-js.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                ExpressJS
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-graphql.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                GraphQL
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-prisma-orm.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Prisma ORM
+              </span>
+              <!-- <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-mongodb.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                MongoDB
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-postgresql.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                PostgreSQL
+              </span>
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-firebase.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Firebase
+              </span> -->
+              <span
+                class="flex items-center font-normal text-[1.5rem] px-[1rem] py-[0.4rem] bg-[#41ffcc1e]"
+              >
+                <img
+                  src="/public/images/techs/icons8-git.svg"
+                  alt=""
+                  class="h-[1.8rem] inline-block mr-[0.4rem]"
+                />
+                Git
+              </span>
+            </div>
+          </div>
 
-        <!-- Experience -->
-        <div class="experience text-grayish text-[1.4rem] mb-[9rem]">
+          <!-- Experience -->
           <div
-            class="freelancing w-[54.5rem] p-[2rem] grid grid-cols-[auto_70%] gap-[3rem] text-grayish font-light hover:bg-[#5fffd409] hover:rounded-2xl hover:border-t-[0.01rem] hover:border-[#ffffff2a]"
+            id="experience"
+            class="experience tab text-grayish text-[1.4rem] xl:mb-[9rem] mb-[6rem]"
           >
-            <h1>2022 JUN - 2023</h1>
-            <div class="">
-              <h1 class="font-normal text-white mb-[0.5rem]">
-                Frontend Developer・Freelance Projects
-              </h1>
-              <p class="mb-[0.8rem]">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt consequuntur corrupti fugiat veritatis nesciunt quia,
-                perspiciatis, necessitatibus minima voluptas tempore laborum sed
-                iure debitis, numquam cupiditate modi autem sint laboriosam quae
-                assumenda ea aspernatur libero architecto. Soluta aut facilis
-                reprehenderit?
-              </p>
-              <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >HTML & CSS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >JavaScript</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >Vue</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >NuxtJS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >React</span
-                >
-              </p>
+            <h1
+              class="xl:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+            >
+              Experience
+            </h1>
+            <div
+              class="freelancing xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[1rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0 mb-[3rem]"
+            >
+              <h1 class="xl:font-normal">2022 JUN - 2023</h1>
+              <div class="">
+                <h1 class="font-normal text-white mb-[0.5rem]">
+                  MoonHoldingsXYZ・Full Stack Developer
+                </h1>
+                <p class="mb-[0.8rem]">
+                  I worked at MoonHoldings(moonholdings.xyz, a web3 startup) for
+                  a year, from June, 2022 to May, 2023. During that time, I was
+                  a Full-time Fullstack JavaScript Developer. My main focus was
+                  on building both the client site, what users see and interact
+                  with, as well as the backend, behind-the-scenes
+                  functionalities for serving the data with proper need. I
+                  played a significant role in the team, contributed to the
+                  development of both these aspects.
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Vue & Pinia</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NextJS 12</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >SASS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NodeJS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >ExpressJS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Firebase</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div
+              class="freelancing xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[3rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0"
+            >
+              <h1>2021 - 2022</h1>
+              <div class="">
+                <h1 class="font-normal text-white mb-[0.5rem]">
+                  Frontend Developer・Freelance Projects
+                </h1>
+                <p class="mb-[0.8rem]">
+                  Before Joining MoonHoldings, I used to work as a freelance
+                  developer from 2021 to 2022. During that time mostly I used
+                  Vue and Nuxt.js for development.
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Vue</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NuxJS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Pinia</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >React</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Tailwind CSS</span
+                  >
+                </p>
+              </div>
             </div>
           </div>
-          <div
-            class="freelancing w-[54.5rem] p-[2rem] grid grid-cols-[auto_70%] gap-[2rem] text-grayish font-light hover:bg-[#5fffd409] hover:rounded-2xl hover:border-t-[0.01rem] hover:border-[#ffffff2a]"
-          >
-            <h1>2021 - 2022</h1>
-            <div class="">
-              <h1 class="font-normal text-white mb-[0.5rem]">
-                Frontend Developer・Freelance Projects
-              </h1>
-              <p class="mb-[0.8rem]">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt consequuntur corrupti fugiat veritatis nesciunt quia,
-                perspiciatis, necessitatibus minima voluptas tempore laborum sed
-                iure debitis, numquam cupiditate modi autem sint laboriosam quae
-                assumenda ea aspernatur libero architecto. Soluta aut facilis
-                reprehenderit?
-              </p>
-              <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >HTML & CSS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >JavaScript</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >Vue</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >NuxtJS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >React</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Projects -->
-        <div class="projects text-grayish text-[1.4rem]">
+          <!-- Projects -->
           <div
-            class="freelancing w-[54.5rem] p-[2rem] grid grid-cols-[auto_70%] gap-[3rem] text-grayish font-light hover:bg-[#5fffd409] hover:rounded-2xl hover:border-t-[0.01rem] hover:border-[#ffffff2a]"
+            id="projects"
+            class="projects tab text-grayish text-[1.4rem] mb-[9rem]"
           >
-            <h1>2022 JUN - 2023</h1>
-            <div class="">
-              <h1 class="font-normal text-white mb-[0.5rem]">
-                Frontend Developer・Freelance Projects
+            <h1
+              class="xl:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+            >
+              Projects
+            </h1>
+            <div
+              class="flex flex-col xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[3rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0 mb-[3.5rem]"
+            >
+              <h1 class="xl:order-none order-2">
+                <img
+                  src="/public/images/projects/friendsbook.png"
+                  alt="Friendsbook"
+                  class="xl:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                />
               </h1>
-              <p class="mb-[0.8rem]">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt consequuntur corrupti fugiat veritatis nesciunt quia,
-                perspiciatis, necessitatibus minima voluptas tempore laborum sed
-                iure debitis, numquam cupiditate modi autem sint laboriosam quae
-                assumenda ea aspernatur libero architecto. Soluta aut facilis
-                reprehenderit?
-              </p>
-              <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >HTML & CSS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >JavaScript</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >Vue</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >NuxtJS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >React</span
-                >
-              </p>
+              <div class="xl:order-none order-1 xl:mb-0 mb-[1.5rem]">
+                <h1 class="font-normal text-white mb-[0.5rem]">
+                  Friendsbook - Facebook Clone
+                </h1>
+                <p class="mb-[0.8rem]">
+                  Friendsbook is a facebook clone. I am making this project as
+                  the primary ground where I can put all the complexity I can
+                  come up with, although it is not 100% feasible to put every
+                  logic in a project. I have planned to add some basic features
+                  like News Feed, Creating Post and Realtime Chatting. Later on,
+                  I am going to add other functionalities, maybe some features
+                  not from facebook as well.
+                  <span class="text-white font-normal"
+                    >The best thing of this project is here I am using
+                    GraphQL.</span
+                  >
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >React 18</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NodeJS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Apollo GraphQL</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Prisma</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >PostgreSQL</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[3rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0 mb-[3.5rem]"
+            >
+              <h1 class="xl:order-none order-2">
+                <img
+                  src="/public/images/projects/messenger-clone.png"
+                  alt="Friendsbook"
+                  class="xl:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                />
+              </h1>
+              <div class="xl:order-none order-1 xl:mb-0 mb-[1.5rem]">
+                <h1 class="font-normal text-white mb-[0.5rem]">
+                  Messenger Clone
+                </h1>
+                <p class="mb-[0.8rem]">
+                  I tried to replicate messenger app with NextJS 13. The best
+                  part is you can do realtime and it hasn't been done with
+                  Socket io, rather I have used PusherJS.
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NextJS 13</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Prisma</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >MongoDB</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Next Auth</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Pusher</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[3rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0 mb-[3.5rem]"
+            >
+              <h1 class="xl:order-none order-2">
+                <img
+                  src="/public/images/projects/leetcode-clone.png"
+                  alt="Friendsbook"
+                  class="xl:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                />
+              </h1>
+              <div class="xl:order-none order-1 xl:mb-0 mb-[1.5rem]">
+                <h1 class="font-normal text-white mb-[0.5rem]">
+                  Leetcode Clone
+                </h1>
+                <p class="mb-[0.8rem]">
+                  Leetcode Clone is a different project I have tried. To be
+                  honest, I copied it from freecodecamp youtube channel. But it
+                  was not just a copy paste project. I concentrated on every
+                  detail and learned the functionalities.
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >NextJS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Firebase</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col xl:w-[54.5rem] xl:p-[2rem] xl:grid xl:grid-cols-[auto_70%] xl:gap-[3rem] text-grayish font-light xl:hover:bg-[#5fffd409] xl:hover:rounded-2xl xl:hover:border-t-[0.01rem] xl:hover:border-[#ffffff2a] xl:mb-0 mb-[3.5rem]"
+            >
+              <h1 class="xl:order-none order-2">
+                <img
+                  src="/public/images/projects/vue-dishes.png"
+                  alt="Friendsbook"
+                  class="xl:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                />
+              </h1>
+              <div class="xl:order-none order-1 xl:mb-0 mb-[1.5rem]">
+                <h1 class="font-normal text-white mb-[0.5rem]">Vue Dishes</h1>
+                <p class="mb-[0.8rem]">
+                  Vue Dishes has to be the most fun project I ever did. Because
+                  the early days when I was learning JavaScript from
+                  <span class="font-normal text-white"
+                    >Jonas Schmadtmann&#39;s The complete JavaScript Course on
+                    Udemy</span
+                  >
+                  and simultaneously learning Vue, I developed the project with
+                  his given API. Thus I learned to play with APIs.
+                </p>
+                <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Vue</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >Vuex</span
+                  >
+                  <span
+                    class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
+                    >REST API</span
+                  >
+                </p>
+              </div>
             </div>
           </div>
+
+          <!-- About this website -->
           <div
-            class="freelancing w-[54.5rem] p-[2rem] grid grid-cols-[auto_70%] gap-[2rem] text-grayish font-light hover:bg-[#5fffd409] hover:rounded-2xl hover:border-t-[0.01rem] hover:border-[#ffffff2a]"
+            class="about-site text-grayish text-[1.4rem] mb-[5rem] xl:w-[60%]"
           >
-            <h1>2021 - 2022</h1>
-            <div class="">
-              <h1 class="font-normal text-white mb-[0.5rem]">
-                Frontend Developer・Freelance Projects
-              </h1>
-              <p class="mb-[0.8rem]">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Incidunt consequuntur corrupti fugiat veritatis nesciunt quia,
-                perspiciatis, necessitatibus minima voluptas tempore laborum sed
-                iure debitis, numquam cupiditate modi autem sint laboriosam quae
-                assumenda ea aspernatur libero architecto. Soluta aut facilis
-                reprehenderit?
-              </p>
-              <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >HTML & CSS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >JavaScript</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >Vue</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >NuxtJS</span
-                >
-                <span
-                  class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
-                  >React</span
-                >
-              </p>
-            </div>
+            Loosely developed with Vanilla JavaScript, HTML and Tailwind CSS
+            with the help of Vite.
           </div>
         </div>
       </div>
