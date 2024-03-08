@@ -21,11 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
     tabs.forEach((tab, i) => {
       let tabTop = tab.offsetTop
       let tabBottom = tabTop + tab.clientHeight
+      const heading = tab.querySelector(".heading-name")
 
       if (scrollPosition >= tabTop && scrollPosition <= tabBottom) {
         tabBtns[i].classList.add("active")
+        heading.classList.add("stickiness")
       } else {
         tabBtns[i].classList.remove("active")
+        heading.classList.remove("stickiness")
       }
     })
   })

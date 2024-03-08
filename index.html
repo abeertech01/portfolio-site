@@ -14,12 +14,9 @@
     </style>
   </head>
   <body class="bg-background font-inter">
-    <div
-      id="app"
-      class="lg:max-w-[110rem] lg:mx-auto lg:pt-[10rem] pt-[2rem] px-[2rem] lg:px-0"
-    >
+    <div id="app" class="lg:max-w-[110rem] lg:mx-auto px-[2rem] lg:px-0">
       <div
-        class="intro lg:fixed block lg:w-[47.3rem] lg:h-[calc(100vh-10rem)] h-auto lg:mb-0 mb-[9rem]"
+        class="intro lg:fixed block lg:w-[47.3rem] lg:h-full h-auto lg:mb-0 mb-[9rem] lg:pt-[10rem] pt-[2rem]"
       >
         <div
           class="relative border border-spacing-1 border-white lg:min-h-[13rem] min-h-[8rem] lg:rounded-xl rounded-lg lg:pt-[4rem] pt-[2.1rem] flex items-start justify-center mb-[8rem]"
@@ -225,10 +222,10 @@
           <!-- About -->
           <div
             id="about"
-            class="about tab text-grayish lg:w-[54.5rem] lg:px-[2rem] font-roboto font-light lg:mb-[9rem] mb-[6rem]"
+            class="about tab text-grayish lg:w-[54.5rem] lg:px-[2rem] font-roboto font-light lg:pt-[10rem] pt-[0rem]"
           >
             <h1
-              class="lg:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+              class="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background"
             >
               About
             </h1>
@@ -413,10 +410,10 @@
           <!-- Experience -->
           <div
             id="experience"
-            class="experience tab text-grayish text-[1.4rem] lg:mb-[9rem] mb-[6rem]"
+            class="experience tab text-grayish text-[1.4rem] lg:pt-[8rem] pt-[6rem]"
           >
             <h1
-              class="lg:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+              class="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background"
             >
               Experience
             </h1>
@@ -510,10 +507,10 @@
           <!-- Projects -->
           <div
             id="projects"
-            class="projects tab text-grayish text-[1.4rem] mb-[9rem]"
+            class="projects tab text-grayish text-[1.4rem] pt-[8rem]"
           >
             <h1
-              class="lg:hidden block text-[1.6rem] font-medium text-white mb-[2rem] uppercase tracking-wider"
+              class="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background"
             >
               Projects
             </h1>
@@ -524,24 +521,28 @@
                 <img
                   src="/images/projects/friendsbook.png"
                   alt="Friendsbook"
-                  class="lg:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                  class="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-300 lg:transition origin-top-left"
                 />
               </h1>
               <div class="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
                 <h1 class="font-normal text-white mb-[0.5rem]">
                   Friendsbook - Facebook Clone
                 </h1>
+                <ul class="list-disc list-inside">
+                  <li>
+                    Friendsbook is my Champion project where I incorporate some
+                    of the coolest social media features.
+                  </li>
+                  <li>
+                    Friendsbook mostly resembles facebook. But I planned to add
+                    some different features too.
+                  </li>
+                  <li>
+                    The MVP contains Profile-Timeline, Creating posts, News Feed
+                    and Realtime Chatting.
+                  </li>
+                </ul>
                 <p class="mb-[0.8rem]">
-                  Friendsbook is a facebook clone. I am making this project as
-                  the primary ground where I can put all the complexity I can
-                  come up with, although it is not 100% feasible to put every
-                  logic in a project. I have planned to add some basic features
-                  like News Feed, Creating Post and Realtime Chatting. Later on,
-                  I am going to add other functionalities, maybe some features
-                  not from facebook as well.
-                  <span class="text-white font-normal"
-                    >I have taken an uncommon approach which is integrating
-                    GraphQL for API.</span
                   >
                   <a
                     href="https://github.com/abeertech01/friendsbook-client"
@@ -589,7 +590,7 @@
                 <img
                   src="/images/projects/messenger-clone.png"
                   alt="Friendsbook"
-                  class="lg:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                  class="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-500 lg:transition origin-top-left"
                 />
               </h1>
               <div class="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
@@ -617,11 +618,15 @@
                     </svg>
                   </a>
                 </h1>
-                <p class="mb-[0.8rem]">
-                  I tried to replicate messenger app with NextJS 13. The best
-                  part is you can do realtime and it hasn't been done with
-                  Socket io, rather I have used PusherJS.
-                </p>
+                <ul class="list-disc list-inside mb-[0.8rem]">
+                  <li>A replicate messenger app with NextJS 13.</li>
+                  <li>
+                    Authentication and realtime chatting with other users.
+                  </li>
+                  <li>
+                    PusherJS has been incorporated for realtime communication.
+                  </li>
+                </ul>
                 <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
                   <span
                     class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
@@ -657,7 +662,7 @@
                 <img
                   src="/images/projects/leetcode-clone.png"
                   alt="Friendsbook"
-                  class="lg:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                  class="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-500 lg:transition origin-top-left"
                 />
               </h1>
               <div class="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
@@ -685,12 +690,16 @@
                     </svg>
                   </a>
                 </h1>
-                <p class="mb-[0.8rem]">
-                  Leetcode Clone is a different project I have tried. To be
-                  honest, I copied it from freecodecamp youtube channel. But it
-                  was not just a copy paste project. I concentrated on every
-                  detail and learned the functionalities.
-                </p>
+                <ul class="list-disc list-inside mb-[0.8rem]">
+                  <li>
+                    I watched the leetcode clone video on freecodecamp's youtube
+                    channel, but deeply focused on functionalities.
+                  </li>
+                  <li>
+                    Authentication and code editor incorporated for solving
+                    coding problems for every user.
+                  </li>
+                </ul>
                 <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
                   <span
                     class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
@@ -714,7 +723,7 @@
                 <img
                   src="/images/projects/vue-dishes.png"
                   alt="Friendsbook"
-                  class="lg:w-auto w-[18.5rem] border-2 border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg"
+                  class="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-500 lg:transition origin-top-left"
                 />
               </h1>
               <div class="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
@@ -742,16 +751,19 @@
                     </svg>
                   </a>
                 </h1>
-                <p class="mb-[0.8rem]">
-                  Vue Dishes has to be the most fun project I ever did. Because
-                  the early days when I was learning JavaScript from
+                <ul class="list-disc list-inside mb-[0.8rem]">
+                  <li>
+                    Searching, bookmarking dishes and measuring ingredients
+                    according to the number of guests.
+                  </li>
                   <span class="font-normal text-white"
-                    >Jonas Schmadtmann&#39;s The complete JavaScript Course on
-                    Udemy</span
+                    ><li>
+                      This API is created by Jonas Schmadtmann, he built it for
+                      his 'The complete JavaScript Course' on Udemy
+                    </li></span
                   >
-                  and simultaneously learning Vue, I developed the project with
-                  his given API. Thus I learned to play with APIs.
-                </p>
+                  <li>I learned to play with APIs with this project.</li>
+                </ul>
                 <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
                   <span
                     class="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full"
@@ -772,7 +784,7 @@
 
           <!-- About this website -->
           <div
-            class="about-site text-grayish text-[1.4rem] mb-[5rem] lg:w-[54.5rem]"
+            class="about-site text-grayish text-[1.4rem] mb-[5rem] lg:w-[54.5rem] lg:pt-[9rem] pt-[6rem]"
           >
             Won't lie 😅, I took the inspiration from Brittany Chiang's personal
             website. Simply developed with Vanilla JavaScript, HTML and Tailwind
