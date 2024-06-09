@@ -1,8 +1,22 @@
 import "./style.css"
 
 document.addEventListener("DOMContentLoaded", function () {
+  const cursor = document.querySelector(".shadow-box")
   let tabs = document.querySelectorAll(".tab")
   let tabBtns = document.querySelectorAll(".tab-btn")
+
+  document.addEventListener("mousemove", function (e) {
+    let x = e.clientX
+    let y = e.clientY
+
+    cursor.style.top = y + "px"
+    cursor.style.left = x + "px"
+    cursor.style.display = "block"
+  })
+
+  document.addEventListener("mouseout", function () {
+    cursor.style.display = "none"
+  })
 
   tabBtns.forEach((button) => {
     button.addEventListener("click", function () {

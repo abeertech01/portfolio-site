@@ -13,7 +13,7 @@
       }
     </style>
   </head>
-  <body class="bg-background font-inter">
+  <body class="relative bg-background font-inter cursor-torch">
     <div id="app" class="lg:max-w-[110rem] lg:mx-auto px-[2rem] lg:px-0">
       <div
         class="intro lg:fixed block lg:w-[47.3rem] lg:h-full h-auto lg:mb-0 mb-[9rem] lg:pt-[10rem] pt-[2rem]"
@@ -121,47 +121,7 @@
             <span class="group-hover:text-white">Projects</span>
           </button>
         </div>
-        <!-- <div
-          class="all-info text-[1.4rem] font-light flex flex-col gap-[1.7rem]"
-        >
-          <div class="flex items-start">
-            <i class="material-icons mr-[1rem] relative bottom-1 text-[2.3rem]"
-              >work</i
-            >
-            Currently unemployed
-          </div>
-          <div class="flex items-start">
-            <i class="material-icons mr-[1rem] relative bottom-1 text-[2.3rem]"
-              >build</i
-            >
-            <div>
-              Developing&nbsp;
-              <a
-                href="https://github.com/abeertech01/friendsbook-client"
-                class="underline text-blue"
-                >Friendsbook</a
-              >&nbsp;(<a
-                href="https://github.com/abeertech01/friendsbook-server"
-                class="underline text-blue"
-                >Server</a
-              >) to put all the possible complexity I know.
-            </div>
-          </div>
-          <div class="flex items-start">
-            <i class="material-icons mr-[1rem] relative bottom-1 text-[2.3rem]"
-              >email</i
-            >
-            Reach me here: abeer.technology@gmail.com
-          </div>
-          <div class="flex items-start">
-            <i class="material-icons mr-[1rem] relative bottom-1 text-[2.3rem]"
-              >settings</i
-            >
-            Technologies I am currently looking into are: React Native, Python
-            and Rust
-          </div>
-        </div> -->
-
+       
         <!-- Social network links -->
         <div
           class="social-media flex gap-[1.5rem] lg:absolute lg:bottom-[5rem] text-grayish"
@@ -425,17 +385,19 @@
                 <h1 class="font-normal text-white mb-[0.5rem]">
                   MoonHoldingsXYZ・Full Stack Developer
                 </h1>
-                <p class="mb-[0.8rem]">
+                <p>
                   I worked at MoonHoldings (moonholdings.xyz, a web3 startup)
                   <span class="text-white font-normal"
                     >for a year, from June, 2022 to May, 2023.</span
                   >
-                  During that time, I was a Full-time Fullstack JavaScript
-                  Developer. My main focus was on building both the client site,
-                  what users see and interact with, as well as the backend,
-                  behind-the-scenes functionalities for serving the data with
-                  proper need. I played a significant role in the team,
-                  contributed to the development of both these aspects.
+                  <ul class="list-disc list-inside mb-[0.8rem]">
+                    <li>
+                      Developed at the front end and functionalities for better data visualization.
+                    </li>
+                    <li>
+                      Migrated the Client-side to Next.js for SSR and better SEO which improves the crawlability, page load times and indexing of web pages by up to 50% compared to CSR.
+                    </li>
+                  </ul>
                 </p>
                 <p class="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
                   <span
@@ -535,19 +497,13 @@
                   </p>
                 </h1>
                 <ul class="list-disc list-inside">
-                  <li>
-                    Redbook is my Champion project where I incorporate some of
-                    the coolest social media features.
-                  </li>
+                  <li>Redbook is my Champion project where I incorporate some of
+                    the coolest social media features.</li>
                   <li>Redbook is kinda mixture of facebook and reddit.</li>
-                  <li>
-                    Friendsbook mostly resembles facebook and reddit. But I
-                    planned to add some different features too.
-                  </li>
-                  <li>
-                    The MVP contains Profile-Timeline, reddit-like posts and
-                    comments and Realtime Chatting.
-                  </li>
+                  <li>Redbook mostly resembles facebook and reddit. But I
+                    planned to add some different features too.</li>
+                  <li>The MVP contains Profile-Timeline, reddit-like posts and
+                    comments and Realtime Chatting.</li>
                 </ul>
                 <p class="mb-[0.8rem]">
                   >
@@ -807,6 +763,7 @@
         </div>
       </div>
     </div>
+    <div class="shadow-box"></div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

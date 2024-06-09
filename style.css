@@ -20,3 +20,15 @@
   position: sticky !important;
   top: 0 !important;
 }
+
+.shadow-box {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: transparent;
+  box-shadow: 0px 0px 400px 200px rgba(170, 255, 183, 0.07);
+  -webkit-box-shadow: 0px 0px 400px 200px rgba(170, 255, 183, 0.07);
+  -moz-box-shadow: 0px 0px 400px 200px rgba(170, 255, 183, 0.07);
+}
