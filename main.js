@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   })
 
-  window.addEventListener("scroll", function () {
+  function checkScrollPosition() {
     let scrollPosition = window.scrollY
 
     tabs.forEach((tab, i) => {
@@ -45,5 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
         heading.classList.remove("stickiness")
       }
     })
-  })
+  }
+
+  checkScrollPosition()
+  window.addEventListener("scroll", checkScrollPosition)
 })
