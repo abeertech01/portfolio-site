@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       cursor: {
-        torch: "url('/cursor-smaller.png'), pointer",
+        torch: "url('/src/assets/cursor-smaller.png'), pointer",
       },
       fontFamily: {
         inter: ["Inter"],
