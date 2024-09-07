@@ -2,10 +2,10 @@ import React from "react"
 import avatar from "../assets/images/avatar.svg"
 import blogPosts from "../assets/blogPosts"
 
-function IntroSide() {
+function IntroSide({ tabClick }) {
   return (
-    <div className="lg:fixed lg:flex lg:flex-col lg:justify-between block lg:w-[47.3rem] lg:h-full h-auto lg:pt-[6rem] pt-[2rem] lg:mb-0 mb-[9rem]">
-      <div className="flex flex-col gap-[3.5vh]">
+    <div className="lg:fixed lg:flex lg:flex-col lg:justify-between block lg:w-[47.3rem] lg:h-full h-auto lg:pt-[7rem] pt-[2rem] lg:mb-0 mb-[9rem]">
+      <div className="flex flex-col gap-[3rem]">
         {/* Name and Profession */}
         <div className="flex items-center">
           <img
@@ -24,31 +24,31 @@ function IntroSide() {
         </div>
 
         {/* Little intro of what I do  */}
-        <div className="text-[1.5rem] font-light text-grayish">
-          I build pixel-perfect, engaging, and <br />
-          fun digital products.
+        <div className="w-5/6 text-[1.5rem] font-light text-grayish">
+          I build pixel-perfect, engaging, and fun digital products that lets
+          you live and breath better.
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="hidden tabs text-grayish text-[1.5rem] font-inter tracking-wider font-medium lg:flex lg:flex-col lg:items-start gap-[0.7rem]">
+      <div className="hidden tabs text-grayish text-[1.6rem] font-inter tracking-wider font-medium lg:flex lg:flex-col lg:items-start gap-[0.7rem]">
         <button
+          onClick={() => tabClick("about")}
           className="about tab-btn flex items-center gap-[2rem] group"
-          data-target="#about"
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">About</span>
         </button>
         <button
+          onClick={() => tabClick("experience")}
           className="experience tab-btn flex items-center gap-[2rem] group"
-          data-target="#experience"
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">Experience</span>
         </button>
         <button
+          onClick={() => tabClick("projects")}
           className="projects tab-btn flex items-center gap-[2rem] group"
-          data-target="#projects"
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">Projects</span>
@@ -56,13 +56,13 @@ function IntroSide() {
       </div>
 
       <div className="text-grayish text-[1.4rem]">
-        <h1 className="text-2xl font-medium mb-6">
-          Featured Blog Posts -{" "}
+        <h1 className="text-[1.4rem] font-medium mb-6">
           <a
             href="https://abeer.hashnode.dev"
-            className="font-normal text-xl underline"
+            target="_blank"
+            className="font-normal underline"
           >
-            Visit My Blog
+            Check out My Insightful & Well-tuned Blog
           </a>
         </h1>
 
@@ -83,7 +83,9 @@ function IntroSide() {
                     <h3 className="font-medium line-clamp-1 text-white text-[1.5rem]">
                       {post.title}
                     </h3>
-                    <p className="line-clamp-2 text-[1.3rem]">{post.preview}</p>
+                    <div className="line-clamp-2 text-[1.3rem]">
+                      {post.preview}
+                    </div>
                   </div>
                 </div>
               </a>

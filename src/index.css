@@ -12,6 +12,21 @@ body {
   font-size: 10px;
 }
 
+.active > div {
+  width: 7rem;
+  height: 0.2rem;
+  color: #e6f0f4;
+}
+
+.active > span {
+  color: #e6f0f4;
+}
+
+.stickiness {
+  position: sticky !important;
+  top: 0 !important;
+}
+
 .shadow-box {
   position: fixed;
   width: 1px;
