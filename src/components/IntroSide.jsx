@@ -11,20 +11,20 @@ function IntroSide({ tabClick, activeTab }) {
           <img
             src={avatar}
             alt="avatar"
-            className="rounded-full lg:h-[9rem] h-[5rem] relative mr-[1rem]"
+            className="rounded-full lg:h-[9rem] h-[6.5rem] relative mr-[1rem]"
           />
           <div className="text-white">
-            <h1 className="lg:text-[3rem] text-[2rem] font-bold">
+            <h1 className="lg:text-[3rem] text-[2.5rem] font-bold">
               Abdul Ahad Abeer
             </h1>
-            <h2 className="lg:text-[2rem] text-[1.3rem] capitalize">
+            <h2 className="lg:text-[2rem] text-[1.5rem] capitalize">
               full stack developer
             </h2>
           </div>
         </div>
 
         {/* Little intro of what I do  */}
-        <div className="w-5/6 text-[1.5rem] font-light text-grayish">
+        <div className="lg:w-5/6 text-[1.5rem] font-light text-grayish">
           I build pixel-perfect, engaging, and fun digital products that lets
           you live and breath better.
         </div>

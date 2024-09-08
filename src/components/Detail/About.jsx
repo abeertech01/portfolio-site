@@ -33,6 +33,7 @@ const About = forwardRef((_, ref) => {
         with a US-based Web3 startup, MoonHoldings, Founded by Mr.{" "}
         <a
           href="https://x.com/leongaban"
+          target="_blank"
           className="font-normal underline text-white"
         >
           Leon Gaban
