@@ -2,10 +2,10 @@ import React from "react"
 import avatar from "../assets/images/avatar.svg"
 import blogPosts from "../assets/blogPosts"
 
-function IntroSide({ tabClick }) {
+function IntroSide({ tabClick, activeTab }) {
   return (
     <div className="lg:fixed lg:flex lg:flex-col lg:justify-between block lg:w-[47.3rem] lg:h-full h-auto lg:pt-[7rem] pt-[2rem] lg:mb-0 mb-[9rem]">
-      <div className="flex flex-col gap-[3rem]">
+      <div className="flex flex-col gap-[3rem] mb-[4rem] lg:mb-0">
         {/* Name and Profession */}
         <div className="flex items-center">
           <img
@@ -34,28 +34,34 @@ function IntroSide({ tabClick }) {
       <div className="hidden tabs text-grayish text-[1.6rem] font-inter tracking-wider font-medium lg:flex lg:flex-col lg:items-start gap-[0.7rem]">
         <button
           onClick={() => tabClick("about")}
-          className="about tab-btn flex items-center gap-[2rem] group"
+          className={`about tab-btn flex items-center gap-[2rem] group ${
+            activeTab === "about" ? "active" : ""
+          }`}
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">About</span>
         </button>
         <button
           onClick={() => tabClick("experience")}
-          className="experience tab-btn flex items-center gap-[2rem] group"
+          className={`experience tab-btn flex items-center gap-[2rem] group ${
+            activeTab === "experience" ? "active" : ""
+          }`}
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">Experience</span>
         </button>
         <button
           onClick={() => tabClick("projects")}
-          className="projects tab-btn flex items-center gap-[2rem] group"
+          className={`projects tab-btn flex items-center gap-[2rem] group ${
+            activeTab === "projects" ? "active" : ""
+          }`}
         >
           <div className="h-[0.1rem] w-[3rem] inline-block bg-grayish group-hover:w-[7rem] group-hover:h-[0.2rem] group-hover:text-white duration-200"></div>
           <span className="group-hover:text-white">Projects</span>
         </button>
       </div>
 
-      <div className="text-grayish text-[1.4rem]">
+      <div className="text-grayish text-[1.4rem] mb-[5rem] lg:mb-0">
         <h1 className="text-[1.4rem] font-medium mb-6">
           <a
             href="https://abeer.hashnode.dev"
@@ -66,7 +72,7 @@ function IntroSide({ tabClick }) {
           </a>
         </h1>
 
-        <ul className="w-5/6 relative -left-4">
+        <ul className="lg:w-5/6 relative -left-2 lg:-left-4">
           {blogPosts.map((post, index) => (
             <li
               key={index}

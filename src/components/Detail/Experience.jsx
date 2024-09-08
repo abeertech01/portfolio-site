@@ -7,7 +7,7 @@ const Experience = forwardRef((_, ref) => {
       id="experience"
       className="experience tab text-grayish text-[1.4rem] lg:pt-[8rem] pt-[6rem]"
     >
-      <h1 className="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
+      <h1 className="heading-name sticky top-0 lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
         Experience
       </h1>
       <div className="freelancing lg:w-[54.5rem] lg:p-[2rem] lg:grid lg:grid-cols-[auto_70%] lg:gap-[1rem] text-grayish font-light lg:hover:bg-[#5fffd409] lg:hover:rounded-2xl lg:hover:border-t-[0.01rem] lg:hover:border-[#ffffff2a] lg:mb-0 mb-[3rem]">

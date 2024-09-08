@@ -18,7 +18,7 @@ const About = forwardRef((_, ref) => {
       id="about"
       className="about tab text-grayish lg:w-[54.5rem] lg:px-[2rem] font-roboto font-light lg:pt-[8rem] pt-[0rem]"
     >
-      <h1 className="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
+      <h1 className="heading-name sticky top-0 lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
         About
       </h1>
       <p className="mb-4">

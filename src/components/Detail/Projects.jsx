@@ -12,7 +12,7 @@ const Projects = forwardRef((_, ref) => {
       id="projects"
       className="projects tab text-grayish text-[1.4rem] pt-[8rem]"
     >
-      <h1 className="heading-name lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
+      <h1 className="heading-name sticky top-0 lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
         Projects
       </h1>
 

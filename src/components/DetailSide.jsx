@@ -1,30 +1,9 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import About from "./Detail/About"
 import Experience from "./Detail/Experience"
 import Projects from "./Detail/Projects"
 
-function DetailSide({ presentTab }) {
-  const aboutRef = useRef(null)
-  const experienceRef = useRef(null)
-  const projectsRef = useRef(null)
-
-  // Function to scroll to a specific section
-  const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({
-      behavior: "smooth",
-    })
-  }
-
-  useEffect(() => {
-    if (presentTab === "about") {
-      scrollToSection(aboutRef)
-    } else if (presentTab === "experience") {
-      scrollToSection(experienceRef)
-    } else if (presentTab === "projects") {
-      scrollToSection(projectsRef)
-    }
-  }, [presentTab])
-
+function DetailSide({ aboutRef, experienceRef, projectsRef }) {
   return (
     <div className="lg:grid lg:grid-cols-[43%_auto] lg:gap-[5rem]">
       <div className="lg:block hidden"></div>
