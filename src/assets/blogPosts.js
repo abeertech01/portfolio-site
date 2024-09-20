@@ -1,27 +1,26 @@
 export default [
   {
-    title: "What is Virtual DOM in React?",
+    title: "Object Oriented Programming (OOP) in JavaScript - Top to Bottom",
     preview:
-      "The Virtual DOM is a fundamental concept in React that significantly enhances the library's performance and efficiency. Understanding the Virtual DOM is crucial for both developing React applications and performing well in React-related interviews. Here's an in-depth explanation of what the Virtual DOM is, how it works, and why it's important",
-    link: "https://abeer.hashnode.dev/what-is-virtual-dom-in-react",
+      "If I give you a nice and clearcut explanation of what OOP is, it would be like this: Object-Oriented Programming (OOP) is a programming paradigm where the focus is on creating reusable objects that model real-world entities or concepts. In OOP, the primary building blocks are objects—self-contained units that encapsulate data (known as properties or attributes) and functions (called methods) that operate on that data.",
+    link: "https://abeer.hashnode.dev/object-oriented-programming-oop-in-javascript-top-to-bottom",
     image:
-      "https://cdn.hashnode.com/res/hashnode/image/upload/v1725620692525/80f0e558-5a9e-4505-884a-6568f5cd3f7b.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1726865480573/27b27b5c-920c-4b0b-90df-ef5bbafc8b3d.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
   {
-    title: "Lazy Loading, Suspense and Error Boundary in React Explained",
+    title: "What are Server Actions in Next.js? Next.js 14 Edition",
     preview:
-      "Lazy loading and suspense both could have been separate concepts and thus it seems the explanations should be separate. But in real world apps most of the time you will see they works hand-in-hand. So, this is why I am covering both under one heading.",
-    link: "https://abeer.hashnode.dev/lazy-loading-suspense-and-error-boundary-in-react-explained",
+      "To let you get the concept crystal clear, server actions are basically backend stuffs that you can do in your Next.js project. Server actions play a key role in web applications, handling tasks like data processing and user authentication. In Next.js, API routes offer an easy way to create custom server endpoints, making it simple to manage server-side actions. Let's explore how to implement server actions using API routes in Next.js with code examples.",
+    link: "https://abeer.hashnode.dev/what-are-server-actions-in-nextjs-nextjs-14-edition",
     image:
-      "https://cdn.hashnode.com/res/hashnode/image/upload/v1725549337029/62948f7d-aae5-4625-a629-52c1d238681b.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1726661860863/f62d18aa-27c7-4317-8d4d-541ab7fb497c.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
   {
-    title:
-      "CSR, SSR, SSG and ISR in Next.js explained with examples (App Router and Pages Router)",
+    title: "All you need to know about Middleware in Nextjs",
     preview:
-      "Well, I believe having a clear understanding of how CSR, SSR, SSG and ISR work in Next.js is the most of your Next.js knowledge. I asked ChatGPT and read some other write ups where developers are saying that they choose NextJS because of its features like server side rendering, client side rendering, flexibility of different ways to enhance the performance of web apps and its SEO-friendliness.",
-    link: "https://abeer.hashnode.dev/csr-ssr-ssg-and-isr-in-nextjs-explained-with-examples-app-router-and-pages-router",
+      "Let's get straight to the point. What is middleware in NextJS? In Next.js, middleware is a way to run certain code before a request is completed, just how the middleware concept of express.js works. It allows you to modify the request, response, or even control the response flow based on certain conditions.",
+    link: "https://abeer.hashnode.dev/all-you-need-to-know-about-middleware-in-nextjs",
     image:
-      "https://cdn.hashnode.com/res/hashnode/image/upload/v1718449489488/d451b8df-00c9-4694-b27d-14520b3ed65c.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1725988691134/f6cddb6f-d99d-4e6a-9744-f15172ab5586.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
 ]
