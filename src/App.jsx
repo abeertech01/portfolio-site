@@ -1,6 +1,9 @@
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, createContext } from "react"
 import IntroSide from "./components/IntroSide"
 import DetailSide from "./components/DetailSide"
+import RedbookPreview from "./components/RedbookPreview"
+
+export const VideoContext = createContext(null)
 
 function App() {
   const [presentTab, setPresentTab] = useState("")
@@ -10,6 +13,7 @@ function App() {
   const aboutRef = useRef(null)
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   // Function to scroll to a specific section
   const scrollToSection = (sectionRef) => {
@@ -84,20 +88,23 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen min-w-screen relative font-inter cursor-torch">
-      <div className="lg:max-w-[110rem] lg:mx-auto px-[2rem] lg:px-0">
-        <IntroSide tabClick={tabClick} activeTab={activeTab} />
-        <DetailSide
-          presentTab={presentTab}
-          aboutRef={aboutRef}
-          experienceRef={experienceRef}
-          projectsRef={projectsRef}
-        />
+    <VideoContext.Provider value={{ isVideoOpen, setIsVideoOpen }}>
+      <div className="min-h-screen min-w-screen relative font-inter cursor-torch">
+        {isVideoOpen && <RedbookPreview />}
+        <div className="lg:max-w-[110rem] lg:mx-auto px-[2rem] lg:px-0">
+          <IntroSide tabClick={tabClick} activeTab={activeTab} />
+          <DetailSide
+            presentTab={presentTab}
+            aboutRef={aboutRef}
+            experienceRef={experienceRef}
+            projectsRef={projectsRef}
+          />
+        </div>
+        {/* Custom Cursor */}
+        <div ref={cursorRef} className="shadow-box"></div>{" "}
+        {/* Use className instead of class */}
       </div>
-      {/* Custom Cursor */}
-      <div ref={cursorRef} className="shadow-box"></div>{" "}
-      {/* Use className instead of class */}
-    </div>
+    </VideoContext.Provider>
   )
 }
 

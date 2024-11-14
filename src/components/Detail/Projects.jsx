@@ -1,11 +1,13 @@
-import React, { forwardRef } from "react"
-import redbookImage from "../../assets/images/projects/friendsbook.png"
+import React, { forwardRef, useContext } from "react"
+import redbookImage from "../../assets/images/projects/redbook.png"
 import meltingPotImage from "../../assets/images/projects/melting-pot.png"
 import messengerImage from "../../assets/images/projects/messenger-clone.png"
 import leetcodeImage from "../../assets/images/projects/leetcode-clone.png"
 import vueDishesImage from "../../assets/images/projects/vue-dishes.png"
+import { VideoContext } from "../../App"
 
 const Projects = forwardRef((_, ref) => {
+  const { isVideoOpen, setIsVideoOpen } = useContext(VideoContext)
   return (
     <div
       ref={ref}
@@ -29,10 +31,16 @@ const Projects = forwardRef((_, ref) => {
           <h1 className="font-normal text-[1.6rem] text-white mb-[0.5rem]">
             Redbook - Social Media App
             <p className="font-normal text-[1.2rem] text-white">
-              Currently it's in development. The code is available to review.
+              My Champion Project - trying to put all the complexity.
             </p>
+            <button
+              onClick={() => setIsVideoOpen(true)}
+              className="text-[1.4rem] text-sky-400 hover:underline"
+            >
+              Watch the preview
+            </button>
           </h1>
-          <ul className="list-disc list-inside">
+          <ul className="list-disc list-inside mb-1">
             <li>
               Redbook is my Champion project where I incorporate some of the
               coolest social media features.
@@ -47,20 +55,14 @@ const Projects = forwardRef((_, ref) => {
               and Realtime Chatting.
             </li>
           </ul>
-          <p className="mb-[0.8rem]">
-            {">"}
+          <p className="mb-[0.8rem] text-white">
+            Check out the{" "}
             <a
-              href="https://github.com/abeertech01/redbook-client"
-              className="underline font-normal text-white"
+              target="_blank"
+              href="https://github.com/abeertech01/redbook.git"
+              className="text-sky-400 hover:underline font-semibold"
             >
-              Frontend
-            </a>
-            ,
-            <a
-              href="https://github.com/abeertech01/redbook-server"
-              className="underline font-normal text-white"
-            >
-              Backend
+              Redbook Github Repository
             </a>
           </p>
           <p className="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
