@@ -1,8 +1,9 @@
-import React, { forwardRef, useContext } from "react"
+/* eslint-disable no-unused-vars */
+import { forwardRef, useContext } from "react"
 import redbookImage from "../../assets/images/projects/redbook.png"
 import meltingPotImage from "../../assets/images/projects/melting-pot.png"
 import messengerImage from "../../assets/images/projects/messenger-clone.png"
-import leetcodeImage from "../../assets/images/projects/leetcode-clone.png"
+import aiResumeBuilder from "../../assets/images/projects/ai-resume-builder.jpg"
 import vueDishesImage from "../../assets/images/projects/vue-dishes.png"
 import { VideoContext } from "../../App"
 
@@ -17,6 +18,76 @@ const Projects = forwardRef((_, ref) => {
       <h1 className="heading-name sticky top-0 lg:hidden block text-[1.6rem] font-medium text-white uppercase tracking-wider py-8 bg-background">
         Projects
       </h1>
+
+      {/* AI Resume Builder  */}
+      <div className="flex flex-col lg:w-[54.5rem] lg:p-[2rem] lg:grid lg:grid-cols-[auto_70%] lg:gap-[3rem] text-grayish font-light lg:hover:bg-[#5fffd409] lg:hover:rounded-2xl lg:hover:border-t-[0.01rem] lg:hover:border-[#ffffff2a] lg:mb-0 mb-[3.5rem]">
+        <h1 className="lg:order-none order-2">
+          <img
+            src={aiResumeBuilder}
+            alt="LeetCode"
+            className="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-500 lg:transition origin-top-left"
+          />
+        </h1>
+        <div className="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
+          <h1 className="font-normal text-[1.6rem] text-white mb-[0.5rem]">
+            <a
+              href="https://ai-resume-builder-eight-kappa.vercel.app"
+              target="_blank"
+              className="flex items-center gap-[0.5rem]"
+            >
+              AI Resume Builder
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-link-45deg"
+                viewBox="0 0 16 16"
+              >
+                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+              </svg>
+            </a>
+          </h1>
+          <ul className="list-disc list-inside mb-[0.8rem]">
+            <li>
+              AI powered Resume Builder, users able to create resumes from
+              merely explained text.
+            </li>
+            <li>
+              Stripe payment has been incorporated for multiple pro plans.
+            </li>
+            <li>
+              Although the main project built by &apos;Coding In Flow&apos;, was
+              little bit buggy and not compatible with the latest NextJS
+              version. So, first of all I followed through, left zero bugs and
+              incorporated my own functionalities.
+            </li>
+            <li>
+              &apos;Coding In Flow&apos; used ChatGPT API, But I used Gemini-2.5
+              API. This Gen-AI API summarizes the Resume and creates work
+              experience from user&apos;s explanation.
+            </li>
+          </ul>
+          <p className="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
+            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
+              NextJS 15
+            </span>
+            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
+              Shadcn UI
+            </span>
+            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
+              Prisma
+            </span>
+            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
+              Neon Postgres
+            </span>
+            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
+              Vercel Blob
+            </span>
+          </p>
+        </div>
+      </div>
 
       {/* Redbook */}
       <div className="flex flex-col lg:w-[54.5rem] lg:p-[2rem] lg:grid lg:grid-cols-[auto_70%] lg:gap-[3rem] text-grayish font-light lg:hover:bg-[#5fffd409] lg:hover:rounded-2xl lg:hover:border-t-[0.01rem] lg:hover:border-[#ffffff2a] lg:mb-0 mb-[3.5rem]">
@@ -201,59 +272,6 @@ const Projects = forwardRef((_, ref) => {
         </div>
       </div>
 
-      {/* Leetcode  */}
-      <div className="flex flex-col lg:w-[54.5rem] lg:p-[2rem] lg:grid lg:grid-cols-[auto_70%] lg:gap-[3rem] text-grayish font-light lg:hover:bg-[#5fffd409] lg:hover:rounded-2xl lg:hover:border-t-[0.01rem] lg:hover:border-[#ffffff2a] lg:mb-0 mb-[3.5rem]">
-        <h1 className="lg:order-none order-2">
-          <img
-            src={leetcodeImage}
-            alt="LeetCode"
-            className="lg:w-auto w-[22.5rem] border-2 lg:hover:border border-[#fdfdfd73] group-hover:border-[#41ffcc5e] rounded-lg lg:hover:scale-[250%] lg:hover:duration-500 lg:transition origin-top-left"
-          />
-        </h1>
-        <div className="lg:order-none order-1 lg:mb-0 mb-[1.5rem]">
-          <h1 className="font-normal text-[1.6rem] text-white mb-[0.5rem]">
-            <a
-              href="https://leetcode-clone-ebon.vercel.app"
-              target="_blank"
-              className="flex items-center gap-[0.5rem]"
-            >
-              Leetcode Clone
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-link-45deg"
-                viewBox="0 0 16 16"
-              >
-                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
-                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
-              </svg>
-            </a>
-          </h1>
-          <ul className="list-disc list-inside mb-[0.8rem]">
-            <li>
-              I watched the leetcode clone video on freecodecamp's youtube
-              channel, but deeply focused on functionalities.
-            </li>
-            <li>
-              Authentication and code editor incorporated for solving coding
-              problems for every user.
-            </li>
-          </ul>
-          <p className="flex flex-wrap gap-x-[0.8rem] gap-y-[0.6rem]">
-            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
-              NextJS
-            </span>
-            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
-              Tailwind CSS
-            </span>
-            <span className="text-[1.2rem] inline-block px-[1rem] py-[0.3rem] font-normal bg-[#41ffcc1e] text-[#41ffccc0] rounded-full">
-              Firebase
-            </span>
-          </p>
-        </div>
-      </div>
       <div className="flex flex-col lg:w-[54.5rem] lg:p-[2rem] lg:grid lg:grid-cols-[auto_70%] lg:gap-[3rem] text-grayish font-light lg:hover:bg-[#5fffd409] lg:hover:rounded-2xl lg:hover:border-t-[0.01rem] lg:hover:border-[#ffffff2a] lg:mb-0 mb-[3.5rem]">
         <h1 className="lg:order-none order-2">
           <img
@@ -291,7 +309,7 @@ const Projects = forwardRef((_, ref) => {
             <span className="font-normal text-white">
               <li>
                 This API is created by Jonas Schmadtmann, he built it for his
-                'The complete JavaScript Course' on Udemy
+                &apos;The complete JavaScript Course&apos; on Udemy
               </li>
             </span>
             <li>I learned to play with APIs with this project.</li>
@@ -312,5 +330,7 @@ const Projects = forwardRef((_, ref) => {
     </div>
   )
 })
+
+Projects.displayName = "Projects"
 
 export default Projects

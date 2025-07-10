@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react"
 import About from "./Detail/About"
 import Experience from "./Detail/Experience"
