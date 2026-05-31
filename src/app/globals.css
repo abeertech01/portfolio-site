@@ -51,10 +51,10 @@
 :root {
   --accent-green: #23947d;
   /* Light mode dot + gradient colours */
-  --dot-faint:  rgba(0, 0, 0, 0.08);
+  --dot-faint: rgba(0, 0, 0, 0.08);
   --dot-bright: rgba(0, 0, 0, 0.45);
-  --emerald-glow: rgba(35, 148, 125, 0.25);
-  --background: #f2f2f2;
+  --emerald-glow: rgba(35, 148, 125, 0.35);
+  --background: #e8e8e8;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -91,7 +91,7 @@
 .dark {
   --background: #121212;
   --accent-green: #23947d;
-  --dot-faint:  rgba(255, 255, 255, 0.05);
+  --dot-faint: rgba(255, 255, 255, 0.05);
   --dot-bright: rgba(255, 255, 255, 0.75);
   --emerald-glow: rgba(35, 148, 125, 0.28);
   --foreground: oklch(0.985 0 0);
@@ -134,13 +134,14 @@
     @apply bg-background text-foreground;
     /* Emerald radial glow — intensity set via --emerald-glow, flips with theme */
     background-image: radial-gradient(
-      ellipse 120% 70% at 50% 0%,
+      ellipse at 50% 0%,
       var(--emerald-glow) 0%,
-      transparent 100%
+      transparent 65%
     );
     /* Dot grid is handled by the two fixed layers in CursorSpotlight */
   }
-  html, body {
+  html,
+  body {
     font-family: var(--font-inter), Inter, sans-serif;
   }
 }
