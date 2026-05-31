@@ -20,32 +20,25 @@ export default function CursorSpotlight() {
 
   return (
     <>
-      {/* Layer 1: base dots — always faintly visible across the whole page */}
+      {/* Layer 1: base dots — faintly visible, colour set by --dot-faint CSS var */}
       <div
         aria-hidden
         className="fixed inset-0 pointer-events-none"
         style={{
           zIndex: 0,
-          backgroundImage:
-            "radial-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(var(--dot-faint) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
         }}
       />
 
-      {/*
-        Layer 2: bright dots — same grid, but masked by a large radial gradient
-        that follows the cursor. Only dots inside the cursor radius are revealed.
-        The gradient goes black (fully visible) at center → transparent at the
-        edge, so dots naturally dim the further they are from the cursor.
-      */}
+      {/* Layer 2: bright dots — masked to cursor radius, colour via --dot-bright */}
       <div
         ref={brightLayerRef}
         aria-hidden
         className="fixed inset-0 pointer-events-none"
         style={{
           zIndex: 0,
-          backgroundImage:
-            "radial-gradient(rgba(255, 255, 255, 0.75) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(var(--dot-bright) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
           WebkitMaskImage:
             "radial-gradient(3in circle at var(--mouse-x, -9999px) var(--mouse-y, -9999px), black 0%, transparent 100%)",
