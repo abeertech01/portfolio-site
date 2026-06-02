@@ -2,8 +2,110 @@ import React from "react"
 import Image from "next/image"
 import abeerInSuit from "@/assets/abeer-in-suit.png"
 import worldMap from "@/assets/world-map.svg"
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiGit,
+  SiRedux,
+  SiExpress,
+  SiPrisma,
+  SiDrizzle,
+  SiShadcnui,
+} from "react-icons/si"
+import type { IconType } from "react-icons"
 
 const EMERALD = "#34d399"
+
+/** brand colour per tech, so each logo reads true */
+type Skill = { icon: IconType; name: string; color: string }
+
+const SKILLS_TOP: Skill[] = [
+  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
+  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38BDF8" },
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiPostgresql, name: "Postgres", color: "#4169E1" },
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+]
+
+const SKILLS_BOTTOM: Skill[] = [
+  { icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
+  { icon: SiRedux, name: "Redux", color: "#764ABC" },
+  { icon: SiShadcnui, name: "Shadcn UI", color: "#ffffff" },
+  { icon: SiExpress, name: "ExpressJS", color: "#ffffff" },
+  { icon: SiPrisma, name: "Prisma", color: "#5A67D8" },
+  { icon: SiDrizzle, name: "Drizzle", color: "#C5F74F" },
+  { icon: SiGit, name: "Git", color: "#F05032" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+]
+
+function SkillPill({ icon: Icon, name, color }: Skill) {
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "7px",
+        padding: "0 13px",
+        whiteSpace: "nowrap",
+      }}
+    >
+      <Icon size={16} color={color} style={{ flexShrink: 0 }} />
+      <span
+        style={{
+          fontFamily: "var(--font-space-grotesk)",
+          fontSize: "0.82rem",
+          letterSpacing: "0.02em",
+          color: "rgba(255,255,255,0.82)",
+        }}
+      >
+        {name}
+      </span>
+    </span>
+  )
+}
+
+/**
+ * One scrolling row. `dir` sets travel direction; the tunnel "mouths" at each
+ * edge are 3D-rotated panels — an entry on the incoming side, an exit on the
+ * outgoing side, mirrored when the row reverses. (No fade mask, per request.)
+ */
+function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
+  // fade both ends to transparent so items dissolve in/out at the edges
+  const fade =
+    "linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%)"
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        height: "36px",
+        display: "flex",
+        alignItems: "center",
+        maskImage: fade,
+        WebkitMaskImage: fade,
+      }}
+    >
+      <div
+        className={dir === "ltr" ? "marquee-ltr" : "marquee-rtl"}
+        style={{ display: "flex", width: "max-content", willChange: "transform" }}
+      >
+        {[...items, ...items].map((s, i) => (
+          <SkillPill key={`${s.name}-${i}`} {...s} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const card: React.CSSProperties = {
   backgroundColor: "rgba(255,255,255,0.04)",
@@ -24,6 +126,18 @@ const placeholder: React.CSSProperties = {
 export default function About() {
   return (
     <section className="mx-auto px-8 pb-28 w-full max-w-243.75">
+      {/* marquee animations live here (not globals.css) so they ship with the
+          component and aren't subject to global CSS tree-shaking / stale HMR */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+@keyframes marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-ltr { animation: marquee-ltr 22s linear infinite; }
+.marquee-rtl { animation: marquee-rtl 22s linear infinite; }
+`,
+        }}
+      />
       <div
         style={{
           display: "grid",
@@ -204,9 +318,46 @@ export default function About() {
           <p style={placeholder}>Craft</p>
         </div>
 
-        {/* ── 6 · Location ─────────────────────── col 2 · row 4 ── */}
-        <div style={{ ...card, gridColumn: "2", gridRow: "4" }}>
-          <p style={placeholder}>Location</p>
+        {/* ── 6 · Skills ───────────────────────── col 2 · row 4 ── */}
+        <div
+          style={{
+            ...card,
+            gridColumn: "2",
+            gridRow: "4",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+          }}
+        >
+          <h3
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 800,
+              fontSize: "1.75rem",
+              lineHeight: 1,
+              letterSpacing: "-0.01em",
+              color: "#ffffff",
+            }}
+          >
+            Skills
+          </h3>
+
+          {/* tiny emerald underline */}
+          <div
+            style={{
+              width: "40px",
+              height: "3px",
+              borderRadius: "2px",
+              backgroundColor: EMERALD,
+              marginTop: "12px",
+            }}
+          />
+
+          {/* two opposite-scrolling rails of tech */}
+          <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "14px" }}>
+            <SkillRow items={SKILLS_TOP} dir="rtl" />
+            {/* reversed list + ltr motion → Next.js leads, then Redux, etc. */}
+            <SkillRow items={[...SKILLS_BOTTOM].reverse()} dir="ltr" />
+          </div>
         </div>
       </div>
     </section>
