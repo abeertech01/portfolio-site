@@ -1,4 +1,6 @@
 import React from "react"
+import Image from "next/image"
+import abeerInSuit from "@/assets/abeer-in-suit.png"
 
 const card: React.CSSProperties = {
   backgroundColor: "rgba(255,255,255,0.04)",
@@ -23,7 +25,7 @@ export default function About() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gridTemplateRows: "180px 228px 228px",
+          gridTemplateRows: "180px 138.5px 138.5px 228px",
           gap: "16px",
         }}
       >
@@ -88,23 +90,37 @@ export default function About() {
           <p style={placeholder}>Education &amp; Background</p>
         </div>
 
-        {/* ── 3 · Mindset (tall) ─────────────── col 1 · rows 2–3 ── */}
-        <div style={{ ...card, gridColumn: "1", gridRow: "2 / 4" }}>
+        {/* ── 3 · Mindset (tall) ─────────────── col 1 · rows 2–4 ── */}
+        <div style={{ ...card, gridColumn: "1", gridRow: "2 / 5" }}>
           <p style={placeholder}>Mindset</p>
         </div>
 
-        {/* ── 4 · Photo ────────────────────────── col 2 · row 2 ── */}
-        <div style={{ ...card, gridColumn: "2", gridRow: "2" }}>
-          <p style={placeholder}>Photo</p>
+        {/* ── 4 · Photo ───────────────────── col 2 · rows 2–3 ── */}
+        <div
+          style={{
+            ...card,
+            gridColumn: "2",
+            gridRow: "2 / 4",
+            padding: 0,
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <Image
+            src={abeerInSuit}
+            alt="Abeer Abdul Ahad"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
         </div>
 
-        {/* ── 5 · Craft (tall) ───────────────── col 3 · rows 2–3 ── */}
-        <div style={{ ...card, gridColumn: "3", gridRow: "2 / 4" }}>
+        {/* ── 5 · Craft (tall) ───────────────── col 3 · rows 2–4 ── */}
+        <div style={{ ...card, gridColumn: "3", gridRow: "2 / 5" }}>
           <p style={placeholder}>Craft</p>
         </div>
 
-        {/* ── 6 · Location ─────────────────────── col 2 · row 3 ── */}
-        <div style={{ ...card, gridColumn: "2", gridRow: "3" }}>
+        {/* ── 6 · Location ─────────────────────── col 2 · row 4 ── */}
+        <div style={{ ...card, gridColumn: "2", gridRow: "4" }}>
           <p style={placeholder}>Location</p>
         </div>
       </div>
