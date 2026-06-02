@@ -143,12 +143,7 @@
   body {
     @apply bg-background text-foreground;
     /* Emerald radial glow — intensity set via --emerald-glow, flips with theme */
-    background-image: radial-gradient(
-      ellipse at 50% 0%,
-      var(--emerald-glow) 0%,
-      transparent 65%
-    );
-    /* Dot grid is handled by the two fixed layers in CursorSpotlight */
+    /* Emerald glow + dot grid are handled by the fixed layers in CursorSpotlight */
   }
   html,
   body {

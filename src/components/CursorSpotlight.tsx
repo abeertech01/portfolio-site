@@ -20,6 +20,17 @@ export default function CursorSpotlight() {
 
   return (
     <>
+      {/* Layer 0: emerald radial glow — fixed so every section shares it */}
+      <div
+        aria-hidden
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          zIndex: -1,
+          background:
+            "radial-gradient(ellipse at 50% 0%, var(--emerald-glow) 0%, transparent 65%)",
+        }}
+      />
+
       {/* Layer 1: base dots — faintly visible, colour set by --dot-faint CSS var */}
       <div
         aria-hidden
