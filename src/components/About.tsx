@@ -88,16 +88,25 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
       style={{
         position: "relative",
         overflow: "hidden",
-        height: "36px",
+        height: "38px",
         display: "flex",
         alignItems: "center",
+        // top/bottom rules give each row a "tape" band; they sit inside the
+        // mask so the whole strip (lines + logos) fades together at the ends
+        backgroundColor: "rgba(255,255,255,0.02)",
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
         maskImage: fade,
         WebkitMaskImage: fade,
       }}
     >
       <div
         className={dir === "ltr" ? "marquee-ltr" : "marquee-rtl"}
-        style={{ display: "flex", width: "max-content", willChange: "transform" }}
+        style={{
+          display: "flex",
+          width: "max-content",
+          willChange: "transform",
+        }}
       >
         {[...items, ...items].map((s, i) => (
           <SkillPill key={`${s.name}-${i}`} {...s} />
@@ -353,7 +362,14 @@ export default function About() {
           />
 
           {/* two opposite-scrolling rails of tech */}
-          <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "14px" }}>
+          <div
+            style={{
+              marginTop: "24px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "14px",
+            }}
+          >
             <SkillRow items={SKILLS_TOP} dir="rtl" />
             {/* reversed list + ltr motion → Next.js leads, then Redux, etc. */}
             <SkillRow items={[...SKILLS_BOTTOM].reverse()} dir="ltr" />
