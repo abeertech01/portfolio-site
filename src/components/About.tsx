@@ -1,6 +1,9 @@
 import React from "react"
 import Image from "next/image"
 import abeerInSuit from "@/assets/abeer-in-suit.png"
+import worldMap from "@/assets/world-map.svg"
+
+const EMERALD = "#34d399"
 
 const card: React.CSSProperties = {
   backgroundColor: "rgba(255,255,255,0.04)",
@@ -67,7 +70,7 @@ export default function About() {
               width: "56px",
               height: "1.2px",
               backgroundColor: "rgba(255,255,255,0.3)",
-              margin: "10px 0",
+              margin: "15px 0",
             }}
           />
 
@@ -85,9 +88,91 @@ export default function About() {
           </p>
         </div>
 
-        {/* ── 2 · Wide placeholder ─────────────── col 2–3 · row 1 ── */}
-        <div style={{ ...card, gridColumn: "2 / 4", gridRow: "1" }}>
-          <p style={placeholder}>Education &amp; Background</p>
+        {/* ── 2 · Location / map ───────────────── col 2–3 · row 1 ── */}
+        <div
+          style={{
+            ...card,
+            gridColumn: "2 / 4",
+            gridRow: "1",
+            padding: 0,
+            position: "relative",
+            display: "flex",
+            alignItems: "flex-end",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+          }}
+        >
+          {/* faint world map (white SVG used as a mask, tinted emerald-grey) */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(180,210,200,0.16)",
+              maskImage: `url(${worldMap.src})`,
+              WebkitMaskImage: `url(${worldMap.src})`,
+              maskSize: "115% auto",
+              WebkitMaskSize: "115% auto",
+              maskPosition: "center",
+              WebkitMaskPosition: "center",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+            }}
+          />
+
+          {/* vertical scanning beam sweeping left → right */}
+          <div
+            aria-hidden
+            className="map-scan"
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              width: "2px",
+              transform: "translateX(-50%)",
+              background: EMERALD,
+              boxShadow: `0 0 3px ${EMERALD}`,
+            }}
+          />
+
+          {/* readout */}
+          <div style={{ position: "relative", padding: "28px" }}>
+            <p
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 800,
+                fontSize: "2rem",
+                lineHeight: 1,
+                letterSpacing: "-0.01em",
+                color: "#ffffff",
+                textShadow: `0 0 24px ${EMERALD}55`,
+              }}
+            >
+              DHAKA, BANGLADESH
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-space-grotesk)",
+                fontSize: "0.95rem",
+                letterSpacing: "0.04em",
+                color: "rgba(255,255,255,0.55)",
+                marginTop: "10px",
+              }}
+            >
+              23.8103° N, 90.4125° E
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-space-grotesk)",
+                fontSize: "0.95rem",
+                letterSpacing: "0.04em",
+                color: EMERALD,
+                marginTop: "4px",
+              }}
+            >
+              — GMT +6
+            </p>
+          </div>
         </div>
 
         {/* ── 3 · Mindset (tall) ─────────────── col 1 · rows 2–4 ── */}

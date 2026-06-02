@@ -136,6 +136,18 @@
   100% { background-position: -200% center; }
 }
 
+@keyframes map-scan {
+  0%     { left: 0%;   }   /* sweep left → past the right edge over the first 4s ... */
+  57.14% { left: 104%; }
+  100%   { left: 104%; }   /* ... then hold off-screen for 3s before repeating */
+}
+
+/* referenced here so Lightning CSS keeps the @keyframes (inline-style
+   animation refs alone get tree-shaken out) */
+.map-scan {
+  animation: map-scan 7s linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
