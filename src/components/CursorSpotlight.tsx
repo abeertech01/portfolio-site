@@ -25,7 +25,7 @@ export default function CursorSpotlight() {
         aria-hidden
         className="fixed inset-0 pointer-events-none"
         style={{
-          zIndex: 0,
+          zIndex: -1,
           backgroundImage: "radial-gradient(var(--dot-faint) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
         }}
@@ -37,7 +37,7 @@ export default function CursorSpotlight() {
         aria-hidden
         className="fixed inset-0 pointer-events-none"
         style={{
-          zIndex: 0,
+          zIndex: -1,
           backgroundImage: "radial-gradient(var(--dot-bright) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
           WebkitMaskImage:
