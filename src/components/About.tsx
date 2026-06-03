@@ -29,10 +29,10 @@ const EMERALD = "#34d399"
 type Skill = { icon: IconType; name: string; color: string }
 
 const SKILLS_TOP: Skill[] = [
-  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
-  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-  { icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
-  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38BDF8" },
+  { icon: SiJavascript, name: "JS", color: "#F7DF1E" },
+  { icon: SiTypescript, name: "TS", color: "#3178C6" },
+  { icon: SiNodedotjs, name: "Node", color: "#5FA04E" },
+  { icon: SiTailwindcss, name: "Tailwind", color: "#38BDF8" },
   { icon: SiReact, name: "React", color: "#61DAFB" },
   { icon: SiPostgresql, name: "Postgres", color: "#4169E1" },
   { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
@@ -122,7 +122,7 @@ const card: React.CSSProperties = {
   backgroundColor: "rgba(255,255,255,0.04)",
   border: "1px solid rgba(255,255,255,0.08)",
   borderRadius: "20px",
-  padding: "28px",
+  padding: "20px",
   overflow: "hidden",
 }
 
@@ -301,9 +301,148 @@ export default function About() {
             </div>
           </HoverZone>
 
-          {/* ── 3 · Mindset (tall) ─────────────── col 1 · rows 2–4 ── */}
-          <div style={{ ...card, gridColumn: "1", gridRow: "2 / 5" }}>
-            <p style={placeholder}>Mindset</p>
+          {/* ── 3 · What I do (tall) ──────────── col 1 · rows 2–4 ── */}
+          <div
+            style={{
+              ...card,
+              gridColumn: "1",
+              gridRow: "2 / 5",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "14px",
+            }}
+          >
+            {/* heading + underline */}
+            <div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontWeight: 800,
+                  fontSize: "1.6rem",
+                  lineHeight: 1,
+                  letterSpacing: "-0.01em",
+                  color: "#ffffff",
+                }}
+              >
+                What I do
+              </h3>
+              <div
+                style={{
+                  width: "34px",
+                  height: "1.8px",
+                  borderRadius: "1px",
+                  backgroundColor: EMERALD,
+                  marginTop: "8px",
+                }}
+              />
+            </div>
+
+            {/* opening pitch */}
+            <p
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "0.94rem",
+                lineHeight: 1.55,
+                color: "rgba(255,255,255,0.72)",
+              }}
+            >
+              <span
+                style={{
+                  fontWeight: 600,
+                  marginBottom: "5px",
+                  display: "inline-block",
+                }}
+              >
+                I build pixel-perfect, scalable web apps that are fun to use.
+              </span>
+              <br />I work across AI and automation, meeting what a business
+              needs.
+            </p>
+
+            {/* small label above the rails */}
+            <p
+              style={{
+                fontFamily: "var(--font-space-grotesk)",
+                fontSize: "0.65rem",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.32)",
+              }}
+            >
+              Stack I work with
+            </p>
+
+            {/* two opposite-scrolling rails of tech */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}
+            >
+              <SkillRow items={SKILLS_TOP} dir="rtl" />
+              {/* reversed list + ltr motion → Next.js leads, then Redux, etc. */}
+              <SkillRow items={[...SKILLS_BOTTOM].reverse()} dir="ltr" />
+            </div>
+
+            {/* closing note */}
+            <p
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "0.94rem",
+                lineHeight: 1.55,
+                color: "rgba(255,255,255,0.72)",
+              }}
+            >
+              A hustler at heart, aware of modern technologies — where the
+              industry is moving, developing my own products along the way.
+              <br />
+              <span
+                style={{
+                  fontWeight: 600,
+                  marginTop: "5px",
+                  display: "inline-block",
+                }}
+              >
+                Open to collaborate on exciting projects!
+              </span>
+            </p>
+
+            {/* status pill — pinned to the bottom */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "9px",
+                marginTop: "auto",
+                paddingTop: "4px",
+              }}
+            >
+              <span
+                aria-hidden
+                style={{
+                  width: "7px",
+                  height: "7px",
+                  borderRadius: "50%",
+                  backgroundColor: EMERALD,
+                  boxShadow: `0 0 10px ${EMERALD}`,
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-space-grotesk)",
+                  fontSize: "0.55rem",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.62)",
+                }}
+              >
+                Open for new opportunities &amp; freelance
+              </span>
+            </div>
           </div>
 
           {/* ── 4 · Photo ───────────────────── col 2 · rows 2–3 ── */}
@@ -329,54 +468,8 @@ export default function About() {
             <p style={placeholder}>Craft</p>
           </div>
 
-          {/* ── 6 · Skills ───────────────────────── col 2 · row 4 ── */}
-          <div
-            style={{
-              ...card,
-              gridColumn: "2",
-              gridRow: "4",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-            }}
-          >
-            <h3
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 800,
-                fontSize: "1.75rem",
-                lineHeight: 1,
-                letterSpacing: "-0.01em",
-                color: "#ffffff",
-              }}
-            >
-              Skills
-            </h3>
-
-            {/* tiny emerald underline */}
-            <div
-              style={{
-                width: "40px",
-                height: "3px",
-                borderRadius: "2px",
-                backgroundColor: EMERALD,
-                marginTop: "12px",
-              }}
-            />
-
-            {/* two opposite-scrolling rails of tech */}
-            <div
-              style={{
-                marginTop: "24px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "14px",
-              }}
-            >
-              <SkillRow items={SKILLS_TOP} dir="rtl" />
-              {/* reversed list + ltr motion → Next.js leads, then Redux, etc. */}
-              <SkillRow items={[...SKILLS_BOTTOM].reverse()} dir="ltr" />
-            </div>
-          </div>
+          {/* ── 6 · (placeholder — content TBD) ─── col 2 · row 4 ── */}
+          <div style={{ ...card, gridColumn: "2", gridRow: "4" }} />
         </div>
       </HoverProvider>
     </section>
