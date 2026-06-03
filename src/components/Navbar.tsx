@@ -4,11 +4,31 @@ import { Moon, Sun, FileText } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useSyncExternalStore } from "react"
 
-const navItems = ["Home", "About", "Projects", "Skills", "Other"]
+// `target` is the id of the section to scroll to. "top" means top of page.
+// Items without a target just light up as active for now.
+const navItems: { label: string; target?: string }[] = [
+  { label: "Home", target: "top" },
+  { label: "About", target: "about" },
+  { label: "Projects" },
+  { label: "Skills" },
+  { label: "Other" },
+]
 
 export default function Navbar() {
   const [active, setActive] = useState("Home")
   const { theme, setTheme } = useTheme()
+
+  function handleNavClick(item: (typeof navItems)[number]) {
+    setActive(item.label)
+    if (!item.target) return
+    if (item.target === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      return
+    }
+    document
+      .getElementById(item.target)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   // useSyncExternalStore returns false on the server and true on the client —
   // no setState-in-effect cascade, no hydration mismatch.
@@ -36,17 +56,17 @@ export default function Navbar() {
         <div className="flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => setActive(item)}
+              key={item.label}
+              onClick={() => handleNavClick(item)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium
                           transition-all duration-200 cursor-pointer
                           ${
-                            active === item
+                            active === item.label
                               ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
                               : "text-black/40 dark:text-white/50 hover:text-black/70 dark:hover:text-white/80"
                           }`}
             >
-              {item}
+              {item.label}
             </button>
           ))}
         </div>
