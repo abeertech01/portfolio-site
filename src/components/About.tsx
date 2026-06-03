@@ -193,7 +193,10 @@ function SocialLink({
 
 export default function About() {
   return (
-    <section className="mx-auto px-8 pb-28 w-full max-w-243.75">
+    <section
+      id="about"
+      className="scroll-mt-24 mx-auto px-8 pb-28 w-full max-w-243.75"
+    >
       {/* marquee animations live here (not globals.css) so they ship with the
           component and aren't subject to global CSS tree-shaking / stale HMR */}
       <style
