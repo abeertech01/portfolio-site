@@ -21,7 +21,12 @@ import {
   SiPrisma,
   SiDrizzle,
   SiShadcnui,
+  SiGmail,
+  SiGithub,
+  SiX,
+  SiFacebook,
 } from "react-icons/si"
+import { FaLinkedin } from "react-icons/fa6"
 import type { IconType } from "react-icons"
 
 /** brand colour per tech, so each logo reads true */
@@ -89,6 +94,29 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
 /** Shared card surface. Use twMerge() when a cell needs to override e.g. p-5. */
 const card =
   "bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 overflow-hidden"
+
+/** Small clickable pill used for social-link icons. */
+function SocialLink({
+  href,
+  label,
+  icon: Icon,
+}: {
+  href: string
+  label: string
+  icon: IconType
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={label}
+      className="flex justify-center items-center bg-white/[0.03] hover:bg-white/[0.06] py-2.5 border border-white/[0.06] hover:border-emerald-400/40 rounded-[10px] text-white/70 hover:text-emerald-400 transition-colors"
+    >
+      <Icon size={18} />
+    </a>
+  )
+}
 
 export default function About() {
   return (
@@ -193,7 +221,7 @@ export default function About() {
               <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
                 What I do
               </h3>
-              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-0.45" />
+              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
             {/* opening pitch */}
@@ -260,8 +288,60 @@ export default function About() {
             </p>
           </div>
 
-          {/* ── 6 · (placeholder — content TBD) ─── col 2 · row 4 ── */}
-          <div className={twMerge(card, "col-start-2 row-start-4")} />
+          {/* ── 6 · Get in touch ─────────────────── col 2 · row 4 ── */}
+          <div
+            className={twMerge(
+              card,
+              "col-start-2 row-start-4 backdrop-blur-[20px] flex flex-col gap-3.5",
+            )}
+          >
+            {/* heading + underline (matches the "What I do" treatment) */}
+            <div>
+              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
+                Get in touch
+              </h3>
+              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
+            </div>
+
+            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
+              Let&apos;s connect and discuss!
+            </p>
+
+            {/* link grid — email spans all 4 cols, socials sit in row 2 */}
+            <div className="gap-2 grid grid-cols-4 mt-1">
+              {/* email — full-width row */}
+              <a
+                href="mailto:abeer.technology@gmail.com"
+                className="group flex items-center gap-2.5 col-span-4 bg-white/[0.03] hover:bg-white/[0.06] px-3.5 py-2.5 border border-white/[0.06] hover:border-emerald-400/40 rounded-[10px] transition-colors"
+              >
+                <SiGmail size={14} className="text-emerald-400 shrink-0" />
+                <span className="font-grotesk text-[0.78rem] text-white/80 group-hover:text-white truncate">
+                  abeer.technology@gmail.com
+                </span>
+              </a>
+
+              <SocialLink
+                href="https://github.com/abeertech01"
+                label="GitHub"
+                icon={SiGithub}
+              />
+              <SocialLink
+                href="https://linkedin.com/in/abeertech01"
+                label="LinkedIn"
+                icon={FaLinkedin}
+              />
+              <SocialLink
+                href="https://x.com/abeertech01"
+                label="X (Twitter)"
+                icon={SiX}
+              />
+              <SocialLink
+                href="https://facebook.com/abeertech01"
+                label="Facebook"
+                icon={SiFacebook}
+              />
+            </div>
+          </div>
         </div>
       </HoverProvider>
     </section>
