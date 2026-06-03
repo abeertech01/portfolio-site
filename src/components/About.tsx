@@ -25,6 +25,8 @@ import {
   SiGithub,
   SiX,
   SiFacebook,
+  SiHashnode,
+  SiDevdotto,
 } from "react-icons/si"
 import { FaLinkedin } from "react-icons/fa6"
 import type { IconType } from "react-icons"
@@ -95,6 +97,77 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
 const card =
   "bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 overflow-hidden"
 
+/** Featured writing — three picks across Hashnode + dev.to. */
+type BlogPost = {
+  title: string
+  href: string
+  platform: "Hashnode" | "dev.to"
+  featured?: boolean
+}
+
+const BLOG_POSTS: BlogPost[] = [
+  {
+    title: "All you need to know about middleware in Next.js",
+    href: "https://abeer.hashnode.dev/all-you-need-to-know-about-middleware-in-nextjs",
+    platform: "Hashnode",
+    featured: true,
+  },
+  {
+    title: "Server Actions in Next.js 14, explained",
+    href: "https://abeer.hashnode.dev/what-are-server-actions-in-nextjs-nextjs-14-edition",
+    platform: "Hashnode",
+    featured: true,
+  },
+  {
+    title: "What's new in React 19 — a clear walkthrough",
+    href: "https://dev.to/abeertech01/what-new-react-19-has-brought-to-the-table-get-clear-understanding-327h",
+    platform: "dev.to",
+  },
+  {
+    title: "The simplest Zustand tutorial",
+    href: "https://dev.to/abeertech01/simplest-zustand-tutorial-28a8",
+    platform: "dev.to",
+  },
+  {
+    title: "Dockerize a PERN + Prisma app with Docker Compose",
+    href: "https://dev.to/abeertech01/dockerize-pern-typescript-app-using-prisma-orm-with-docker-compose-415n",
+    platform: "dev.to",
+  },
+]
+
+function BlogCard({ title, href, platform, featured }: BlogPost) {
+  const PlatformIcon = platform === "Hashnode" ? SiHashnode : SiDevdotto
+  // Hashnode brand blue; dev.to is monochrome — use white on this dark surface.
+  const iconColor = platform === "Hashnode" ? "#2962FF" : "#ffffff"
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="group block bg-white/3 hover:bg-white/6 px-3 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] transition-colors"
+    >
+      {/* meta row: platform badge + (optional) featured pill */}
+      <div className="flex items-center gap-1.5 mb-1.5">
+        <PlatformIcon size={13} color={iconColor} className="shrink-0" />
+        <span className="font-grotesk text-[0.64rem] text-white/45 uppercase tracking-[0.14em]">
+          {platform}
+        </span>
+        {featured && (
+          <span className="bg-emerald-400/10 ml-auto px-1.5 py-px border border-emerald-400/25 rounded font-grotesk text-[0.52rem] text-emerald-400 uppercase tracking-[0.14em]">
+            Featured
+          </span>
+        )}
+      </div>
+
+      {/* title */}
+      <p className="font-semibold text-[0.94rem] text-white/85 group-hover:text-white leading-[1.3]">
+        {title}
+      </p>
+    </a>
+  )
+}
+
 /** Small clickable pill used for social-link icons. */
 function SocialLink({
   href,
@@ -111,7 +184,7 @@ function SocialLink({
       target="_blank"
       rel="noreferrer noopener"
       aria-label={label}
-      className="flex justify-center items-center bg-white/[0.03] hover:bg-white/[0.06] py-2.5 border border-white/[0.06] hover:border-emerald-400/40 rounded-[10px] text-white/70 hover:text-emerald-400 transition-colors"
+      className="flex justify-center items-center bg-white/3 hover:bg-white/6 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] text-white/70 hover:text-emerald-400 transition-colors"
     >
       <Icon size={18} />
     </a>
@@ -225,7 +298,7 @@ export default function About() {
             </div>
 
             {/* opening pitch */}
-            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
               <span className="inline-block mb-1.25 font-semibold">
                 I build pixel-perfect, scalable web apps that are fun to use.
               </span>
@@ -246,7 +319,7 @@ export default function About() {
             </div>
 
             {/* closing note */}
-            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
               A hustler at heart, aware of modern technologies — where the
               industry is moving, developing my own products along the way.
               <br />
@@ -281,11 +354,27 @@ export default function About() {
             />
           </div>
 
-          {/* ── 5 · Craft (tall) ───────────────── col 3 · rows 2–4 ── */}
-          <div className={twMerge(card, "col-start-3 row-start-2 row-end-5")}>
-            <p className="font-grotesk text-white/13 text-xs uppercase tracking-[0.14em]">
-              Craft
-            </p>
+          {/* ── 5 · Writing (tall) ─────────────── col 3 · rows 2–4 ── */}
+          <div
+            className={twMerge(
+              card,
+              "col-start-3 row-start-2 row-end-5 backdrop-blur-[20px] flex flex-col gap-5",
+            )}
+          >
+            {/* heading + underline (matches "What I do" / "Get in touch") */}
+            <div>
+              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
+                Writing
+              </h3>
+              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
+            </div>
+
+            {/* featured posts — stacked */}
+            <div className="flex flex-col gap-2">
+              {BLOG_POSTS.map((p) => (
+                <BlogCard key={p.href} {...p} />
+              ))}
+            </div>
           </div>
 
           {/* ── 6 · Get in touch ─────────────────── col 2 · row 4 ── */}
@@ -303,7 +392,7 @@ export default function About() {
               <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
-            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
               Let&apos;s connect and discuss!
             </p>
 
@@ -312,7 +401,7 @@ export default function About() {
               {/* email — full-width row */}
               <a
                 href="mailto:abeer.technology@gmail.com"
-                className="group flex items-center gap-2.5 col-span-4 bg-white/[0.03] hover:bg-white/[0.06] px-3.5 py-2.5 border border-white/[0.06] hover:border-emerald-400/40 rounded-[10px] transition-colors"
+                className="group flex items-center gap-2.5 col-span-4 bg-white/3 hover:bg-white/6 px-3.5 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] transition-colors"
               >
                 <SiGmail size={14} className="text-emerald-400 shrink-0" />
                 <span className="font-grotesk text-[0.78rem] text-white/80 group-hover:text-white truncate">
