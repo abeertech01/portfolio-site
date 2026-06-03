@@ -1,4 +1,5 @@
 import React from "react"
+import { twMerge } from "tailwind-merge"
 import abeerInSuit from "@/assets/abeer-in-suit.png"
 import dhaka from "@/assets/dhaka_drone.jpg"
 import worldMap from "@/assets/world-map.svg"
@@ -22,8 +23,6 @@ import {
   SiShadcnui,
 } from "react-icons/si"
 import type { IconType } from "react-icons"
-
-const EMERALD = "#34d399"
 
 /** brand colour per tech, so each logo reads true */
 type Skill = { icon: IconType; name: string; color: string }
@@ -51,24 +50,9 @@ const SKILLS_BOTTOM: Skill[] = [
 
 function SkillPill({ icon: Icon, name, color }: Skill) {
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "7px",
-        padding: "0 13px",
-        whiteSpace: "nowrap",
-      }}
-    >
-      <Icon size={16} color={color} style={{ flexShrink: 0 }} />
-      <span
-        style={{
-          fontFamily: "var(--font-space-grotesk)",
-          fontSize: "0.82rem",
-          letterSpacing: "0.02em",
-          color: "rgba(255,255,255,0.82)",
-        }}
-      >
+    <span className="inline-flex items-center gap-1.75 px-3.25 whitespace-nowrap">
+      <Icon size={16} color={color} className="shrink-0" />
+      <span className="font-grotesk text-[0.82rem] text-white/82 tracking-[0.02em]">
         {name}
       </span>
     </span>
@@ -76,39 +60,23 @@ function SkillPill({ icon: Icon, name, color }: Skill) {
 }
 
 /**
- * One scrolling row. `dir` sets travel direction; the tunnel "mouths" at each
- * edge are 3D-rotated panels — an entry on the incoming side, an exit on the
- * outgoing side, mirrored when the row reverses. (No fade mask, per request.)
+ * One scrolling row. Both ends fade to transparent so items dissolve in/out at
+ * the edges. The fade mask uses a long gradient string with template literals,
+ * which is awkward to express as a Tailwind class, so it stays as inline style.
  */
 function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
-  // fade both ends to transparent so items dissolve in/out at the edges
   const fade =
     "linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%)"
 
   return (
     <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        height: "38px",
-        display: "flex",
-        alignItems: "center",
-        // top/bottom rules give each row a "tape" band; they sit inside the
-        // mask so the whole strip (lines + logos) fades together at the ends
-        backgroundColor: "rgba(255,255,255,0.02)",
-        borderTop: "1px solid rgba(255,255,255,0.05)",
-        borderBottom: "1px solid rgba(255,255,255,0.05)",
-        maskImage: fade,
-        WebkitMaskImage: fade,
-      }}
+      className="relative flex items-center bg-white/2 border-white/5 border-y h-9.5 overflow-hidden"
+      style={{ maskImage: fade, WebkitMaskImage: fade }}
     >
       <div
-        className={dir === "ltr" ? "marquee-ltr" : "marquee-rtl"}
-        style={{
-          display: "flex",
-          width: "max-content",
-          willChange: "transform",
-        }}
+        className={`${
+          dir === "ltr" ? "marquee-ltr" : "marquee-rtl"
+        } flex w-max will-change-transform`}
       >
         {[...items, ...items].map((s, i) => (
           <SkillPill key={`${s.name}-${i}`} {...s} />
@@ -118,21 +86,9 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
   )
 }
 
-const card: React.CSSProperties = {
-  backgroundColor: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(255,255,255,0.08)",
-  borderRadius: "20px",
-  padding: "20px",
-  overflow: "hidden",
-}
-
-const placeholder: React.CSSProperties = {
-  fontFamily: "var(--font-space-grotesk)",
-  fontSize: "0.75rem",
-  letterSpacing: "0.14em",
-  textTransform: "uppercase" as const,
-  color: "rgba(255,255,255,0.13)",
-}
+/** Shared card surface. Use twMerge() when a cell needs to override e.g. p-5. */
+const card =
+  "bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 overflow-hidden"
 
 export default function About() {
   return (
@@ -150,37 +106,17 @@ export default function About() {
         }}
       />
       <HoverProvider>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "180px 138.5px 138.5px 228px",
-            gap: "16px",
-          }}
-        >
+        <div className="gap-4 grid grid-cols-3 grid-rows-[180px_138.5px_138.5px_228px]">
           {/* ── 1 · Name ─────────────────────────────── col 1 · row 1 ── */}
           <div
-            style={{
-              ...card,
-              gridColumn: "1",
-              gridRow: "1",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "20px 24px",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-            }}
+            className={twMerge(
+              card,
+              "col-start-1 row-start-1 flex flex-col justify-center items-center text-center px-6 py-5 backdrop-blur-[20px]",
+            )}
           >
             <h2
+              className="font-extrabold text-white leading-[1.05] tracking-[-0.03em]"
               style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 900,
-                lineHeight: 1.05,
-                letterSpacing: "-0.03em",
-                color: "#ffffff",
                 textShadow:
                   "0 0 18px rgba(255,255,255,0.6), 0 0 50px rgba(255,255,255,0.25), 0 0 100px rgba(255,255,255,0.1)",
               }}
@@ -191,50 +127,26 @@ export default function About() {
             </h2>
 
             {/* separator */}
-            <div
-              style={{
-                width: "56px",
-                height: "1.2px",
-                backgroundColor: "rgba(255,255,255,0.3)",
-                margin: "12px 0",
-              }}
-            />
+            <div className="bg-white/30 my-3 w-14 h-[1.2px]" />
 
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.77rem",
-                fontWeight: 400,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.42)",
-              }}
-            >
+            <p className="font-normal text-[0.77rem] text-white/42 uppercase tracking-[0.14em]">
               Full Stack Developer
             </p>
           </div>
 
           {/* ── 2 · Location / map (hovering here reveals Dhaka in the photo) ── */}
           <HoverZone
-            style={{
-              ...card,
-              gridColumn: "2 / 4",
-              gridRow: "1",
-              padding: 0,
-              position: "relative",
-              display: "flex",
-              alignItems: "flex-end",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-            }}
+            className={twMerge(
+              card,
+              "col-start-2 col-end-4 row-start-1 p-0 relative flex items-end backdrop-blur-[20px]",
+            )}
           >
-            {/* faint world map (white SVG used as a mask, tinted emerald-grey) */}
+            {/* faint world map (white SVG used as a mask, tinted emerald-grey).
+                Mask values are dynamic JS strings — cleanest as inline style. */}
             <div
               aria-hidden
+              className="absolute inset-0 bg-[rgba(180,210,200,0.16)]"
               style={{
-                position: "absolute",
-                inset: 0,
-                backgroundColor: "rgba(180,210,200,0.16)",
                 maskImage: `url(${worldMap.src})`,
                 WebkitMaskImage: `url(${worldMap.src})`,
                 maskSize: "115% auto",
@@ -246,56 +158,24 @@ export default function About() {
               }}
             />
 
-            {/* vertical scanning beam sweeping left → right */}
+            {/* vertical scanning beam sweeping left → right (animation = .map-scan in globals.css) */}
             <div
               aria-hidden
-              className="map-scan"
-              style={{
-                position: "absolute",
-                top: 0,
-                bottom: 0,
-                width: "2px",
-                transform: "translateX(-50%)",
-                background: EMERALD,
-                boxShadow: `0 0 3px ${EMERALD}`,
-              }}
+              className="absolute inset-y-0 bg-emerald-400 shadow-[0_0_3px_#34d399] w-0.5 -translate-x-1/2 map-scan"
             />
 
             {/* readout */}
-            <div style={{ position: "relative", padding: "28px" }}>
+            <div className="relative p-7">
               <p
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 800,
-                  fontSize: "2rem",
-                  lineHeight: 1,
-                  letterSpacing: "-0.01em",
-                  color: "#ffffff",
-                  textShadow: `0 0 24px ${EMERALD}55`,
-                }}
+                className="font-extrabold text-[2rem] text-white leading-none tracking-[-0.01em]"
+                style={{ textShadow: "0 0 24px #34d39955" }}
               >
                 DHAKA, BANGLADESH
               </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-space-grotesk)",
-                  fontSize: "0.95rem",
-                  letterSpacing: "0.04em",
-                  color: "rgba(255,255,255,0.55)",
-                  marginTop: "10px",
-                }}
-              >
+              <p className="mt-2.5 font-grotesk text-[0.95rem] text-white/55 tracking-[0.04em]">
                 23.8103° N, 90.4125° E
               </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-space-grotesk)",
-                  fontSize: "0.95rem",
-                  letterSpacing: "0.04em",
-                  color: EMERALD,
-                  marginTop: "4px",
-                }}
-              >
+              <p className="mt-1 font-grotesk text-[0.95rem] text-emerald-400 tracking-[0.04em]">
                 — GMT +6
               </p>
             </div>
@@ -303,58 +183,22 @@ export default function About() {
 
           {/* ── 3 · What I do (tall) ──────────── col 1 · rows 2–4 ── */}
           <div
-            style={{
-              ...card,
-              gridColumn: "1",
-              gridRow: "2 / 5",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "14px",
-            }}
+            className={twMerge(
+              card,
+              "col-start-1 row-start-2 row-end-5 backdrop-blur-[20px] flex flex-col gap-3.5",
+            )}
           >
             {/* heading + underline */}
             <div>
-              <h3
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 800,
-                  fontSize: "1.6rem",
-                  lineHeight: 1,
-                  letterSpacing: "-0.01em",
-                  color: "#ffffff",
-                }}
-              >
+              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
                 What I do
               </h3>
-              <div
-                style={{
-                  width: "34px",
-                  height: "1.8px",
-                  borderRadius: "1px",
-                  backgroundColor: EMERALD,
-                  marginTop: "8px",
-                }}
-              />
+              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-0.45" />
             </div>
 
             {/* opening pitch */}
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.94rem",
-                lineHeight: 1.55,
-                color: "rgba(255,255,255,0.72)",
-              }}
-            >
-              <span
-                style={{
-                  fontWeight: 600,
-                  marginBottom: "5px",
-                  display: "inline-block",
-                }}
-              >
+            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
+              <span className="inline-block mb-1.25 font-semibold">
                 I build pixel-perfect, scalable web apps that are fun to use.
               </span>
               <br />I work across AI and automation, meeting what a business
@@ -362,84 +206,34 @@ export default function About() {
             </p>
 
             {/* small label above the rails */}
-            <p
-              style={{
-                fontFamily: "var(--font-space-grotesk)",
-                fontSize: "0.65rem",
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.32)",
-              }}
-            >
+            <p className="font-grotesk text-[0.65rem] text-white/32 uppercase tracking-[0.16em]">
               Stack I work with
             </p>
 
             {/* two opposite-scrolling rails of tech */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-              }}
-            >
+            <div className="flex flex-col gap-2.5">
               <SkillRow items={SKILLS_TOP} dir="rtl" />
               {/* reversed list + ltr motion → Next.js leads, then Redux, etc. */}
               <SkillRow items={[...SKILLS_BOTTOM].reverse()} dir="ltr" />
             </div>
 
             {/* closing note */}
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.94rem",
-                lineHeight: 1.55,
-                color: "rgba(255,255,255,0.72)",
-              }}
-            >
+            <p className="text-[0.94rem] text-white/72 leading-[1.55]">
               A hustler at heart, aware of modern technologies — where the
               industry is moving, developing my own products along the way.
               <br />
-              <span
-                style={{
-                  fontWeight: 600,
-                  marginTop: "5px",
-                  display: "inline-block",
-                }}
-              >
+              <span className="inline-block mt-1.25 font-semibold">
                 Open to collaborate on exciting projects!
               </span>
             </p>
 
             {/* status pill — pinned to the bottom */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "9px",
-                marginTop: "auto",
-                paddingTop: "4px",
-              }}
-            >
+            <div className="flex items-center gap-2.25 mt-auto pt-1">
               <span
                 aria-hidden
-                style={{
-                  width: "7px",
-                  height: "7px",
-                  borderRadius: "50%",
-                  backgroundColor: EMERALD,
-                  boxShadow: `0 0 10px ${EMERALD}`,
-                  flexShrink: 0,
-                }}
+                className="bg-emerald-400 shadow-[0_0_10px_#34d399] rounded-full w-1.75 h-1.75 shrink-0"
               />
-              <span
-                style={{
-                  fontFamily: "var(--font-space-grotesk)",
-                  fontSize: "0.55rem",
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.62)",
-                }}
-              >
+              <span className="font-grotesk text-[0.55rem] text-white/62 uppercase tracking-wider">
                 Open for new opportunities &amp; freelance
               </span>
             </div>
@@ -447,14 +241,10 @@ export default function About() {
 
           {/* ── 4 · Photo ───────────────────── col 2 · rows 2–3 ── */}
           <div
-            style={{
-              ...card,
-              gridColumn: "2",
-              gridRow: "2 / 4",
-              padding: 0,
-              position: "relative",
-              overflow: "hidden",
-            }}
+            className={twMerge(
+              card,
+              "col-start-2 row-start-2 row-end-4 p-0 relative",
+            )}
           >
             <PhotoCard
               photo={abeerInSuit}
@@ -464,12 +254,14 @@ export default function About() {
           </div>
 
           {/* ── 5 · Craft (tall) ───────────────── col 3 · rows 2–4 ── */}
-          <div style={{ ...card, gridColumn: "3", gridRow: "2 / 5" }}>
-            <p style={placeholder}>Craft</p>
+          <div className={twMerge(card, "col-start-3 row-start-2 row-end-5")}>
+            <p className="font-grotesk text-white/13 text-xs uppercase tracking-[0.14em]">
+              Craft
+            </p>
           </div>
 
           {/* ── 6 · (placeholder — content TBD) ─── col 2 · row 4 ── */}
-          <div style={{ ...card, gridColumn: "2", gridRow: "4" }} />
+          <div className={twMerge(card, "col-start-2 row-start-4")} />
         </div>
       </HoverProvider>
     </section>

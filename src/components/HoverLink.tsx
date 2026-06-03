@@ -28,9 +28,11 @@ export function useHover() {
 /** A div that reports its hover state into the context. */
 export function HoverZone({
   children,
+  className,
   style,
 }: {
   children: React.ReactNode
+  className?: string
   style?: React.CSSProperties
 }) {
   const { setHovered } = useHover()
@@ -38,6 +40,7 @@ export function HoverZone({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className={className}
       style={style}
     >
       {children}

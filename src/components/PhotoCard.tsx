@@ -22,13 +22,13 @@ export default function PhotoCard({
   const { hovered } = useHover()
 
   return (
-    <div style={{ position: "absolute", inset: 0 }}>
+    <div className="absolute inset-0">
       <Image
         src={photo}
         alt={alt}
         fill
         sizes="(max-width: 768px) 50vw, 300px"
-        style={{ objectFit: "cover", objectPosition: "center top" }}
+        className="object-[center_top] object-cover"
       />
       <Image
         src={hoverImage}
@@ -36,12 +36,9 @@ export default function PhotoCard({
         aria-hidden
         fill
         sizes="(max-width: 768px) 50vw, 300px"
-        style={{
-          objectFit: "cover",
-          objectPosition: "center top",
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 450ms ease",
-        }}
+        className={`object-cover object-[center_top] transition-opacity duration-450 ease-out ${
+          hovered ? "opacity-100" : "opacity-0"
+        }`}
       />
     </div>
   )
