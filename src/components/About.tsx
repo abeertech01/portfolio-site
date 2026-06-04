@@ -195,7 +195,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 mx-auto px-8 pb-28 w-full max-w-243.75"
+      className="mx-auto px-8 pb-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* marquee animations live here (not globals.css) so they ship with the
           component and aren't subject to global CSS tree-shaking / stale HMR */}
@@ -373,8 +373,8 @@ export default function About() {
             </div>
 
             {/* featured posts explanation */}
-            <p className="text-[0.85rem] text-white/55 leading-[1.5]">
-              Posts featured and shared by the platforms' official handles
+            <p className="text-[0.85rem] text-white/55 leading-normal">
+              Posts featured and shared by the platforms&apos; official handles
             </p>
 
             {/* featured posts — stacked (first 3 only) */}
@@ -386,7 +386,7 @@ export default function About() {
 
             {/* explore more links */}
             <div className="flex flex-col gap-2 mt-auto pt-2">
-              <p className="text-[0.75rem] text-white/40 uppercase tracking-[0.12em] font-grotesk">
+              <p className="font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.12em]">
                 Explore more
               </p>
               <div className="flex gap-2">
@@ -394,7 +394,7 @@ export default function About() {
                   href="https://abeer.hashnode.dev"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-white/3 hover:bg-white/6 border border-white/6 hover:border-emerald-400/40 rounded-[8px] text-[0.8rem] font-medium text-white/70 hover:text-emerald-400 transition-colors"
+                  className="flex flex-1 justify-center items-center gap-1.5 bg-white/3 hover:bg-white/6 px-3 py-2 border border-white/6 hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-white/70 hover:text-emerald-400 transition-colors"
                 >
                   <SiHashnode size={14} />
                   Hashnode
@@ -403,7 +403,7 @@ export default function About() {
                   href="https://dev.to/abeertech01"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-white/3 hover:bg-white/6 border border-white/6 hover:border-emerald-400/40 rounded-[8px] text-[0.8rem] font-medium text-white/70 hover:text-emerald-400 transition-colors"
+                  className="flex flex-1 justify-center items-center gap-1.5 bg-white/3 hover:bg-white/6 px-3 py-2 border border-white/6 hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-white/70 hover:text-emerald-400 transition-colors"
                 >
                   <SiDevdotto size={14} />
                   Dev.to
@@ -432,7 +432,7 @@ export default function About() {
             </p>
 
             {/* link grid — email spans all 4 cols, socials sit in row 2 */}
-            <div className="gap-2 grid grid-cols-4 mt-1">
+            <div className="gap-2 grid grid-cols-4 mt-auto pt-1">
               {/* email — full-width row */}
               <a
                 href="mailto:abeer.technology@gmail.com"
