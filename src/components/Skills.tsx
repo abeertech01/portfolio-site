@@ -28,6 +28,7 @@ import {
   SiDrizzle,
   SiFigma,
 } from "react-icons/si"
+import { FaShield } from "react-icons/fa"
 import type { IconType } from "react-icons"
 
 type Tech = { icon: IconType; name: string; color: string }
@@ -62,6 +63,7 @@ const BACKEND_TECHS: Tech[] = [
 const TOOLS: Tech[] = [
   { icon: SiGit, name: "Git", color: "#F05032" },
   { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: FaShield, name: "NextAuth", color: "#2D3748" },
   { icon: SiFigma, name: "Figma", color: "#F24E1E" },
 ]
 
