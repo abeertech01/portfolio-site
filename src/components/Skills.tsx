@@ -79,20 +79,20 @@ function TechTape({ items, dir }: TechTapeProps) {
 
   return (
     <div
-      className="relative flex items-center bg-white/2 border-white/5 border-y overflow-hidden py-4"
+      className="relative flex items-center bg-white/[0.08] backdrop-blur-[30px] py-4 border-white/5 border-y overflow-hidden"
       style={{ maskImage: fade, WebkitMaskImage: fade }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
       <div
         className={`flex w-max will-change-transform ${
-          isHovering ? "" : dir === "ltr" ? "animate-scroll-ltr" : "animate-scroll-rtl"
-        }`}
-        style={
           isHovering
-            ? { animationPlayState: "paused" }
-            : {}
-        }
+            ? ""
+            : dir === "ltr"
+              ? "animate-scroll-ltr"
+              : "animate-scroll-rtl"
+        }`}
+        style={isHovering ? { animationPlayState: "paused" } : {}}
       >
         {[...items, ...items].map((tech, i) => (
           <TechCard key={`${tech.name}-${i}`} {...tech} />
@@ -104,11 +104,11 @@ function TechTape({ items, dir }: TechTapeProps) {
 
 function ToolsGrid({ items }: { items: Tech[] }) {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div className="gap-4 grid grid-cols-2 md:grid-cols-4">
       {items.map((tech) => (
         <div
           key={tech.name}
-          className="flex flex-col items-center gap-3 bg-white/3 hover:bg-white/6 border border-white/8 hover:border-emerald-400/30 rounded-[12px] p-5 transition-colors"
+          className="flex flex-col items-center gap-3 bg-white/[0.08] backdrop-blur-[30px] hover:bg-white/[0.12] p-5 border border-white/8 hover:border-emerald-400/30 rounded-[12px] transition-colors"
         >
           <tech.icon size={40} color={tech.color} />
           <span className="font-grotesk text-[0.95rem] text-white/80 text-center">
@@ -126,18 +126,18 @@ export default function Skills() {
       id="skills"
       className="mx-auto px-8 py-28 w-full max-w-243.75 scroll-mt-24"
     >
-
       {/* Heading */}
       <div className="mb-12">
-        <p className="font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em] mb-2">
+        <p className="mb-2 font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em]">
           TECH STACK
         </p>
-        <h2 className="text-[3.2rem] font-extrabold leading-[1.1] tracking-[-0.02em]">
+        <h2 className="font-extrabold text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">My </span>
           <span
-            className="bg-gradient-to-r from-white via-purple-300 to-purple-500 bg-clip-text text-transparent"
+            className="bg-clip-text bg-gradient-to-r from-white via-purple-300 to-purple-500 text-transparent"
             style={{
-              backgroundImage: "linear-gradient(90deg, #ffffff 0%, #c084fc 50%, #a855f7 100%)",
+              backgroundImage:
+                "linear-gradient(90deg, #ffffff 0%, #c084fc 50%, #a855f7 100%)",
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -150,23 +150,23 @@ export default function Skills() {
 
       {/* Frontend Tape */}
       <div className="mb-6">
-        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
+        <p className="mb-3 font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em]">
           Frontend Technologies
         </p>
-        <TechTape items={FRONTEND_TECHS} dir="ltr" />
+        <TechTape items={FRONTEND_TECHS} dir="rtl" />
       </div>
 
       {/* Backend Tape */}
       <div className="mb-12">
-        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
+        <p className="mb-3 font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em]">
           Backend Technologies
         </p>
-        <TechTape items={BACKEND_TECHS} dir="rtl" />
+        <TechTape items={BACKEND_TECHS} dir="ltr" />
       </div>
 
       {/* Tools Section */}
       <div>
-        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-4">
+        <p className="mb-4 font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em]">
           Tools &amp; Databases
         </p>
         <ToolsGrid items={TOOLS} />
