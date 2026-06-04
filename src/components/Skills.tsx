@@ -14,7 +14,6 @@ import {
   SiBootstrap,
   SiTailwindcss,
   SiShadcnui,
-  SiTanstackquery,
   SiNodedotjs,
   SiPostgresql,
   SiMongodb,
@@ -28,7 +27,7 @@ import {
   SiDrizzle,
   SiFigma,
 } from "react-icons/si"
-import { FaShield } from "react-icons/fa"
+import { FaShieldAlt, FaNetworkWired } from "react-icons/fa"
 import type { IconType } from "react-icons"
 
 type Tech = { icon: IconType; name: string; color: string }
@@ -45,7 +44,7 @@ const FRONTEND_TECHS: Tech[] = [
   { icon: SiReact, name: "React", color: "#61DAFB" },
   { icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
   { icon: SiRedux, name: "Redux", color: "#764ABC" },
-  { icon: SiTanstackquery, name: "TanStack Query", color: "#FF4154" },
+  { icon: FaNetworkWired, name: "TanStack Query", color: "#FF4154" },
 ]
 
 const BACKEND_TECHS: Tech[] = [
@@ -63,7 +62,7 @@ const BACKEND_TECHS: Tech[] = [
 const TOOLS: Tech[] = [
   { icon: SiGit, name: "Git", color: "#F05032" },
   { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: FaShield, name: "NextAuth", color: "#2D3748" },
+  { icon: FaShieldAlt, name: "NextAuth", color: "#2D3748" },
   { icon: SiFigma, name: "Figma", color: "#F24E1E" },
 ]
 
