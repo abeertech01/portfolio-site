@@ -5,13 +5,16 @@ import { twMerge } from "tailwind-merge"
 import {
   SiJavascript,
   SiTypescript,
+  SiHtml5,
   SiReact,
   SiNextdotjs,
   SiRedux,
   SiCss,
   SiSass,
+  SiBootstrap,
   SiTailwindcss,
   SiShadcnui,
+  SiMaterialui,
   SiNodedotjs,
   SiPostgresql,
   SiMongodb,
@@ -28,13 +31,16 @@ type Tech = { icon: IconType; name: string; color: string }
 const FRONTEND_TECHS: Tech[] = [
   { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
   { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiHtml5, name: "HTML", color: "#E34C26" },
+  { icon: SiCss, name: "CSS", color: "#1572B6" },
+  { icon: SiSass, name: "SCSS", color: "#CC6699" },
+  { icon: SiBootstrap, name: "Bootstrap", color: "#7952B3" },
+  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38BDF8" },
+  { icon: SiShadcnui, name: "Shadcn UI", color: "#ffffff" },
+  { icon: SiMaterialui, name: "Material UI", color: "#007FFF" },
   { icon: SiReact, name: "React", color: "#61DAFB" },
   { icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
   { icon: SiRedux, name: "Redux", color: "#764ABC" },
-  { icon: SiCss, name: "CSS", color: "#1572B6" },
-  { icon: SiSass, name: "SCSS", color: "#CC6699" },
-  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38BDF8" },
-  { icon: SiShadcnui, name: "Shadcn UI", color: "#ffffff" },
 ]
 
 const BACKEND_TECHS: Tech[] = [
