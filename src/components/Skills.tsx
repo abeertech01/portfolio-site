@@ -79,7 +79,7 @@ function TechTape({ items, dir }: TechTapeProps) {
 
   return (
     <div
-      className="relative flex items-center bg-white/[0.08] backdrop-blur-[30px] py-4 border-white/5 border-y overflow-hidden"
+      className="relative flex items-center bg-white/4 backdrop-blur-[20px] py-4 border-white/5 border-y overflow-hidden"
       style={{ maskImage: fade, WebkitMaskImage: fade }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -108,7 +108,7 @@ function ToolsGrid({ items }: { items: Tech[] }) {
       {items.map((tech) => (
         <div
           key={tech.name}
-          className="flex flex-col items-center gap-3 bg-white/[0.08] backdrop-blur-[30px] hover:bg-white/[0.12] p-5 border border-white/8 hover:border-emerald-400/30 rounded-[12px] transition-colors"
+          className="flex flex-col items-center gap-3 bg-white/4 hover:bg-white/6 backdrop-blur-[20px] p-5 border border-white/8 hover:border-emerald-400/30 rounded-[12px] transition-colors"
         >
           <tech.icon size={40} color={tech.color} />
           <span className="font-grotesk text-[0.95rem] text-white/80 text-center">
@@ -134,10 +134,10 @@ export default function Skills() {
         <h2 className="font-extrabold text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">My </span>
           <span
-            className="bg-clip-text bg-gradient-to-r from-white via-purple-300 to-purple-500 text-transparent"
+            className="bg-clip-text bg-gradient-to-r from-white via-emerald-300 to-emerald-500 text-transparent"
             style={{
               backgroundImage:
-                "linear-gradient(90deg, #ffffff 0%, #c084fc 50%, #a855f7 100%)",
+                "linear-gradient(90deg, #ffffff 0%, #6ee7b7 50%, #10b981 100%)",
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
