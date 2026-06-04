@@ -14,14 +14,20 @@ import {
   SiBootstrap,
   SiTailwindcss,
   SiShadcnui,
+  SiTanstackquery,
   SiNodedotjs,
   SiPostgresql,
   SiMongodb,
+  SiMysql,
+  SiFirebase,
+  SiGraphql,
   SiDocker,
   SiGit,
   SiExpress,
   SiPrisma,
   SiDrizzle,
+  SiNextauth,
+  SiFigma,
 } from "react-icons/si"
 import type { IconType } from "react-icons"
 
@@ -39,24 +45,26 @@ const FRONTEND_TECHS: Tech[] = [
   { icon: SiReact, name: "React", color: "#61DAFB" },
   { icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
   { icon: SiRedux, name: "Redux", color: "#764ABC" },
+  { icon: SiTanstackquery, name: "TanStack Query", color: "#FF4154" },
 ]
 
 const BACKEND_TECHS: Tech[] = [
   { icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
-  { icon: SiExpress, name: "Express", color: "#ffffff" },
+  { icon: SiExpress, name: "Express.js", color: "#ffffff" },
   { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
   { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+  { icon: SiMysql, name: "MySQL", color: "#4479A1" },
+  { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
   { icon: SiPrisma, name: "Prisma", color: "#5A67D8" },
   { icon: SiDrizzle, name: "Drizzle", color: "#C5F74F" },
-  { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: SiGit, name: "Git", color: "#F05032" },
+  { icon: SiGraphql, name: "GraphQL", color: "#E10098" },
 ]
 
 const TOOLS: Tech[] = [
   { icon: SiGit, name: "Git", color: "#F05032" },
   { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+  { icon: SiNextauth, name: "NextAuth", color: "#ffffff" },
+  { icon: SiFigma, name: "Figma", color: "#F24E1E" },
 ]
 
 function TechCard({ icon: Icon, name, color }: Tech) {
