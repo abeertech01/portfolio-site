@@ -1,0 +1,176 @@
+"use client"
+
+import React from "react"
+import { twMerge } from "tailwind-merge"
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiRedux,
+  SiCss,
+  SiSass,
+  SiTailwindcss,
+  SiShadcnui,
+  SiNodedotjs,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiGit,
+  SiExpress,
+  SiPrisma,
+  SiDrizzle,
+} from "react-icons/si"
+import type { IconType } from "react-icons"
+
+type Tech = { icon: IconType; name: string; color: string }
+
+const FRONTEND_TECHS: Tech[] = [
+  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, name: "Next.js", color: "#ffffff" },
+  { icon: SiRedux, name: "Redux", color: "#764ABC" },
+  { icon: SiCss, name: "CSS", color: "#1572B6" },
+  { icon: SiSass, name: "SCSS", color: "#CC6699" },
+  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#38BDF8" },
+  { icon: SiShadcnui, name: "Shadcn UI", color: "#ffffff" },
+]
+
+const BACKEND_TECHS: Tech[] = [
+  { icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
+  { icon: SiExpress, name: "Express", color: "#ffffff" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+  { icon: SiPrisma, name: "Prisma", color: "#5A67D8" },
+  { icon: SiDrizzle, name: "Drizzle", color: "#C5F74F" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiGit, name: "Git", color: "#F05032" },
+]
+
+const TOOLS: Tech[] = [
+  { icon: SiGit, name: "Git", color: "#F05032" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+]
+
+function TechCard({ icon: Icon, name, color }: Tech) {
+  return (
+    <div className="inline-flex items-center gap-3 px-4 py-3 whitespace-nowrap">
+      <Icon size={28} color={color} className="shrink-0" />
+      <span className="font-grotesk text-[1.05rem] text-white/85 tracking-[0.01em]">
+        {name}
+      </span>
+    </div>
+  )
+}
+
+interface TechTapeProps {
+  items: Tech[]
+  dir: "ltr" | "rtl"
+  onHover?: (hovering: boolean) => void
+}
+
+function TechTape({ items, dir }: TechTapeProps) {
+  const [isHovering, setIsHovering] = React.useState(false)
+  const fade =
+    "linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)"
+
+  return (
+    <div
+      className="relative flex items-center bg-white/2 border-white/5 border-y overflow-hidden py-4"
+      style={{ maskImage: fade, WebkitMaskImage: fade }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div
+        className={`flex w-max will-change-transform ${
+          isHovering ? "" : dir === "ltr" ? "animate-scroll-ltr" : "animate-scroll-rtl"
+        }`}
+        style={
+          isHovering
+            ? { animationPlayState: "paused" }
+            : {}
+        }
+      >
+        {[...items, ...items].map((tech, i) => (
+          <TechCard key={`${tech.name}-${i}`} {...tech} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function ToolsGrid({ items }: { items: Tech[] }) {
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {items.map((tech) => (
+        <div
+          key={tech.name}
+          className="flex flex-col items-center gap-3 bg-white/3 hover:bg-white/6 border border-white/8 hover:border-emerald-400/30 rounded-[12px] p-5 transition-colors"
+        >
+          <tech.icon size={40} color={tech.color} />
+          <span className="font-grotesk text-[0.95rem] text-white/80 text-center">
+            {tech.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default function Skills() {
+  return (
+    <section
+      id="skills"
+      className="mx-auto px-8 py-28 w-full max-w-243.75 scroll-mt-24"
+    >
+
+      {/* Heading */}
+      <div className="mb-12">
+        <p className="font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em] mb-2">
+          TECH STACK
+        </p>
+        <h2 className="text-[3.2rem] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          <span className="text-white">My </span>
+          <span
+            className="bg-gradient-to-r from-white via-purple-300 to-purple-500 bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(90deg, #ffffff 0%, #c084fc 50%, #a855f7 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Skills
+          </span>
+        </h2>
+      </div>
+
+      {/* Frontend Tape */}
+      <div className="mb-6">
+        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
+          Frontend Technologies
+        </p>
+        <TechTape items={FRONTEND_TECHS} dir="ltr" />
+      </div>
+
+      {/* Backend Tape */}
+      <div className="mb-12">
+        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
+          Backend Technologies
+        </p>
+        <TechTape items={BACKEND_TECHS} dir="rtl" />
+      </div>
+
+      {/* Tools Section */}
+      <div>
+        <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-4">
+          Tools &amp; Databases
+        </p>
+        <ToolsGrid items={TOOLS} />
+      </div>
+    </section>
+  )
+}

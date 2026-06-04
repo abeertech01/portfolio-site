@@ -150,6 +150,42 @@
   animation: map-scan 7s linear infinite;
 }
 
+@keyframes marquee-ltr {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-ltr {
+  animation: marquee-ltr 22s linear infinite;
+}
+
+.marquee-rtl {
+  animation: marquee-rtl 22s linear infinite;
+}
+
+@keyframes scroll-ltr {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scroll-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-scroll-ltr {
+  animation: scroll-ltr 30s linear infinite;
+}
+
+.animate-scroll-rtl {
+  animation: scroll-rtl 30s linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
