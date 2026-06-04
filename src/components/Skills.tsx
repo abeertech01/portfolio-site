@@ -128,16 +128,16 @@ export default function Skills() {
     >
 
       {/* Heading */}
-      <div className="mb-12">
+      <div className="mb-12 bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-8 backdrop-blur-[20px]">
         <p className="font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em] mb-2">
           TECH STACK
         </p>
         <h2 className="text-[3.2rem] font-extrabold leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">My </span>
           <span
-            className="bg-gradient-to-r from-white via-purple-300 to-purple-500 bg-clip-text text-transparent"
+            className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: "linear-gradient(90deg, #ffffff 0%, #c084fc 50%, #a855f7 100%)",
+              backgroundImage: "linear-gradient(90deg, #ffffff 0%, #34d399 50%, #10b981 100%)",
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -149,23 +149,23 @@ export default function Skills() {
       </div>
 
       {/* Frontend Tape */}
-      <div className="mb-6">
+      <div className="mb-6 bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 backdrop-blur-[20px]">
         <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
           Frontend Technologies
         </p>
-        <TechTape items={FRONTEND_TECHS} dir="ltr" />
+        <TechTape items={FRONTEND_TECHS} dir="rtl" />
       </div>
 
       {/* Backend Tape */}
-      <div className="mb-12">
+      <div className="mb-12 bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 backdrop-blur-[20px]">
         <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-3">
           Backend Technologies
         </p>
-        <TechTape items={BACKEND_TECHS} dir="rtl" />
+        <TechTape items={BACKEND_TECHS} dir="ltr" />
       </div>
 
       {/* Tools Section */}
-      <div>
+      <div className="bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-8 backdrop-blur-[20px]">
         <p className="font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em] mb-4">
           Tools &amp; Databases
         </p>
