@@ -97,13 +97,9 @@ function TechTape({ items, dir }: TechTapeProps) {
     >
       <div
         className={`flex w-max will-change-transform ${
-          isHovering
-            ? ""
-            : dir === "ltr"
-              ? "animate-scroll-ltr"
-              : "animate-scroll-rtl"
+          dir === "ltr" ? "animate-scroll-ltr" : "animate-scroll-rtl"
         }`}
-        style={isHovering ? { animationPlayState: "paused" } : {}}
+        style={{ animationPlayState: isHovering ? "paused" : "running" }}
       >
         {[...items, ...items].map((tech, i) => (
           <TechCard key={`${tech.name}-${i}`} {...tech} />
@@ -138,7 +134,7 @@ export default function Skills() {
       className="mx-auto px-8 py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Heading */}
-      <div className="mb-12">
+      <div className="mb-12 text-center">
         <p className="mb-2 font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em]">
           TECH STACK
         </p>
