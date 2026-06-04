@@ -372,11 +372,43 @@ export default function About() {
               <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
-            {/* featured posts — stacked */}
+            {/* featured posts explanation */}
+            <p className="text-[0.85rem] text-white/55 leading-[1.5]">
+              Posts featured and shared by the platforms' official handles
+            </p>
+
+            {/* featured posts — stacked (first 3 only) */}
             <div className="flex flex-col gap-2">
-              {BLOG_POSTS.map((p) => (
+              {BLOG_POSTS.slice(0, 3).map((p) => (
                 <BlogCard key={p.href} {...p} />
               ))}
+            </div>
+
+            {/* explore more links */}
+            <div className="flex flex-col gap-2 mt-auto pt-2">
+              <p className="text-[0.75rem] text-white/40 uppercase tracking-[0.12em] font-grotesk">
+                Explore more
+              </p>
+              <div className="flex gap-2">
+                <a
+                  href="https://abeer.hashnode.dev"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-white/3 hover:bg-white/6 border border-white/6 hover:border-emerald-400/40 rounded-[8px] text-[0.8rem] font-medium text-white/70 hover:text-emerald-400 transition-colors"
+                >
+                  <SiHashnode size={14} />
+                  Hashnode
+                </a>
+                <a
+                  href="https://dev.to/abeertech01"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-white/3 hover:bg-white/6 border border-white/6 hover:border-emerald-400/40 rounded-[8px] text-[0.8rem] font-medium text-white/70 hover:text-emerald-400 transition-colors"
+                >
+                  <SiDevdotto size={14} />
+                  Dev.to
+                </a>
+              </div>
             </div>
           </div>
 
