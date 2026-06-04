@@ -26,7 +26,6 @@ import {
   SiExpress,
   SiPrisma,
   SiDrizzle,
-  SiNextauth,
   SiFigma,
 } from "react-icons/si"
 import type { IconType } from "react-icons"
@@ -63,7 +62,6 @@ const BACKEND_TECHS: Tech[] = [
 const TOOLS: Tech[] = [
   { icon: SiGit, name: "Git", color: "#F05032" },
   { icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { icon: SiNextauth, name: "NextAuth", color: "#ffffff" },
   { icon: SiFigma, name: "Figma", color: "#F24E1E" },
 ]
 
