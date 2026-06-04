@@ -2,6 +2,7 @@ import Image from "next/image"
 import avatar from "@/assets/abeer-avatar.png"
 import TiltCard from "@/components/TiltCard"
 import About from "@/components/About"
+import Projects from "@/components/Projects"
 
 export default function Home() {
   return (
@@ -75,6 +76,7 @@ export default function Home() {
       </main>
 
       <About />
+      <Projects />
     </>
   )
 }
