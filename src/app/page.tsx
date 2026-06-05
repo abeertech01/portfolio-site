@@ -14,7 +14,7 @@ export default function Home() {
         {/* Hero group — card + text, centered together */}
         <div className="flex flex-col items-center gap-8">
           {/* Glass card */}
-          <TiltCard className="relative w-77.5 h-100">
+          <TiltCard className="relative w-62 md:w-77.5 h-80 md:h-100">
             <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] backdrop-blur-[20px] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
               <Image
                 src={avatar}
@@ -44,12 +44,12 @@ export default function Home() {
 
           {/* Greeting */}
           <h1 className="text-center leading-[1.3]">
-            <span className="block mb-[0.4rem] font-grotesk font-semibold text-[1.9rem] text-white/60">
+            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-white/60 md:text-[1.9rem]">
               Hey, I&apos;m
             </span>
 
             {/* Bebas Neue name on solid emerald background */}
-            <span className="inline-block bg-[#23947d] p-[0.18em_0.5em_0.10em] font-bebas text-[3.2rem] text-white leading-none tracking-[0.04em]">
+            <span className="inline-block bg-[#23947d] p-[0.12em_0.3em_0.07em] md:p-[0.18em_0.5em_0.10em] font-bebas text-[2.5rem] text-white md:text-[3.2rem] leading-none tracking-[0.04em]">
               Abeer Abdul-Ahad
             </span>
           </h1>

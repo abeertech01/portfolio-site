@@ -1,11 +1,9 @@
 "use client"
 
-import { Moon, Sun, FileText } from "lucide-react"
+import { Moon, Sun, FileText, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useSyncExternalStore } from "react"
 
-// `target` is the id of the section to scroll to. "top" means top of page.
-// Items without a target just light up as active for now.
 const navItems: { label: string; target: string }[] = [
   { label: "Home", target: "top" },
   { label: "About", target: "about" },
@@ -16,10 +14,12 @@ const navItems: { label: string; target: string }[] = [
 
 export default function Navbar() {
   const [active, setActive] = useState("Home")
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const { theme, setTheme } = useTheme()
 
   function handleNavClick(item: (typeof navItems)[number]) {
     setActive(item.label)
+    setDrawerOpen(false)
     if (item.target === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
@@ -29,8 +29,6 @@ export default function Navbar() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
-  // useSyncExternalStore returns false on the server and true on the client —
-  // no setState-in-effect cascade, no hydration mismatch.
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -40,47 +38,120 @@ export default function Navbar() {
   const isDark = theme === "dark"
 
   return (
-    <nav className="top-0 right-0 left-0 z-50 fixed py-4">
-      <div className="items-center grid grid-cols-3 mx-auto px-8 max-w-6xl">
-        {/* Left — theme toggle */}
-        <button
-          aria-label="Toggle theme"
-          disabled
-          onClick={() => setTheme(isDark ? "light" : "dark")}
-          className="flex justify-center items-center bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
-        >
-          {mounted && (isDark ? <Moon size={17} /> : <Sun size={17} />)}
-        </button>
+    <>
+      <nav className="top-0 right-0 left-0 z-50 fixed py-4 bg-background/75 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+        <div className="items-center grid grid-cols-3 mx-auto px-8 max-w-6xl">
+          {/* Left — theme toggle */}
+          <button
+            aria-label="Toggle theme"
+            disabled
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="flex justify-center justify-self-start items-center bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
+          >
+            {mounted && (isDark ? <Moon size={17} /> : <Sun size={17} />)}
+          </button>
 
-        {/* Center — pill nav */}
-        <div className="flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
+          {/* Center — pill nav (desktop only) */}
+          <div className="hidden md:flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item)}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium
+                            transition-all duration-200 cursor-pointer
+                            ${
+                              active === item.label
+                                ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
+                                : "text-black/55 dark:text-white/65 hover:text-black/80 dark:hover:text-white/90"
+                            }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Right — Get Resume (desktop) + Hamburger (mobile) */}
+          <div className="flex justify-self-end items-center gap-3">
+            <a
+              href="/abeer_resume.pdf"
+              download="Abeer_Abdul-Ahad_Resume.pdf"
+              className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-5 py-2.5 border border-black/10 dark:border-white/10 rounded-full font-medium text-black/50 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
+            >
+              <FileText size={16} />
+              Get Resume
+            </a>
+
+            <button
+              aria-label="Open menu"
+              onClick={() => setDrawerOpen(true)}
+              className="md:hidden flex justify-center items-center bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
+            >
+              <Menu size={18} />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Backdrop */}
+      <div
+        onClick={() => setDrawerOpen(false)}
+        className={`md:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          drawerOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Drawer */}
+      <div
+        className={`md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#0e1a18] border-l border-white/8 flex flex-col transition-transform duration-300 ease-in-out ${
+          drawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Drawer header */}
+        <div className="flex justify-between items-center px-6 py-5 border-white/8 border-b">
+          <span className="font-grotesk font-semibold text-white/80 text-sm tracking-wide">
+            Menu
+          </span>
+          <button
+            onClick={() => setDrawerOpen(false)}
+            className="flex justify-center items-center bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-9 h-9 text-white/50 hover:text-white transition-colors"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Nav items */}
+        <div className="flex flex-col flex-1 gap-1 px-4 py-6">
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => handleNavClick(item)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium
-                          transition-all duration-200 cursor-pointer
-                          ${
-                            active === item.label
-                              ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
-                              : "text-black/40 dark:text-white/50 hover:text-black/70 dark:hover:text-white/80"
-                          }`}
+              className={`px-4 py-3.5 rounded-xl text-left font-medium text-[0.95rem] transition-all duration-200 cursor-pointer
+                ${
+                  active === item.label
+                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                    : "text-white/50 hover:text-white hover:bg-white/5 border border-transparent"
+                }`}
             >
               {item.label}
             </button>
           ))}
         </div>
 
-        {/* Right — Get Resume */}
-        <a
-          href="/abeer_resume.pdf"
-          download="Abeer_Abdul-Ahad_Resume.pdf"
-          className="flex justify-self-end items-center gap-2 bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl px-5 py-2.5 border border-black/10 dark:border-white/10 rounded-full font-medium text-black/50 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
-        >
-          <FileText size={16} />
-          Get Resume
-        </a>
+        {/* Get Resume at bottom */}
+        <div className="px-4 pb-8">
+          <a
+            href="/abeer_resume.pdf"
+            download="Abeer_Abdul-Ahad_Resume.pdf"
+            onClick={() => setDrawerOpen(false)}
+            className="flex justify-center items-center gap-2 bg-emerald-700 hover:bg-emerald-600 px-5 py-3.5 rounded-xl w-full font-grotesk font-semibold text-white text-sm transition-colors cursor-pointer"
+          >
+            <FileText size={15} />
+            Get Resume
+          </a>
+        </div>
       </div>
-    </nav>
+    </>
   )
 }

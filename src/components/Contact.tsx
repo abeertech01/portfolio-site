@@ -19,14 +19,14 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto px-8 py-28 w-full max-w-243.75 scroll-mt-24"
+      className="mx-auto px-4 md:px-8 py-16 md:py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Eyebrow */}
-      <div className="mb-12 text-center">
+      <div className="mb-8 md:mb-12 text-center">
         <p className="mb-2 font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em]">
           Contact
         </p>
-        <h2 className="font-extrabold text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
+        <h2 className="font-extrabold text-[2rem] md:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">Let&apos;s Build </span>
           <span
             style={{
@@ -43,10 +43,10 @@ export default function Contact() {
       </div>
 
       {/* Two-column body */}
-      <div className="gap-12 grid grid-cols-1 md:grid-cols-2 items-stretch">
+      <div className="gap-6 md:gap-12 grid grid-cols-1 md:grid-cols-2 items-stretch">
 
         {/* Left — info side */}
-        <div className="flex flex-col gap-8 bg-white/4 backdrop-blur-[20px] p-7 border border-white/8 rounded-[16px]">
+        <div className="flex flex-col gap-6 md:gap-8 bg-white/4 backdrop-blur-[20px] p-4 md:p-7 border border-white/8 rounded-[16px]">
           <p className="text-white/60 text-[1rem] leading-[1.75]">
             There was a period where things went quiet for me — professionally
             and personally. I&apos;m not hiding from that. What I am doing is
@@ -119,9 +119,9 @@ export default function Contact() {
         {/* Right — form side */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 bg-white/4 backdrop-blur-[20px] p-7 border border-white/8 rounded-[16px]"
+          className="flex flex-col gap-4 bg-white/4 backdrop-blur-[20px] p-4 md:p-7 border border-white/8 rounded-[16px]"
         >
-          <div className="gap-4 grid grid-cols-2">
+          <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="name"
@@ -171,7 +171,7 @@ export default function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="What's on your mind?"
-              className="flex-1 bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] text-white/85 text-[0.9rem] placeholder:text-white/25 outline-none transition-colors resize-none"
+              className="flex-1 min-h-[140px] md:min-h-0 bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] text-white/85 text-[0.9rem] placeholder:text-white/25 outline-none transition-colors resize-none"
             />
           </div>
 
