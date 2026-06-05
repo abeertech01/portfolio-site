@@ -6,12 +6,12 @@ import { useState, useSyncExternalStore } from "react"
 
 // `target` is the id of the section to scroll to. "top" means top of page.
 // Items without a target just light up as active for now.
-const navItems: { label: string; target?: string }[] = [
+const navItems: { label: string; target: string }[] = [
   { label: "Home", target: "top" },
   { label: "About", target: "about" },
-  { label: "Projects" },
-  { label: "Skills" },
-  { label: "Other" },
+  { label: "Projects", target: "projects" },
+  { label: "Skills", target: "skills" },
+  { label: "Contact", target: "contact" },
 ]
 
 export default function Navbar() {
@@ -20,7 +20,6 @@ export default function Navbar() {
 
   function handleNavClick(item: (typeof navItems)[number]) {
     setActive(item.label)
-    if (!item.target) return
     if (item.target === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
@@ -46,14 +45,15 @@ export default function Navbar() {
         {/* Left — theme toggle */}
         <button
           aria-label="Toggle theme"
+          disabled
           onClick={() => setTheme(isDark ? "light" : "dark")}
-          className="flex justify-center items-center bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
+          className="flex justify-center items-center bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
         >
           {mounted && (isDark ? <Moon size={17} /> : <Sun size={17} />)}
         </button>
 
         {/* Center — pill nav */}
-        <div className="flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
+        <div className="flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
           {navItems.map((item) => (
             <button
               key={item.label}
@@ -72,10 +72,14 @@ export default function Navbar() {
         </div>
 
         {/* Right — Get Resume */}
-        <button className="flex justify-self-end items-center gap-2 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-5 py-2.5 border border-black/10 dark:border-white/10 rounded-full font-medium text-black/50 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer">
+        <a
+          href="/abeer_resume.pdf"
+          download="Abeer_Abdul-Ahad_Resume.pdf"
+          className="flex justify-self-end items-center gap-2 bg-black/5 dark:bg-emerald-900/35 backdrop-blur-2xl px-5 py-2.5 border border-black/10 dark:border-white/10 rounded-full font-medium text-black/50 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
+        >
           <FileText size={16} />
           Get Resume
-        </button>
+        </a>
       </div>
     </nav>
   )
