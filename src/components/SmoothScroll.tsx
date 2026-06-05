@@ -20,8 +20,12 @@ export default function SmoothScroll() {
 
     rafId = requestAnimationFrame(raf)
 
+    const ro = new ResizeObserver(() => lenis.resize())
+    ro.observe(document.body)
+
     return () => {
       cancelAnimationFrame(rafId)
+      ro.disconnect()
       lenis.destroy()
     }
   }, [])
