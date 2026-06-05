@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="top-0 right-0 left-0 z-50 fixed py-4 bg-background/75 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
-        <div className="items-center grid grid-cols-3 mx-auto px-8 max-w-6xl">
+        <div className="flex justify-between items-center md:grid md:grid-cols-3 mx-auto px-8 max-w-6xl">
           {/* Left — theme toggle */}
           <button
             aria-label="Toggle theme"
