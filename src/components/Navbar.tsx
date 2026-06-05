@@ -39,20 +39,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="top-0 right-0 left-0 z-50 fixed py-4 bg-background/75 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+      <nav className="top-0 right-0 left-0 z-50 fixed py-4">
         <div className="flex justify-between items-center md:grid md:grid-cols-3 mx-auto px-8 max-w-6xl">
           {/* Left — theme toggle */}
           <button
             aria-label="Toggle theme"
             disabled
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="flex justify-center justify-self-start items-center bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
+            className="flex justify-center justify-self-start items-center bg-black/20 dark:bg-black/50 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
           >
             {mounted && (isDark ? <Moon size={17} /> : <Sun size={17} />)}
           </button>
 
           {/* Center — pill nav (desktop only) */}
-          <div className="hidden md:flex justify-self-center items-center gap-0.5 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-1.5 py-1.5 border border-black/10 dark:border-white/10 rounded-full">
+          <div className="hidden md:flex justify-self-center items-center gap-0.5 bg-black/20 dark:bg-black/50 backdrop-blur-2xl px-1.5 py-1.5 border border-black/15 dark:border-white/10 rounded-full">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -75,7 +75,7 @@ export default function Navbar() {
             <a
               href="/abeer_resume.pdf"
               download="Abeer_Abdul-Ahad_Resume.pdf"
-              className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 backdrop-blur-2xl px-5 py-2.5 border border-black/10 dark:border-white/10 rounded-full font-medium text-black/50 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
+              className="hidden md:flex items-center gap-2 bg-black/20 dark:bg-black/50 backdrop-blur-2xl px-5 py-2.5 border border-black/15 dark:border-white/10 rounded-full font-medium text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
             >
               <FileText size={16} />
               Get Resume
@@ -84,7 +84,7 @@ export default function Navbar() {
             <button
               aria-label="Open menu"
               onClick={() => setDrawerOpen(true)}
-              className="md:hidden flex justify-center items-center bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/50 hover:text-black dark:hover:text-white dark:text-white/60 transition-colors duration-200"
+              className="md:hidden flex justify-center items-center bg-black/20 dark:bg-black/50 backdrop-blur-2xl border border-black/15 dark:border-white/10 rounded-full w-11 h-11 text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
             >
               <Menu size={18} />
             </button>
