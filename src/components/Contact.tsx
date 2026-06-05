@@ -13,7 +13,8 @@ export default function Contact() {
     const body = encodeURIComponent(
       `From: ${name}\nEmail: ${email}\n\n${message}`
     )
-    window.location.href = `mailto:abeer.technology@gmail.com?subject=${subject}&body=${body}`
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=abeer.technology@gmail.com&su=${subject}&body=${body}`
+    window.open(gmailUrl, "_blank")
   }
 
   return (
