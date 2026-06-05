@@ -4,6 +4,7 @@ import "./globals.css"
 import CursorSpotlight from "@/components/CursorSpotlight"
 import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import SmoothScroll from "@/components/SmoothScroll"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="relative z-0 flex flex-col min-h-full">
         <ThemeProvider>
+          <SmoothScroll />
           <CursorSpotlight />
           <Navbar />
           {children}
