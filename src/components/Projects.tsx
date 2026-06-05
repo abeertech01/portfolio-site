@@ -123,9 +123,8 @@ export default function Projects() {
       </div>
 
       {/* Subtitle */}
-      <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-base md:text-[1.1rem] text-white/60 text-center leading-[1.6]">
-        A curated selection of projects that made me confident in building
-        software.
+      <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-white/60 md:text-[1.1rem] text-base text-center leading-[1.6]">
+        The projects I developed, that made me confident in building software.
       </p>
 
       {/* Projects Grid */}
@@ -210,7 +209,7 @@ export default function Projects() {
           <div className="relative h-full">
             <button
               onClick={handleViewMore}
-              className="group flex flex-col justify-center items-center bg-white/3 backdrop-blur-[20px] border-2 border-white/10 hover:border-emerald-400/40 rounded-3xl w-full min-h-[200px] md:h-[calc(100%-2.875rem)] transition-all duration-300 cursor-pointer"
+              className="group flex flex-col justify-center items-center bg-white/3 backdrop-blur-[20px] border-2 border-white/10 hover:border-emerald-400/40 rounded-3xl w-full md:h-[calc(100%-2.875rem)] min-h-50 transition-all duration-300 cursor-pointer"
             >
               <div className="flex flex-col items-center gap-4">
                 <div className="flex justify-center items-center bg-emerald-400/10 group-hover:bg-emerald-400/20 rounded-full w-16 h-16 transition-colors">

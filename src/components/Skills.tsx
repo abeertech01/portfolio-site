@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { twMerge } from "tailwind-merge"
 import {
   SiJavascript,
   SiTypescript,
@@ -69,9 +68,9 @@ const TOOLS: Tech[] = [
 function TechCard({ icon: Icon, name, color }: Tech) {
   return (
     <div className="inline-flex items-center gap-2 md:gap-3 px-3 md:px-4 py-3 whitespace-nowrap">
-      <Icon size={20} color={color} className="shrink-0 md:hidden" />
-      <Icon size={28} color={color} className="shrink-0 hidden md:block" />
-      <span className="font-grotesk text-[0.88rem] md:text-[1.05rem] text-white/85 tracking-[0.01em]">
+      <Icon size={20} color={color} className="md:hidden shrink-0" />
+      <Icon size={28} color={color} className="hidden md:block shrink-0" />
+      <span className="font-grotesk text-[0.88rem] text-white/85 md:text-[1.05rem] tracking-[0.01em]">
         {name}
       </span>
     </div>
@@ -120,7 +119,7 @@ function ToolsGrid({ items }: { items: Tech[] }) {
         >
           <tech.icon size={28} color={tech.color} className="md:hidden" />
           <tech.icon size={40} color={tech.color} className="hidden md:block" />
-          <span className="font-grotesk text-[0.8rem] md:text-[0.95rem] text-white/80 text-center">
+          <span className="font-grotesk text-[0.8rem] text-white/80 md:text-[0.95rem] text-center">
             {tech.name}
           </span>
         </div>
@@ -143,7 +142,7 @@ export default function Skills() {
         <h2 className="font-extrabold text-[2rem] md:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">My </span>
           <span
-            className="bg-clip-text bg-gradient-to-r from-white via-emerald-300 to-emerald-500 text-transparent"
+            className="bg-clip-text bg-linear-to-r from-white via-emerald-300 to-emerald-500 text-transparent"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, #ffffff 0%, #6ee7b7 50%, #10b981 100%)",

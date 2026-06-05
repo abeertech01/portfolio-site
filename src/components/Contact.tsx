@@ -11,7 +11,7 @@ export default function Contact() {
     e.preventDefault()
     const subject = encodeURIComponent(`Message from ${name}`)
     const body = encodeURIComponent(
-      `From: ${name}\nEmail: ${email}\n\n${message}`
+      `From: ${name}\nEmail: ${email}\n\n${message}`,
     )
     const gmailUrl = `https://mail.google.com/mail/?view=cm&to=abeer.technology@gmail.com&su=${subject}&body=${body}`
     window.open(gmailUrl, "_blank")
@@ -44,11 +44,10 @@ export default function Contact() {
       </div>
 
       {/* Two-column body */}
-      <div className="gap-6 md:gap-12 grid grid-cols-1 md:grid-cols-2 items-stretch">
-
+      <div className="items-stretch gap-6 md:gap-12 grid grid-cols-1 md:grid-cols-2">
         {/* Left — info side */}
         <div className="flex flex-col gap-6 md:gap-8 bg-white/4 backdrop-blur-[20px] p-4 md:p-7 border border-white/8 rounded-[16px]">
-          <p className="text-white/60 text-[1rem] leading-[1.75]">
+          <p className="text-[1rem] text-white/60 leading-[1.75]">
             There was a period where things went quiet for me — professionally
             and personally. I&apos;m not hiding from that. What I am doing is
             coming back stronger, being intentional about it, and sharing the
@@ -60,8 +59,8 @@ export default function Contact() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 bg-white/4 backdrop-blur-[20px] px-5 py-4 border border-white/8 rounded-[12px]">
               <span className="relative flex w-2.5 h-2.5 shrink-0">
-                <span className="absolute inline-flex bg-emerald-400 opacity-75 rounded-full w-full h-full animate-ping" />
-                <span className="relative inline-flex bg-emerald-400 rounded-full w-2.5 h-2.5" />
+                <span className="inline-flex absolute bg-emerald-400 opacity-75 rounded-full w-full h-full animate-ping" />
+                <span className="inline-flex relative bg-emerald-400 rounded-full w-2.5 h-2.5" />
               </span>
               <span className="font-grotesk text-[0.9rem] text-white/80">
                 Open to full-time &amp; freelance opportunities
@@ -112,7 +111,7 @@ export default function Contact() {
           </div>
 
           {/* Reply time note */}
-          <p className="text-white/30 text-[0.82rem]">
+          <p className="text-[0.82rem] text-white/30">
             I typically reply within 24 hours.
           </p>
         </div>
@@ -137,7 +136,7 @@ export default function Contact() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
-                className="bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] text-white/85 text-[0.9rem] placeholder:text-white/25 outline-none transition-colors"
+                className="bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] outline-none text-[0.9rem] text-white/85 placeholder:text-white/25 transition-colors"
               />
             </div>
             <div className="flex flex-col gap-1.5">
@@ -154,7 +153,7 @@ export default function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] text-white/85 text-[0.9rem] placeholder:text-white/25 outline-none transition-colors"
+                className="bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] outline-none text-[0.9rem] text-white/85 placeholder:text-white/25 transition-colors"
               />
             </div>
           </div>
@@ -172,7 +171,7 @@ export default function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="What's on your mind?"
-              className="flex-1 min-h-[140px] md:min-h-0 bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] text-white/85 text-[0.9rem] placeholder:text-white/25 outline-none transition-colors resize-none"
+              className="flex-1 bg-white/4 px-4 py-3 border border-white/8 focus:border-emerald-400/40 rounded-[10px] outline-none min-h-35 md:min-h-0 text-[0.9rem] text-white/85 placeholder:text-white/25 transition-colors resize-none"
             />
           </div>
 
@@ -183,7 +182,6 @@ export default function Contact() {
             Send Message
           </button>
         </form>
-
       </div>
     </section>
   )
