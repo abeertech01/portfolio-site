@@ -68,9 +68,10 @@ const TOOLS: Tech[] = [
 
 function TechCard({ icon: Icon, name, color }: Tech) {
   return (
-    <div className="inline-flex items-center gap-3 px-4 py-3 whitespace-nowrap">
-      <Icon size={28} color={color} className="shrink-0" />
-      <span className="font-grotesk text-[1.05rem] text-white/85 tracking-[0.01em]">
+    <div className="inline-flex items-center gap-2 md:gap-3 px-3 md:px-4 py-3 whitespace-nowrap">
+      <Icon size={20} color={color} className="shrink-0 md:hidden" />
+      <Icon size={28} color={color} className="shrink-0 hidden md:block" />
+      <span className="font-grotesk text-[0.88rem] md:text-[1.05rem] text-white/85 tracking-[0.01em]">
         {name}
       </span>
     </div>
@@ -115,10 +116,11 @@ function ToolsGrid({ items }: { items: Tech[] }) {
       {items.map((tech) => (
         <div
           key={tech.name}
-          className="flex flex-col items-center gap-3 bg-white/4 hover:bg-white/6 backdrop-blur-[20px] p-5 border border-white/8 hover:border-emerald-400/30 rounded-[12px] transition-colors"
+          className="flex flex-col items-center gap-2 md:gap-3 bg-white/4 hover:bg-white/6 backdrop-blur-[20px] p-3.5 md:p-5 border border-white/8 hover:border-emerald-400/30 rounded-[12px] transition-colors"
         >
-          <tech.icon size={40} color={tech.color} />
-          <span className="font-grotesk text-[0.95rem] text-white/80 text-center">
+          <tech.icon size={28} color={tech.color} className="md:hidden" />
+          <tech.icon size={40} color={tech.color} className="hidden md:block" />
+          <span className="font-grotesk text-[0.8rem] md:text-[0.95rem] text-white/80 text-center">
             {tech.name}
           </span>
         </div>
@@ -131,14 +133,14 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="mx-auto px-8 py-28 w-full max-w-243.75 scroll-mt-24"
+      className="mx-auto px-4 md:px-8 py-16 md:py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Heading */}
-      <div className="mb-12 text-center">
+      <div className="mb-8 md:mb-12 text-center">
         <p className="mb-2 font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.18em]">
           TECH STACK
         </p>
-        <h2 className="font-extrabold text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
+        <h2 className="font-extrabold text-[2rem] md:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">My </span>
           <span
             className="bg-clip-text bg-gradient-to-r from-white via-emerald-300 to-emerald-500 text-transparent"
@@ -164,7 +166,7 @@ export default function Skills() {
       </div>
 
       {/* Backend Tape */}
-      <div className="mb-12">
+      <div className="mb-8 md:mb-12">
         <p className="mb-3 font-grotesk text-[0.7rem] text-white/45 uppercase tracking-[0.14em]">
           Backend Technologies
         </p>

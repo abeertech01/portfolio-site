@@ -103,7 +103,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto px-8 pb-28 w-full max-w-6xl scroll-mt-24"
+      className="mx-auto px-4 md:px-8 pb-16 md:pb-28 w-full max-w-6xl scroll-mt-24"
     >
       {/* Portfolio label */}
       <div className="mb-8 text-center">
@@ -114,7 +114,7 @@ export default function Projects() {
 
       {/* Heading with emerald accent */}
       <div className="mb-6 text-center">
-        <h2 className="font-bold text-[3rem] leading-[1.1] tracking-[-0.02em]">
+        <h2 className="font-bold text-[2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-white">Featured </span>
           <span className="bg-clip-text bg-linear-to-r from-emerald-400 to-emerald-300 text-transparent">
             Projects
@@ -123,7 +123,7 @@ export default function Projects() {
       </div>
 
       {/* Subtitle */}
-      <p className="mx-auto mb-20 max-w-2xl text-[1.1rem] text-white/60 text-center leading-[1.6]">
+      <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-base md:text-[1.1rem] text-white/60 text-center leading-[1.6]">
         A curated selection of projects that made me confident in building
         software.
       </p>
@@ -210,7 +210,7 @@ export default function Projects() {
           <div className="relative h-full">
             <button
               onClick={handleViewMore}
-              className="group flex flex-col justify-center items-center bg-white/3 backdrop-blur-[20px] border-2 border-white/10 hover:border-emerald-400/40 rounded-3xl w-full h-[calc(100%-2.875rem)] transition-all duration-300 cursor-pointer"
+              className="group flex flex-col justify-center items-center bg-white/3 backdrop-blur-[20px] border-2 border-white/10 hover:border-emerald-400/40 rounded-3xl w-full min-h-[200px] md:h-[calc(100%-2.875rem)] transition-all duration-300 cursor-pointer"
             >
               <div className="flex flex-col items-center gap-4">
                 <div className="flex justify-center items-center bg-emerald-400/10 group-hover:bg-emerald-400/20 rounded-full w-16 h-16 transition-colors">
@@ -222,7 +222,7 @@ export default function Projects() {
                 <p className="font-bold text-white text-lg">More Projects</p>
               </div>
             </button>
-            <div className="opacity-0 h-11.5"></div>
+            <div className="opacity-0 md:h-11.5"></div>
           </div>
         )}
       </div>

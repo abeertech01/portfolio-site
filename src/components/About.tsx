@@ -210,30 +210,30 @@ export default function About() {
         }}
       />
       <HoverProvider>
-        <div className="gap-4 grid grid-cols-3 grid-rows-[180px_138.5px_138.5px_228px]">
+        <div className="gap-4 grid grid-cols-2 md:grid-cols-3 md:grid-rows-[180px_138.5px_138.5px_228px]">
           {/* ── 1 · Name ─────────────────────────────── col 1 · row 1 ── */}
           <div
             className={twMerge(
               card,
-              "col-start-1 row-start-1 flex flex-col justify-center items-center text-center px-6 py-5 backdrop-blur-[20px]",
+              "col-start-1 row-start-1 aspect-square md:aspect-auto md:row-end-2 flex flex-col justify-center items-center text-center px-6 py-5 backdrop-blur-[20px]",
             )}
           >
             <h2
-              className="font-extrabold text-white leading-[1.05] tracking-[-0.03em]"
+              className="font-extrabold text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em]"
               style={{
                 textShadow:
                   "0 0 18px rgba(255,255,255,0.6), 0 0 50px rgba(255,255,255,0.25), 0 0 100px rgba(255,255,255,0.1)",
               }}
             >
-              <span className="text-[2.2rem]">ABEER</span>
+              <span className="text-[1.6rem] md:text-[2.2rem]">ABEER</span>
               <br />
-              <span className="text-[2rem]">ABDUL AHAD</span>
+              <span className="text-[1.2rem] md:text-[2rem]">ABDUL AHAD</span>
             </h2>
 
             {/* separator */}
-            <div className="bg-white/30 my-3 w-14 h-[1.2px]" />
+            <div className="bg-white/30 my-4 md:my-3 w-14 h-[1.2px]" />
 
-            <p className="font-normal text-[0.77rem] text-white/42 uppercase tracking-[0.14em]">
+            <p className="font-normal text-[0.77rem] text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
               Full Stack Developer
             </p>
           </div>
@@ -242,7 +242,7 @@ export default function About() {
           <HoverZone
             className={twMerge(
               card,
-              "col-start-2 col-end-4 row-start-1 p-0 relative flex items-end backdrop-blur-[20px]",
+              "col-span-2 row-start-2 md:col-start-2 md:col-end-4 md:row-start-1 min-h-37.5 md:min-h-0 p-0 relative flex items-end backdrop-blur-[20px]",
             )}
           >
             {/* faint world map (white SVG used as a mask, tinted emerald-grey).
@@ -271,7 +271,7 @@ export default function About() {
             {/* readout */}
             <div className="relative p-7">
               <p
-                className="font-extrabold text-[2rem] text-white leading-none tracking-[-0.01em]"
+                className="font-extrabold text-[1.8rem] text-white md:text-[2rem] leading-[1.2] md:leading-none tracking-[-0.01em]"
                 style={{ textShadow: "0 0 24px #34d39955" }}
               >
                 DHAKA, BANGLADESH
@@ -289,7 +289,7 @@ export default function About() {
           <div
             className={twMerge(
               card,
-              "col-start-1 row-start-2 row-end-5 backdrop-blur-[20px] flex flex-col gap-3.5",
+              "col-span-2 row-start-3 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-5 backdrop-blur-[20px] flex flex-col gap-3.5",
             )}
           >
             {/* heading + underline */}
@@ -347,7 +347,7 @@ export default function About() {
           <div
             className={twMerge(
               card,
-              "col-start-2 row-start-2 row-end-4 p-0 relative",
+              "col-start-2 row-start-1 aspect-square md:aspect-auto md:row-start-2 md:row-end-4 p-0 relative",
             )}
           >
             <PhotoCard
@@ -361,7 +361,7 @@ export default function About() {
           <div
             className={twMerge(
               card,
-              "col-start-3 row-start-2 row-end-5 backdrop-blur-[20px] flex flex-col gap-5",
+              "col-span-2 row-start-5 md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-5 backdrop-blur-[20px] flex flex-col gap-5",
             )}
           >
             {/* heading + underline (matches "What I do" / "Get in touch") */}
@@ -416,7 +416,7 @@ export default function About() {
           <div
             className={twMerge(
               card,
-              "col-start-2 row-start-4 backdrop-blur-[20px] flex flex-col gap-3.5",
+              "col-span-2 row-start-4 md:col-start-2 md:col-end-3 md:row-start-4 backdrop-blur-[20px] flex flex-col gap-3.5",
             )}
           >
             {/* heading + underline (matches the "What I do" treatment) */}
