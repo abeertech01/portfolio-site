@@ -50,7 +50,7 @@ export default function Home() {
 
             {/* Bebas Neue name on solid emerald background */}
             <span className="inline-block bg-[#23947d] p-[0.12em_0.3em_0.07em] md:p-[0.18em_0.5em_0.10em] font-bebas text-[2.5rem] text-white md:text-[3.2rem] leading-none tracking-[0.04em]">
-              Abeer Abdul-Ahad
+              Abdul Ahad Abeer
             </span>
           </h1>
 
