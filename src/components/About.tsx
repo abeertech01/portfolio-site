@@ -1,4 +1,5 @@
 import React from "react"
+import AnimateIn from "@/components/AnimateIn"
 import { twMerge } from "tailwind-merge"
 import abeerInSuit from "@/assets/abeer-in-suit.png"
 import dhaka from "@/assets/dhaka_drone.jpg"
@@ -222,6 +223,7 @@ export default function About() {
         }}
       />
       <HoverProvider>
+        <AnimateIn threshold={0.05}>
         <div className="gap-4 grid grid-cols-2 md:grid-cols-3 md:grid-rows-[180px_138.5px_138.5px_228px]">
           {/* ── 1 · Name ─────────────────────────────── col 1 · row 1 ── */}
           <div
@@ -476,6 +478,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        </AnimateIn>
       </HoverProvider>
     </section>
   )

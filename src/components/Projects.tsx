@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
 import { ChevronRight } from "lucide-react"
@@ -105,6 +106,7 @@ export default function Projects() {
       id="projects"
       className="mx-auto px-4 md:px-8 pb-16 md:pb-28 w-full max-w-6xl scroll-mt-24"
     >
+      <AnimateIn>
       {/* Portfolio label */}
       <div className="mb-8 text-center">
         <p className="font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.2em]">
@@ -126,11 +128,13 @@ export default function Projects() {
       <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-zinc-500 dark:text-white/60 md:text-[1.1rem] text-base text-center leading-[1.6]">
         The projects I developed, that made me confident in building software.
       </p>
+      </AnimateIn>
 
       {/* Projects Grid */}
       <div className="gap-16 grid grid-cols-1 md:grid-cols-2">
-        {displayedProjects.map((project) => (
-          <div key={project.number}>
+        {displayedProjects.map((project, index) => (
+          <AnimateIn key={project.number} delay={index * 100}>
+          <div>
             {/* Project Card */}
             <div className="flex flex-col bg-black/[0.03] dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/[0.08] dark:border-white/10 hover:border-emerald-600/40 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
               {/* Project Header */}
@@ -202,6 +206,7 @@ export default function Projects() {
               ))}
             </div>
           </div>
+          </AnimateIn>
         ))}
 
         {/* View More Card */}
