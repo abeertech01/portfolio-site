@@ -10,11 +10,11 @@ import Footer from "@/components/Footer"
 export default function Home() {
   return (
     <>
-      <main className="flex flex-1 justify-center items-center pt-20 min-h-screen">
+      <main className="flex flex-1 justify-center items-center pt-20 min-h-svh md:min-h-screen">
         {/* Hero group — card + text, centered together */}
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-5 md:gap-8">
           {/* Glass card */}
-          <TiltCard className="relative w-62 md:w-77.5 h-80 md:h-100">
+          <TiltCard className="relative w-62 md:w-77.5 h-72 md:h-100">
             <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] backdrop-blur-[20px] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
               <Image
                 src={avatar}
@@ -55,7 +55,7 @@ export default function Home() {
           </h1>
 
           {/* Scroll indicator */}
-          <div className="flex flex-col items-center gap-1.5 mt-2 animate-[float-y_2.2s_ease-in-out_infinite]">
+          <div className="flex flex-col items-center gap-1.5 animate-[float-y_2.2s_ease-in-out_infinite]">
             <span className="text-zinc-400 dark:text-white/35 text-xs uppercase tracking-[0.12em]">
               Scroll to explore
             </span>

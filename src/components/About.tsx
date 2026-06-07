@@ -233,7 +233,7 @@ export default function About() {
             <h2 className="font-extrabold text-zinc-900 dark:text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em] about-name-glow">
               <span className="text-[1.4rem] md:text-[2.2rem]">ABEER</span>
               <br />
-              <span className="text-[1.1rem] md:text-[2rem]">ABDUL AHAD</span>
+              <span className="md:text-[2rem] text-sm">ABDUL AHAD</span>
             </h2>
 
             {/* separator */}
@@ -251,14 +251,15 @@ export default function About() {
               "col-span-2 row-start-2 md:col-start-2 md:col-end-4 md:row-start-1 min-h-37.5 md:min-h-0 p-0 relative flex items-end backdrop-blur-[20px]",
             )}
           >
-            {/* faint world map (white SVG used as a mask, tinted emerald-grey).
-                Mask values are dynamic JS strings — cleanest as inline style. */}
+            {/* world map continent shapes via SVG mask */}
             <div
               aria-hidden
-              className="absolute inset-0 bg-[rgba(180,210,200,0.16)]"
+              className="absolute inset-0 bg-emerald-700/30 dark:bg-[rgba(180,210,200,0.16)]"
               style={{
                 maskImage: `url(${worldMap.src})`,
                 WebkitMaskImage: `url(${worldMap.src})`,
+                maskMode: "alpha",
+                WebkitMaskMode: "alpha",
                 maskSize: "115% auto",
                 WebkitMaskSize: "115% auto",
                 maskPosition: "center",
