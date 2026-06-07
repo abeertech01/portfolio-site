@@ -56,10 +56,19 @@ const SKILLS_BOTTOM: Skill[] = [
 ]
 
 function SkillPill({ icon: Icon, name, color }: Skill) {
+  // White brand icons (#ffffff) are invisible on the light background.
+  // Pass no `color` prop so they inherit CSS `currentColor`, then control
+  // it with Tailwind classes — no useTheme needed (avoids hydration mismatch).
+  const isWhite = color === "#ffffff"
+
   return (
     <span className="inline-flex items-center gap-1.75 px-3.25 whitespace-nowrap">
-      <Icon size={16} color={color} className="shrink-0" />
-      <span className="font-grotesk text-[0.82rem] text-white/82 tracking-[0.02em]">
+      <Icon
+        size={16}
+        color={isWhite ? undefined : color}
+        className={`shrink-0 ${isWhite ? "text-zinc-600 dark:text-white" : ""}`}
+      />
+      <span className="font-grotesk text-[0.82rem] text-zinc-600 dark:text-white/82 tracking-[0.02em]">
         {name}
       </span>
     </span>
@@ -77,7 +86,7 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
 
   return (
     <div
-      className="relative flex items-center bg-white/2 border-white/5 border-y h-9.5 overflow-hidden"
+      className="relative flex items-center bg-black/3 dark:bg-white/2 border-black/6 border-y dark:border-white/5 h-9.5 overflow-hidden"
       style={{ maskImage: fade, WebkitMaskImage: fade }}
     >
       <div
@@ -95,7 +104,7 @@ function SkillRow({ items, dir }: { items: Skill[]; dir: "ltr" | "rtl" }) {
 
 /** Shared card surface. Use twMerge() when a cell needs to override e.g. p-5. */
 const card =
-  "bg-white/[0.04] border border-white/[0.08] rounded-[20px] p-5 overflow-hidden"
+  "bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] rounded-[20px] p-5 overflow-hidden"
 
 /** Featured writing — three picks across Hashnode + dev.to. */
 type BlogPost = {
@@ -137,31 +146,34 @@ const BLOG_POSTS: BlogPost[] = [
 
 function BlogCard({ title, href, platform, featured }: BlogPost) {
   const PlatformIcon = platform === "Hashnode" ? SiHashnode : SiDevdotto
-  // Hashnode brand blue; dev.to is monochrome — use white on this dark surface.
-  const iconColor = platform === "Hashnode" ? "#2962FF" : "#ffffff"
+  const iconColor = platform === "Hashnode" ? "#2962FF" : undefined
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="group block bg-white/3 hover:bg-white/6 px-3 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] transition-colors"
+      className="group block bg-black/4 hover:bg-black/[0.07] dark:bg-white/3 dark:hover:bg-white/6 px-3 py-2.5 border border-black/[0.07] hover:border-emerald-600/40 dark:border-white/6 dark:hover:border-emerald-400/40 rounded-[10px] transition-colors"
     >
       {/* meta row: platform badge + (optional) featured pill */}
       <div className="flex items-center gap-1.5 mb-1.5">
-        <PlatformIcon size={13} color={iconColor} className="shrink-0" />
-        <span className="font-grotesk text-[0.64rem] text-white/45 uppercase tracking-[0.14em]">
+        <PlatformIcon
+          size={13}
+          color={iconColor}
+          className={`shrink-0 ${platform === "dev.to" ? "text-zinc-600 dark:text-white" : ""}`}
+        />
+        <span className="font-grotesk text-[0.64rem] text-zinc-500 dark:text-white/45 uppercase tracking-[0.14em]">
           {platform}
         </span>
         {featured && (
-          <span className="bg-emerald-400/10 ml-auto px-1.5 py-px border border-emerald-400/25 rounded font-grotesk text-[0.52rem] text-emerald-400 uppercase tracking-[0.14em]">
+          <span className="bg-emerald-600/10 dark:bg-emerald-400/10 ml-auto px-1.5 py-px border border-emerald-600/25 dark:border-emerald-400/25 rounded font-grotesk text-[0.52rem] text-emerald-600 dark:text-emerald-400 uppercase tracking-[0.14em]">
             Featured
           </span>
         )}
       </div>
 
       {/* title */}
-      <p className="font-semibold text-[0.94rem] text-white/85 group-hover:text-white leading-[1.3]">
+      <p className="font-semibold text-[0.94rem] text-zinc-800 dark:group-hover:text-white dark:text-white/85 group-hover:text-zinc-900 leading-[1.3]">
         {title}
       </p>
     </a>
@@ -184,7 +196,7 @@ function SocialLink({
       target="_blank"
       rel="noreferrer noopener"
       aria-label={label}
-      className="flex justify-center items-center bg-white/3 hover:bg-white/6 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] text-white/70 hover:text-emerald-400 transition-colors"
+      className="flex justify-center items-center bg-black/4 hover:bg-black/[0.07] dark:bg-white/3 dark:hover:bg-white/6 py-2.5 border border-black/[0.07] hover:border-emerald-600/40 dark:border-white/6 dark:hover:border-emerald-400/40 rounded-[10px] text-zinc-600 hover:text-emerald-600 dark:hover:text-emerald-400 dark:text-white/70 transition-colors"
     >
       <Icon size={18} />
     </a>
@@ -218,22 +230,16 @@ export default function About() {
               "col-start-1 row-start-1 aspect-square md:aspect-auto md:row-end-2 flex flex-col justify-center items-center text-center px-6 py-5 backdrop-blur-[20px]",
             )}
           >
-            <h2
-              className="font-extrabold text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em]"
-              style={{
-                textShadow:
-                  "0 0 18px rgba(255,255,255,0.6), 0 0 50px rgba(255,255,255,0.25), 0 0 100px rgba(255,255,255,0.1)",
-              }}
-            >
+            <h2 className="font-extrabold text-zinc-900 dark:text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em] about-name-glow">
               <span className="text-[1.6rem] md:text-[2.2rem]">ABEER</span>
               <br />
               <span className="text-[1.2rem] md:text-[2rem]">ABDUL AHAD</span>
             </h2>
 
             {/* separator */}
-            <div className="bg-white/30 my-4 md:my-3 w-14 h-[1.2px]" />
+            <div className="bg-black/40 dark:bg-white/30 my-4 md:my-3 w-14 h-[1.2px]" />
 
-            <p className="font-normal text-[0.77rem] text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
+            <p className="font-normal text-[0.77rem] text-zinc-500 dark:text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
               Full Stack Developer
             </p>
           </div>
@@ -265,21 +271,21 @@ export default function About() {
             {/* vertical scanning beam sweeping left → right (animation = .map-scan in globals.css) */}
             <div
               aria-hidden
-              className="absolute inset-y-0 bg-emerald-400 shadow-[0_0_3px_#34d399] w-0.5 -translate-x-1/2 map-scan"
+              className="absolute inset-y-0 bg-emerald-600 dark:bg-emerald-400 shadow-[0_0_3px_#34d399] w-0.5 -translate-x-1/2 map-scan"
             />
 
             {/* readout */}
             <div className="relative p-7">
               <p
-                className="font-extrabold text-[1.8rem] text-white md:text-[2rem] leading-[1.2] md:leading-none tracking-[-0.01em]"
+                className="font-extrabold text-[1.8rem] text-zinc-900 md:text-[2rem] dark:text-white leading-[1.2] md:leading-none tracking-[-0.01em]"
                 style={{ textShadow: "0 0 24px #34d39955" }}
               >
                 DHAKA, BANGLADESH
               </p>
-              <p className="mt-2.5 font-grotesk text-[0.95rem] text-white/55 tracking-[0.04em]">
+              <p className="mt-2.5 font-grotesk text-[0.95rem] text-zinc-500 dark:text-white/55 tracking-[0.04em]">
                 23.8103° N, 90.4125° E
               </p>
-              <p className="mt-1 font-grotesk text-[0.95rem] text-emerald-400 tracking-[0.04em]">
+              <p className="mt-1 font-grotesk text-[0.95rem] text-emerald-600 dark:text-emerald-400 tracking-[0.04em]">
                 — GMT +6
               </p>
             </div>
@@ -294,14 +300,14 @@ export default function About() {
           >
             {/* heading + underline */}
             <div>
-              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
+              <h3 className="font-extrabold text-[1.6rem] text-zinc-900 dark:text-white leading-none tracking-[-0.01em]">
                 What I do
               </h3>
-              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
+              <div className="bg-emerald-600 dark:bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
             {/* opening pitch */}
-            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-zinc-600 dark:text-white/72 leading-[1.55]">
               <span className="inline-block mb-1.25 font-semibold">
                 I build pixel-perfect, scalable web apps that are fun to use.
               </span>
@@ -310,7 +316,7 @@ export default function About() {
             </p>
 
             {/* small label above the rails */}
-            <p className="font-grotesk text-[0.65rem] text-white/32 uppercase tracking-[0.16em]">
+            <p className="font-grotesk text-[0.65rem] text-zinc-500 dark:text-white/32 uppercase tracking-[0.16em]">
               Stack I work with
             </p>
 
@@ -322,7 +328,7 @@ export default function About() {
             </div>
 
             {/* closing note */}
-            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-zinc-600 dark:text-white/72 leading-[1.55]">
               A hustler at heart, aware of modern technologies — where the
               industry is moving, developing my own products along the way.
               <br />
@@ -335,9 +341,9 @@ export default function About() {
             <div className="flex items-center gap-2.25 mt-auto pt-1">
               <span
                 aria-hidden
-                className="bg-emerald-400 shadow-[0_0_10px_#34d399] rounded-full w-1.75 h-1.75 shrink-0"
+                className="bg-emerald-600 dark:bg-emerald-400 shadow-[0_0_10px_#34d399] rounded-full w-1.75 h-1.75 shrink-0"
               />
-              <span className="font-grotesk text-[0.55rem] text-white/62 uppercase tracking-wider">
+              <span className="font-grotesk text-[0.55rem] text-zinc-500 dark:text-white/62 uppercase tracking-wider">
                 Open for new opportunities &amp; freelance
               </span>
             </div>
@@ -366,14 +372,14 @@ export default function About() {
           >
             {/* heading + underline (matches "What I do" / "Get in touch") */}
             <div>
-              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
+              <h3 className="font-extrabold text-[1.6rem] text-zinc-900 dark:text-white leading-none tracking-[-0.01em]">
                 Writing
               </h3>
-              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
+              <div className="bg-emerald-600 dark:bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
             {/* featured posts explanation */}
-            <p className="text-[0.85rem] text-white/55 leading-normal">
+            <p className="text-[0.85rem] text-zinc-500 dark:text-white/55 leading-normal">
               Posts featured and shared by the platforms&apos; official handles
             </p>
 
@@ -386,7 +392,7 @@ export default function About() {
 
             {/* explore more links */}
             <div className="flex flex-col gap-2 mt-auto pt-2">
-              <p className="font-grotesk text-[0.75rem] text-white/40 uppercase tracking-[0.12em]">
+              <p className="font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.12em]">
                 Explore more
               </p>
               <div className="flex gap-2">
@@ -394,7 +400,7 @@ export default function About() {
                   href="https://abeer.hashnode.dev"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex flex-1 justify-center items-center gap-1.5 bg-white/3 hover:bg-white/6 px-3 py-2 border border-white/6 hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-white/70 hover:text-emerald-400 transition-colors"
+                  className="flex flex-1 justify-center items-center gap-1.5 bg-black/4 hover:bg-black/[0.07] dark:bg-white/3 dark:hover:bg-white/6 px-3 py-2 border border-black/[0.07] hover:border-emerald-600/40 dark:border-white/6 dark:hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-zinc-600 hover:text-emerald-600 dark:hover:text-emerald-400 dark:text-white/70 transition-colors"
                 >
                   <SiHashnode size={14} />
                   Hashnode
@@ -403,7 +409,7 @@ export default function About() {
                   href="https://dev.to/abeertech01"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex flex-1 justify-center items-center gap-1.5 bg-white/3 hover:bg-white/6 px-3 py-2 border border-white/6 hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-white/70 hover:text-emerald-400 transition-colors"
+                  className="flex flex-1 justify-center items-center gap-1.5 bg-black/4 hover:bg-black/[0.07] dark:bg-white/3 dark:hover:bg-white/6 px-3 py-2 border border-black/[0.07] hover:border-emerald-600/40 dark:border-white/6 dark:hover:border-emerald-400/40 rounded-[8px] font-medium text-[0.8rem] text-zinc-600 hover:text-emerald-600 dark:hover:text-emerald-400 dark:text-white/70 transition-colors"
                 >
                   <SiDevdotto size={14} />
                   Dev.to
@@ -421,13 +427,13 @@ export default function About() {
           >
             {/* heading + underline (matches the "What I do" treatment) */}
             <div>
-              <h3 className="font-extrabold text-[1.6rem] text-white leading-none tracking-[-0.01em]">
+              <h3 className="font-extrabold text-[1.6rem] text-zinc-900 dark:text-white leading-none tracking-[-0.01em]">
                 Get in touch
               </h3>
-              <div className="bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
+              <div className="bg-emerald-600 dark:bg-emerald-400 mt-2 rounded-[1px] w-8.5 h-[1.5px]" />
             </div>
 
-            <p className="text-[0.96rem] text-white/72 leading-[1.55]">
+            <p className="text-[0.96rem] text-zinc-600 dark:text-white/72 leading-[1.55]">
               Let&apos;s connect and discuss!
             </p>
 
@@ -436,10 +442,13 @@ export default function About() {
               {/* email — full-width row */}
               <a
                 href="mailto:abeer.technology@gmail.com"
-                className="group flex items-center gap-2.5 col-span-4 bg-white/3 hover:bg-white/6 px-3.5 py-2.5 border border-white/6 hover:border-emerald-400/40 rounded-[10px] transition-colors"
+                className="group flex items-center gap-2.5 col-span-4 bg-black/4 hover:bg-black/[0.07] dark:bg-white/3 dark:hover:bg-white/6 px-3.5 py-2.5 border border-black/[0.07] hover:border-emerald-600/40 dark:border-white/6 dark:hover:border-emerald-400/40 rounded-[10px] transition-colors"
               >
-                <SiGmail size={14} className="text-emerald-400 shrink-0" />
-                <span className="font-grotesk text-[0.78rem] text-white/80 group-hover:text-white truncate">
+                <SiGmail
+                  size={14}
+                  className="text-emerald-600 dark:text-emerald-400 shrink-0"
+                />
+                <span className="font-grotesk text-[0.78rem] text-zinc-700 dark:group-hover:text-white dark:text-white/80 group-hover:text-zinc-900 truncate">
                   abeer.technology@gmail.com
                 </span>
               </a>

@@ -44,7 +44,7 @@ export default function Home() {
 
           {/* Greeting */}
           <h1 className="text-center leading-[1.3]">
-            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-white/60 md:text-[1.9rem]">
+            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-zinc-500 dark:text-white/60 md:text-[1.9rem]">
               Hey, I&apos;m
             </span>
 
@@ -56,7 +56,7 @@ export default function Home() {
 
           {/* Scroll indicator */}
           <div className="flex flex-col items-center gap-1.5 mt-2 animate-[float-y_2.2s_ease-in-out_infinite]">
-            <span className="text-white/35 text-xs uppercase tracking-[0.12em]">
+            <span className="text-zinc-400 dark:text-white/35 text-xs uppercase tracking-[0.12em]">
               Scroll to explore
             </span>
             <svg
@@ -64,7 +64,7 @@ export default function Home() {
               height="14"
               viewBox="0 0 14 14"
               fill="none"
-              className="text-white/35"
+              className="text-zinc-400 dark:text-white/35"
             >
               <path
                 d="M7 1v12M7 13l-4-4M7 13l4-4"

@@ -129,19 +129,34 @@
 }
 
 @keyframes float-y {
-  0%, 100% { transform: translateY(0px);   }
-  50%       { transform: translateY(8px);  }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 @keyframes name-shine {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 @keyframes map-scan {
-  0%     { left: 0%;   }   /* sweep left → past the right edge over the first 4s ... */
-  57.14% { left: 104%; }
-  100%   { left: 104%; }   /* ... then hold off-screen for 3s before repeating */
+  0% {
+    left: 0%;
+  } /* sweep left → past the right edge over the first 4s ... */
+  57.14% {
+    left: 104%;
+  }
+  100% {
+    left: 104%;
+  } /* ... then hold off-screen for 3s before repeating */
 }
 
 /* referenced here so Lightning CSS keeps the @keyframes (inline-style
@@ -150,14 +165,31 @@
   animation: map-scan 7s linear infinite;
 }
 
+/* Name heading glow — white shimmer only in dark mode */
+.about-name-glow {
+  text-shadow: none;
+}
+.dark .about-name-glow {
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.6),
+    0 0 50px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+}
+
 @keyframes marquee-ltr {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes marquee-rtl {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-ltr {
@@ -169,13 +201,21 @@
 }
 
 @keyframes scroll-ltr {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes scroll-rtl {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-scroll-ltr {

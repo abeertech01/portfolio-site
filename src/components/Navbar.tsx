@@ -44,15 +44,14 @@ export default function Navbar() {
           {/* Left — theme toggle */}
           <button
             aria-label="Toggle theme"
-            disabled
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="flex justify-center justify-self-start items-center bg-black/20 dark:bg-black/50 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full w-11 h-11 text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
+            className="flex justify-center justify-self-start items-center bg-white/70 dark:bg-black/50 backdrop-blur-2xl border border-black/15 dark:border-white/10 rounded-full w-11 h-11 text-black/70 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
           >
             {mounted && (isDark ? <Moon size={17} /> : <Sun size={17} />)}
           </button>
 
           {/* Center — pill nav (desktop only) */}
-          <div className="hidden md:flex justify-self-center items-center gap-0.5 bg-black/20 dark:bg-black/50 backdrop-blur-2xl px-1.5 py-1.5 border border-black/15 dark:border-white/10 rounded-full">
+          <div className="hidden md:flex justify-self-center items-center gap-0.5 bg-white/70 dark:bg-black/50 backdrop-blur-2xl px-1.5 py-1.5 border border-black/15 dark:border-white/10 rounded-full">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -62,7 +61,7 @@ export default function Navbar() {
                             ${
                               active === item.label
                                 ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
-                                : "text-black/55 dark:text-white/65 hover:text-black/80 dark:hover:text-white/90"
+                                : "text-black/65 dark:text-white/65 hover:text-black dark:hover:text-white/90"
                             }`}
               >
                 {item.label}
@@ -75,7 +74,7 @@ export default function Navbar() {
             <a
               href="/abeer_resume.pdf"
               download="Abeer_Abdul-Ahad_Resume.pdf"
-              className="hidden md:flex items-center gap-2 bg-black/20 dark:bg-black/50 backdrop-blur-2xl px-5 py-2.5 border border-black/15 dark:border-white/10 rounded-full font-medium text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
+              className="hidden md:flex items-center gap-2 bg-white/70 dark:bg-black/50 backdrop-blur-2xl px-5 py-2.5 border border-black/15 dark:border-white/10 rounded-full font-medium text-black/70 hover:text-black dark:hover:text-white dark:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
             >
               <FileText size={16} />
               Get Resume
@@ -84,7 +83,7 @@ export default function Navbar() {
             <button
               aria-label="Open menu"
               onClick={() => setDrawerOpen(true)}
-              className="md:hidden flex justify-center items-center bg-black/20 dark:bg-black/50 backdrop-blur-2xl border border-black/15 dark:border-white/10 rounded-full w-11 h-11 text-black/60 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
+              className="md:hidden flex justify-center items-center bg-white/70 dark:bg-black/50 backdrop-blur-2xl border border-black/15 dark:border-white/10 rounded-full w-11 h-11 text-black/70 hover:text-black dark:hover:text-white dark:text-white/70 transition-colors duration-200"
             >
               <Menu size={18} />
             </button>
@@ -104,18 +103,18 @@ export default function Navbar() {
 
       {/* Drawer */}
       <div
-        className={`md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#0e1a18] border-l border-white/8 flex flex-col transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#f0f4f3] dark:bg-[#0e1a18] border-l border-black/8 dark:border-white/8 flex flex-col transition-transform duration-300 ease-in-out ${
           drawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer header */}
-        <div className="flex justify-between items-center px-6 py-5 border-white/8 border-b">
-          <span className="font-grotesk font-semibold text-white/80 text-sm tracking-wide">
+        <div className="flex justify-between items-center px-6 py-5 border-black/8 dark:border-white/8 border-b">
+          <span className="font-grotesk font-semibold text-zinc-800 dark:text-white/80 text-sm tracking-wide">
             Menu
           </span>
           <button
             onClick={() => setDrawerOpen(false)}
-            className="flex justify-center items-center bg-white/5 hover:bg-white/10 border border-white/10 rounded-full w-9 h-9 text-white/50 hover:text-white transition-colors"
+            className="flex justify-center items-center bg-black/6 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 border border-black/8 dark:border-white/10 rounded-full w-9 h-9 text-zinc-500 hover:text-zinc-900 dark:hover:text-white dark:text-white/50 transition-colors"
           >
             <X size={16} />
           </button>
@@ -130,8 +129,8 @@ export default function Navbar() {
               className={`px-4 py-3.5 rounded-xl text-left font-medium text-[0.95rem] transition-all duration-200 cursor-pointer
                 ${
                   active === item.label
-                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                    : "text-white/50 hover:text-white hover:bg-white/5 border border-transparent"
+                    ? "bg-emerald-600/10 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-600/20 dark:border-emerald-500/20"
+                    : "text-zinc-500 dark:text-white/50 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 border border-transparent"
                 }`}
             >
               {item.label}
