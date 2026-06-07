@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
@@ -100,6 +100,12 @@ export default function Projects() {
   const handleViewMore = () => {
     setVisibleCount(projects.length)
   }
+
+  // After new project cards are painted, tell Lenis to recalculate its scroll limit
+  useEffect(() => {
+    const id = requestAnimationFrame(() => window.dispatchEvent(new Event("resize")))
+    return () => cancelAnimationFrame(id)
+  }, [visibleCount])
 
   return (
     <section
