@@ -239,7 +239,7 @@ export default function About() {
             {/* separator */}
             <div className="bg-black/40 dark:bg-white/30 my-3 w-14 h-[1.2px]" />
 
-            <p className="font-normal text-[0.77rem] text-zinc-500 dark:text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
+            <p className="font-normal text-zinc-500 md:text-[0.77rem] dark:text-white/42 text-xs uppercase tracking-[0.12em] md:tracking-[0.14em]">
               Full Stack Developer
             </p>
           </div>
@@ -259,7 +259,6 @@ export default function About() {
                 maskImage: `url(${worldMap.src})`,
                 WebkitMaskImage: `url(${worldMap.src})`,
                 maskMode: "alpha",
-                WebkitMaskMode: "alpha",
                 maskSize: "115% auto",
                 WebkitMaskSize: "115% auto",
                 maskPosition: "center",
