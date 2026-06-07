@@ -36,7 +36,7 @@ export default function TiltCard({
   return (
     <div
       ref={ref}
-      className={`${className ?? ""} transform-3d will-change-transform`}
+      className={`${className ?? ""} will-change-transform`}
       style={style}
       onMouseMove={onMove}
       onMouseLeave={onLeave}

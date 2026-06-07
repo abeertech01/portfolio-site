@@ -44,7 +44,7 @@ export default function Home() {
 
           {/* Greeting */}
           <h1 className="text-center leading-[1.3]">
-            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-zinc-500 dark:text-white/60 md:text-[1.9rem]">
+            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-zinc-500 md:text-[1.9rem] dark:text-white/60">
               Hey, I&apos;m
             </span>
 

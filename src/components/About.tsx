@@ -231,13 +231,13 @@ export default function About() {
             )}
           >
             <h2 className="font-extrabold text-zinc-900 dark:text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em] about-name-glow">
-              <span className="text-[1.6rem] md:text-[2.2rem]">ABEER</span>
+              <span className="text-[1.4rem] md:text-[2.2rem]">ABEER</span>
               <br />
-              <span className="text-[1.2rem] md:text-[2rem]">ABDUL AHAD</span>
+              <span className="text-[1.1rem] md:text-[2rem]">ABDUL AHAD</span>
             </h2>
 
             {/* separator */}
-            <div className="bg-black/40 dark:bg-white/30 my-4 md:my-3 w-14 h-[1.2px]" />
+            <div className="bg-black/40 dark:bg-white/30 my-3 w-14 h-[1.2px]" />
 
             <p className="font-normal text-[0.77rem] text-zinc-500 dark:text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
               Full Stack Developer
