@@ -103,7 +103,9 @@ export default function Projects() {
 
   // After new project cards are painted, tell Lenis to recalculate its scroll limit
   useEffect(() => {
-    const id = requestAnimationFrame(() => window.dispatchEvent(new Event("resize")))
+    const id = requestAnimationFrame(() =>
+      window.dispatchEvent(new Event("resize")),
+    )
     return () => cancelAnimationFrame(id)
   }, [visibleCount])
 
@@ -113,105 +115,105 @@ export default function Projects() {
       className="mx-auto px-4 md:px-8 pb-16 md:pb-28 w-full max-w-6xl scroll-mt-24"
     >
       <AnimateIn>
-      {/* Portfolio label */}
-      <div className="mb-8 text-center">
-        <p className="font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.2em]">
-          Portfolio
+        {/* Portfolio label */}
+        <div className="mb-8 text-center">
+          <p className="font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.2em]">
+            Portfolio
+          </p>
+        </div>
+
+        {/* Heading with emerald accent */}
+        <div className="mb-6 text-center">
+          <h2 className="font-bold text-[2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em]">
+            <span className="text-zinc-900 dark:text-white">Featured </span>
+            <span className="bg-clip-text bg-linear-to-r from-emerald-700 dark:from-emerald-400 to-emerald-500 dark:to-emerald-300 text-transparent">
+              Projects
+            </span>
+          </h2>
+        </div>
+
+        {/* Subtitle */}
+        <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-zinc-500 md:text-[1.1rem] dark:text-white/60 text-base text-center leading-[1.6]">
+          The projects I developed, that made me confident in building software.
         </p>
-      </div>
-
-      {/* Heading with emerald accent */}
-      <div className="mb-6 text-center">
-        <h2 className="font-bold text-[2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em]">
-          <span className="text-zinc-900 dark:text-white">Featured </span>
-          <span className="bg-clip-text bg-linear-to-r from-emerald-700 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300 text-transparent">
-            Projects
-          </span>
-        </h2>
-      </div>
-
-      {/* Subtitle */}
-      <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-zinc-500 dark:text-white/60 md:text-[1.1rem] text-base text-center leading-[1.6]">
-        The projects I developed, that made me confident in building software.
-      </p>
       </AnimateIn>
 
       {/* Projects Grid */}
       <div className="gap-16 grid grid-cols-1 md:grid-cols-2">
         {displayedProjects.map((project, index) => (
           <AnimateIn key={project.number} delay={index * 100}>
-          <div>
-            {/* Project Card */}
-            <div className="flex flex-col bg-black/[0.03] dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/[0.08] dark:border-white/10 hover:border-emerald-600/40 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
-              {/* Project Header */}
-              <div className="p-6 pb-4">
-                <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
-                  {project.number}. {project.type.toLowerCase()}
-                </p>
-                <h3 className="mb-3 font-bold text-zinc-900 dark:text-white text-2xl">
-                  {project.name}
-                </h3>
-                <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+            <div>
+              {/* Project Card */}
+              <div className="flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
+                {/* Project Header */}
+                <div className="p-6 pb-4">
+                  <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
+                    {project.number}. {project.type.toLowerCase()}
+                  </p>
+                  <h3 className="mb-3 font-bold text-zinc-900 dark:text-white text-2xl">
+                    {project.name}
+                  </h3>
+                  <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
 
-                {/* Links */}
-                <div className="flex gap-4 text-sm">
-                  {project.liveLink && (
+                  {/* Links */}
+                  <div className="flex gap-4 text-sm">
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
+                      >
+                        <MdOpenInNew size={16} />
+                        Live Link
+                      </a>
+                    )}
                     <a
-                      href={project.liveLink}
+                      href={project.githubLink}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="flex items-center gap-1.5 border-emerald-600 dark:border-emerald-400 hover:border-emerald-700 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+                      className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
                     >
-                      <MdOpenInNew size={16} />
-                      Live Link
+                      <SiGithub size={16} />
+                      Github Link
                     </a>
-                  )}
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="flex items-center gap-1.5 border-emerald-600 dark:border-emerald-400 hover:border-emerald-700 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+                  </div>
+                </div>
+
+                {/* Project Image with macOS Window Frame */}
+                <div className="relative flex-1 px-6">
+                  {/* macOS Window Header */}
+                  <div className="flex items-center gap-2 bg-[#2a2a2a] px-4 py-2 border-black/8 dark:border-white/10 border-t border-r border-l rounded-t-lg">
+                    <div className="bg-[#ff5f57] rounded-full w-2.5 h-2.5" />
+                    <div className="bg-[#febc2e] rounded-full w-2.5 h-2.5" />
+                    <div className="bg-[#28c940] rounded-full w-2.5 h-2.5" />
+                  </div>
+                  {/* Image Container */}
+                  <div className="relative border-black/8 dark:border-white/10 border-r border-l aspect-video overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Stack Badges - Outside Card */}
+              <div className="flex flex-wrap gap-3 mt-4">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center bg-black/5 hover:bg-black/8 dark:bg-white/5 dark:hover:bg-white/10 backdrop-blur-[20px] px-4 border border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-full h-7.5 font-medium text-zinc-600 dark:text-white/70 text-xs transition-colors"
                   >
-                    <SiGithub size={16} />
-                    Github Link
-                  </a>
-                </div>
-              </div>
-
-              {/* Project Image with macOS Window Frame */}
-              <div className="relative flex-1 px-6">
-                {/* macOS Window Header */}
-                <div className="flex items-center gap-2 bg-[#2a2a2a] px-4 py-2 border-black/[0.08] dark:border-white/10 border-t border-r border-l rounded-t-lg">
-                  <div className="bg-[#ff5f57] rounded-full w-2.5 h-2.5" />
-                  <div className="bg-[#febc2e] rounded-full w-2.5 h-2.5" />
-                  <div className="bg-[#28c940] rounded-full w-2.5 h-2.5" />
-                </div>
-                {/* Image Container */}
-                <div className="relative border-black/[0.08] dark:border-white/10 border-r border-l aspect-video overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-
-            {/* Tech Stack Badges - Outside Card */}
-            <div className="flex flex-wrap gap-3 mt-4">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-flex items-center bg-black/[0.05] dark:bg-white/5 hover:bg-black/[0.08] dark:hover:bg-white/10 backdrop-blur-[20px] px-4 border border-black/[0.08] dark:border-white/10 hover:border-emerald-600/40 dark:hover:border-emerald-400/40 rounded-full h-7.5 font-medium text-zinc-600 dark:text-white/70 text-xs transition-colors"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
           </AnimateIn>
         ))}
 
@@ -220,16 +222,18 @@ export default function Projects() {
           <div className="relative h-full">
             <button
               onClick={handleViewMore}
-              className="group flex flex-col justify-center items-center bg-black/[0.03] dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/[0.08] dark:border-white/10 hover:border-emerald-600/40 dark:hover:border-emerald-400/40 rounded-3xl w-full md:h-[calc(100%-2.875rem)] min-h-50 transition-all duration-300 cursor-pointer"
+              className="group flex flex-col justify-center items-center bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl w-full md:h-[calc(100%-2.875rem)] min-h-50 transition-all duration-300 cursor-pointer"
             >
               <div className="flex flex-col items-center gap-4">
-                <div className="flex justify-center items-center bg-emerald-600/10 dark:bg-emerald-400/10 group-hover:bg-emerald-600/20 dark:group-hover:bg-emerald-400/20 rounded-full w-16 h-16 transition-colors">
+                <div className="flex justify-center items-center bg-emerald-600/10 dark:bg-emerald-400/10 dark:group-hover:bg-emerald-400/20 group-hover:bg-emerald-600/20 rounded-full w-16 h-16 transition-colors">
                   <ChevronRight
                     size={32}
-                    className="text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors"
+                    className="text-emerald-600 dark:group-hover:text-emerald-300 dark:text-emerald-400 group-hover:text-emerald-700 transition-colors"
                   />
                 </div>
-                <p className="font-bold text-zinc-900 dark:text-white text-lg">More Projects</p>
+                <p className="font-bold text-zinc-900 dark:text-white text-lg">
+                  More Projects
+                </p>
               </div>
             </button>
             <div className="opacity-0 md:h-11.5"></div>
