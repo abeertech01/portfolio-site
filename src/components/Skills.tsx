@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import AnimateIn from "@/components/AnimateIn"
 import {
   SiJavascript,
   SiTypescript,
@@ -144,6 +145,7 @@ export default function Skills() {
       className="mx-auto px-4 md:px-8 py-16 md:py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Heading */}
+      <AnimateIn>
       <div className="mb-8 md:mb-12 text-center">
         <p className="mb-2 font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.18em]">
           TECH STACK
@@ -155,30 +157,37 @@ export default function Skills() {
           </span>
         </h2>
       </div>
+      </AnimateIn>
 
       {/* Frontend Tape */}
+      <AnimateIn delay={100}>
       <div className="mb-6">
         <p className="mb-3 font-grotesk text-[0.7rem] text-zinc-500 dark:text-white/45 uppercase tracking-[0.14em]">
           Frontend Technologies
         </p>
         <TechTape items={FRONTEND_TECHS} dir="rtl" />
       </div>
+      </AnimateIn>
 
       {/* Backend Tape */}
+      <AnimateIn delay={200}>
       <div className="mb-8 md:mb-12">
         <p className="mb-3 font-grotesk text-[0.7rem] text-zinc-500 dark:text-white/45 uppercase tracking-[0.14em]">
           Backend Technologies
         </p>
         <TechTape items={BACKEND_TECHS} dir="ltr" />
       </div>
+      </AnimateIn>
 
       {/* Tools Section */}
+      <AnimateIn delay={300}>
       <div>
         <p className="mb-4 font-grotesk text-[0.7rem] text-zinc-500 dark:text-white/45 uppercase tracking-[0.14em]">
           Tools &amp; Databases
         </p>
         <ToolsGrid items={TOOLS} />
       </div>
+      </AnimateIn>
     </section>
   )
 }

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import avatar from "@/assets/abeer-avatar.png"
 import TiltCard from "@/components/TiltCard"
+import AnimateIn from "@/components/AnimateIn"
 import About from "@/components/About"
 import Skills from "@/components/Skills"
 import Projects from "@/components/Projects"
@@ -14,6 +15,7 @@ export default function Home() {
         {/* Hero group — card + text, centered together */}
         <div className="flex flex-col items-center gap-5 md:gap-8">
           {/* Glass card */}
+          <AnimateIn delay={0}>
           <TiltCard className="relative w-62 md:w-77.5 h-72 md:h-100">
             <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
               <Image
@@ -41,8 +43,10 @@ export default function Home() {
               />
             </div>
           </TiltCard>
+          </AnimateIn>
 
           {/* Greeting */}
+          <AnimateIn delay={150}>
           <h1 className="text-center leading-[1.3]">
             <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-zinc-500 md:text-[1.9rem] dark:text-white/60">
               Hey, I&apos;m
@@ -53,8 +57,10 @@ export default function Home() {
               Abdul Ahad Abeer
             </span>
           </h1>
+          </AnimateIn>
 
           {/* Scroll indicator */}
+          <AnimateIn delay={300} from="fade">
           <div className="flex flex-col items-center gap-1.5 animate-[float-y_2.2s_ease-in-out_infinite]">
             <span className="text-zinc-400 dark:text-white/35 text-xs uppercase tracking-[0.12em]">
               Scroll to explore
@@ -75,6 +81,7 @@ export default function Home() {
               />
             </svg>
           </div>
+          </AnimateIn>
         </div>
       </main>
 
