@@ -207,7 +207,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mx-auto px-8 pb-28 w-full max-w-243.75 scroll-mt-24"
+      className="mx-auto max-[376px]:px-5 px-8 pb-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* marquee animations live here (not globals.css) so they ship with the
           component and aren't subject to global CSS tree-shaking / stale HMR */}
@@ -227,19 +227,19 @@ export default function About() {
           <div
             className={twMerge(
               card,
-              "col-start-1 row-start-1 aspect-square md:aspect-auto md:row-end-2 flex flex-col justify-center items-center text-center px-6 py-5 backdrop-blur-[20px]",
+              "col-start-1 row-start-1 aspect-square md:aspect-auto md:row-end-2 flex flex-col justify-center items-center text-center max-[321px]:py-3 max-[376px]:px-4 px-6 py-5 backdrop-blur-[20px]",
             )}
           >
             <h2 className="font-extrabold text-zinc-900 dark:text-white leading-[1.2] md:leading-[1.05] tracking-[-0.03em] about-name-glow">
-              <span className="text-[1.4rem] md:text-[2.2rem]">ABEER</span>
+              <span className="max-[376px]:text-[1.2rem] text-[1.4rem] md:text-[2.2rem]">ABEER</span>
               <br />
-              <span className="md:text-[2rem] text-sm">ABDUL AHAD</span>
+              <span className="max-[376px]:text-[0.9rem] text-sm md:text-[2rem]">ABDUL AHAD</span>
             </h2>
 
             {/* separator */}
-            <div className="bg-black/40 dark:bg-white/30 my-3 w-14 h-[1.2px]" />
+            <div className="bg-black/40 dark:bg-white/30 max-[321px]:my-1.5 max-[321px]:h-[1.5px] my-3 w-14 h-[1.2px]" />
 
-            <p className="font-normal text-zinc-500 md:text-[0.77rem] dark:text-white/42 text-xs uppercase tracking-[0.12em] md:tracking-[0.14em]">
+            <p className="font-normal max-[321px]:text-[0.62rem] max-[321px]:tracking-[0.06em] text-xs md:text-[0.77rem] text-zinc-500 dark:text-white/42 uppercase tracking-[0.12em] md:tracking-[0.14em]">
               Full Stack Developer
             </p>
           </div>
@@ -275,17 +275,17 @@ export default function About() {
             />
 
             {/* readout */}
-            <div className="relative p-7">
+            <div className="relative max-[321px]:p-4 max-[376px]:p-5 p-7">
               <p
-                className="font-extrabold text-[1.8rem] text-zinc-900 md:text-[2rem] dark:text-white leading-[1.2] md:leading-none tracking-[-0.01em]"
+                className="font-extrabold max-[321px]:text-[1.15rem] max-[376px]:text-[1.45rem] text-[1.8rem] text-zinc-900 md:text-[2rem] dark:text-white leading-[1.2] md:leading-none tracking-[-0.01em]"
                 style={{ textShadow: "0 0 24px #34d39955" }}
               >
                 DHAKA, BANGLADESH
               </p>
-              <p className="mt-2.5 font-grotesk text-[0.95rem] text-zinc-500 dark:text-white/55 tracking-[0.04em]">
+              <p className="mt-2.5 font-grotesk max-[321px]:text-[0.75rem] max-[376px]:text-[0.82rem] text-[0.95rem] text-zinc-500 dark:text-white/55 tracking-[0.04em]">
                 23.8103° N, 90.4125° E
               </p>
-              <p className="mt-1 font-grotesk text-[0.95rem] text-emerald-600 dark:text-emerald-400 tracking-[0.04em]">
+              <p className="mt-1 font-grotesk max-[321px]:text-[0.75rem] max-[376px]:text-[0.82rem] text-[0.95rem] text-emerald-600 dark:text-emerald-400 tracking-[0.04em]">
                 — GMT +6
               </p>
             </div>
