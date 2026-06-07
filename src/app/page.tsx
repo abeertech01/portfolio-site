@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-5 md:gap-8">
           {/* Glass card */}
           <TiltCard className="relative w-62 md:w-77.5 h-72 md:h-100">
-            <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] backdrop-blur-[20px] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
+            <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
               <Image
                 src={avatar}
                 alt="Abdul Ahad Abeer"

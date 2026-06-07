@@ -31,30 +31,15 @@ export default function CursorSpotlight() {
         }}
       />
 
-      {/* Layer 1: base dots — faintly visible, colour set by --dot-faint CSS var */}
-      <div
-        aria-hidden
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          zIndex: -1,
-          backgroundImage: "radial-gradient(var(--dot-faint) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-        }}
-      />
-
-      {/* Layer 2: bright dots — masked to cursor radius, colour via --dot-bright */}
+      {/* Layer 1: emerald cursor glow */}
       <div
         ref={brightLayerRef}
         aria-hidden
         className="fixed inset-0 pointer-events-none"
         style={{
           zIndex: -1,
-          backgroundImage: "radial-gradient(var(--dot-bright) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-          WebkitMaskImage:
-            "radial-gradient(3in circle at var(--mouse-x, -9999px) var(--mouse-y, -9999px), black 0%, transparent 100%)",
-          maskImage:
-            "radial-gradient(3in circle at var(--mouse-x, -9999px) var(--mouse-y, -9999px), black 0%, transparent 100%)",
+          background:
+            "radial-gradient(520px circle at var(--mouse-x, -9999px) var(--mouse-y, -9999px), rgba(35,148,125,0.07) 0%, transparent 70%)",
         }}
       />
     </>
