@@ -112,7 +112,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto px-4 md:px-8 pb-16 md:pb-28 w-full max-w-6xl scroll-mt-24"
+      className="mx-auto px-4 xl:px-8 pb-16 lg:pb-22 xl:pb-28 w-full max-w-6xl scroll-mt-24"
     >
       <AnimateIn>
         {/* Portfolio label */}
@@ -124,7 +124,7 @@ export default function Projects() {
 
         {/* Heading with emerald accent */}
         <div className="mb-6 text-center">
-          <h2 className="font-bold text-[2rem] md:text-[3rem] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="font-bold text-[2rem] lg:text-[2.5rem] xl:text-[3rem] leading-[1.1] tracking-[-0.02em]">
             <span className="text-zinc-900 dark:text-white">Featured </span>
             <span className="bg-clip-text bg-linear-to-r from-emerald-700 dark:from-emerald-400 to-emerald-500 dark:to-emerald-300 text-transparent">
               Projects
@@ -133,7 +133,7 @@ export default function Projects() {
         </div>
 
         {/* Subtitle */}
-        <p className="mx-auto mb-10 md:mb-20 max-w-2xl text-zinc-500 md:text-[1.1rem] dark:text-white/60 text-base text-center leading-[1.6]">
+        <p className="mx-auto mb-10 lg:mb-14 xl:mb-20 max-w-2xl text-zinc-500 lg:text-[1rem] xl:text-[1.1rem] dark:text-white/60 text-base text-center leading-[1.6]">
           The projects I developed, that made me confident in building software.
         </p>
       </AnimateIn>

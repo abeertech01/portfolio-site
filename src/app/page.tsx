@@ -13,10 +13,10 @@ export default function Home() {
     <>
       <main className="flex flex-1 justify-center items-center pt-20 min-h-svh md:min-h-screen">
         {/* Hero group — card + text, centered together */}
-        <div className="flex flex-col items-center gap-5 md:gap-8">
+        <div className="flex flex-col items-center gap-5 lg:gap-6 xl:gap-8">
           {/* Glass card */}
           <AnimateIn delay={0}>
-          <TiltCard className="relative w-62 md:w-77.5 h-72 md:h-100">
+          <TiltCard className="relative w-62 lg:w-70 xl:w-77.5 h-72 lg:h-88 xl:h-100">
             <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
               <Image
                 src={avatar}
@@ -48,12 +48,12 @@ export default function Home() {
           {/* Greeting */}
           <AnimateIn delay={150}>
           <h1 className="text-center leading-[1.3]">
-            <span className="block mb-3 md:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] text-zinc-500 md:text-[1.9rem] dark:text-white/60">
+            <span className="block mb-3 lg:mb-2 xl:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] lg:text-[1.7rem] xl:text-[1.9rem] text-zinc-500 dark:text-white/60">
               Hey, I&apos;m
             </span>
 
             {/* Bebas Neue name on solid emerald background */}
-            <span className="inline-block bg-[#23947d] p-[0.12em_0.3em_0.07em] md:p-[0.18em_0.5em_0.10em] font-bebas text-[2.5rem] text-white md:text-[3.2rem] leading-none tracking-[0.04em]">
+            <span className="inline-block bg-[#23947d] p-[0.12em_0.3em_0.07em] lg:p-[0.15em_0.4em_0.09em] xl:p-[0.18em_0.5em_0.10em] font-bebas text-[2.5rem] lg:text-[2.85rem] xl:text-[3.2rem] text-white leading-none tracking-[0.04em]">
               Abdul Ahad Abeer
             </span>
           </h1>

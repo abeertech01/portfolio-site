@@ -21,15 +21,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto px-4 md:px-8 py-16 md:py-28 w-full max-w-243.75 scroll-mt-24"
+      className="mx-auto px-4 xl:px-8 py-16 lg:py-22 xl:py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Eyebrow */}
       <AnimateIn>
-        <div className="mb-8 md:mb-12 text-center">
+        <div className="mb-8 lg:mb-10 xl:mb-12 text-center">
           <p className="mb-2 font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.18em]">
             Contact
           </p>
-          <h2 className="font-extrabold text-[2rem] md:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
+          <h2 className="font-extrabold text-[2rem] lg:text-[2.6rem] xl:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
             <span className="text-zinc-900 dark:text-white">Let&apos;s Build </span>
             <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-700 via-emerald-500 to-emerald-400 dark:from-white dark:via-emerald-300 dark:to-emerald-500">
               Something
@@ -39,10 +39,10 @@ export default function Contact() {
       </AnimateIn>
 
       {/* Two-column body */}
-      <div className="items-stretch gap-6 md:gap-12 grid grid-cols-1 md:grid-cols-2">
+      <div className="items-stretch gap-6 lg:gap-8 xl:gap-12 grid grid-cols-1 md:grid-cols-2">
         {/* Left — info side */}
         <AnimateIn from="left" delay={100} className="h-full">
-          <div className="flex flex-col gap-6 md:gap-8 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 md:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full">
+          <div className="flex flex-col gap-6 xl:gap-8 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 lg:p-5 xl:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full">
             <p className="text-[1rem] text-zinc-500 dark:text-white/60 leading-[1.75]">
               There was a period where things went quiet for me — professionally
               and personally. I&apos;m not hiding from that. What I am doing is
@@ -117,7 +117,7 @@ export default function Contact() {
         <AnimateIn from="right" delay={100} className="h-full">
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 md:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full"
+            className="flex flex-col gap-4 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 lg:p-5 xl:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full"
           >
             <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">

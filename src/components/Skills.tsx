@@ -69,7 +69,7 @@ const TOOLS: Tech[] = [
 function TechCard({ icon: Icon, name, color }: Tech) {
   const isWhite = color === "#ffffff"
   return (
-    <div className="inline-flex items-center gap-2 md:gap-3 px-3 md:px-4 py-3 whitespace-nowrap">
+    <div className="inline-flex items-center gap-2 xl:gap-3 px-3 xl:px-4 py-3 whitespace-nowrap">
       <Icon
         size={20}
         color={isWhite ? undefined : color}
@@ -80,7 +80,7 @@ function TechCard({ icon: Icon, name, color }: Tech) {
         color={isWhite ? undefined : color}
         className={`hidden md:block shrink-0 ${isWhite ? "text-zinc-600 dark:text-white" : ""}`}
       />
-      <span className="font-grotesk text-[0.88rem] text-zinc-700 dark:text-white/85 md:text-[1.05rem] tracking-[0.01em]">
+      <span className="font-grotesk text-[0.88rem] text-zinc-700 dark:text-white/85 xl:text-[1.05rem] tracking-[0.01em]">
         {name}
       </span>
     </div>
@@ -125,11 +125,11 @@ function ToolsGrid({ items }: { items: Tech[] }) {
       {items.map((tech) => (
         <div
           key={tech.name}
-          className="flex flex-col items-center gap-2 md:gap-3 bg-black/[0.04] dark:bg-white/4 hover:bg-black/[0.06] dark:hover:bg-white/6 backdrop-blur-[20px] p-3.5 md:p-5 border border-black/[0.08] dark:border-white/8 hover:border-emerald-600/30 dark:hover:border-emerald-400/30 rounded-[12px] transition-colors"
+          className="flex flex-col items-center gap-2 xl:gap-3 bg-black/[0.04] dark:bg-white/4 hover:bg-black/[0.06] dark:hover:bg-white/6 backdrop-blur-[20px] p-3.5 lg:p-4 xl:p-5 border border-black/[0.08] dark:border-white/8 hover:border-emerald-600/30 dark:hover:border-emerald-400/30 rounded-[12px] transition-colors"
         >
           <tech.icon size={28} color={tech.color} className="md:hidden" />
           <tech.icon size={40} color={tech.color} className="hidden md:block" />
-          <span className="font-grotesk text-[0.8rem] text-zinc-700 dark:text-white/80 md:text-[0.95rem] text-center">
+          <span className="font-grotesk text-[0.8rem] text-zinc-700 dark:text-white/80 xl:text-[0.95rem] text-center">
             {tech.name}
           </span>
         </div>
@@ -142,15 +142,15 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="mx-auto px-4 md:px-8 py-16 md:py-28 w-full max-w-243.75 scroll-mt-24"
+      className="mx-auto px-4 xl:px-8 py-16 lg:py-22 xl:py-28 w-full max-w-243.75 scroll-mt-24"
     >
       {/* Heading */}
       <AnimateIn>
-      <div className="mb-8 md:mb-12 text-center">
+      <div className="mb-8 lg:mb-10 xl:mb-12 text-center">
         <p className="mb-2 font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.18em]">
           TECH STACK
         </p>
-        <h2 className="font-extrabold text-[2rem] md:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
+        <h2 className="font-extrabold text-[2rem] lg:text-[2.6rem] xl:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
           <span className="text-zinc-900 dark:text-white">My </span>
           <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-700 via-emerald-500 to-emerald-400 dark:from-white dark:via-emerald-300 dark:to-emerald-500">
             Skills
@@ -171,7 +171,7 @@ export default function Skills() {
 
       {/* Backend Tape */}
       <AnimateIn delay={200}>
-      <div className="mb-8 md:mb-12">
+      <div className="mb-8 lg:mb-10 xl:mb-12">
         <p className="mb-3 font-grotesk text-[0.7rem] text-zinc-500 dark:text-white/45 uppercase tracking-[0.14em]">
           Backend Technologies
         </p>
