@@ -7,6 +7,7 @@ import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
 import { ChevronRight } from "lucide-react"
 import aiResumeImage from "@/assets/project-images/ai-resume-builder.jpg"
+import tripleALmsImage from "@/assets/project-images/triple-a-lms.png"
 import redbookImage from "@/assets/project-images/redbook.png"
 import leetcodeImage from "@/assets/project-images/leetcode-clone.png"
 import messengerImage from "@/assets/project-images/messenger-clone.png"
@@ -38,6 +39,17 @@ const projects: Project[] = [
   },
   {
     number: "02",
+    type: "LMS PLATFORM",
+    name: "TripleA LMS",
+    description:
+      "An LMS platform with geo-location based course discounts, powered by Stripe payments.",
+    image: tripleALmsImage,
+    technologies: ["Next.js", "Tailwind CSS", "Drizzle", "Stripe"],
+    githubLink: "https://github.com/abeertech01/lms-site/tree/main",
+    liveLink: "https://triple-a-lms.vercel.app/",
+  },
+  {
+    number: "03",
     type: "SOCIAL MEDIA APP",
     name: "Redbook",
     description:
@@ -47,7 +59,7 @@ const projects: Project[] = [
     githubLink: "https://github.com/abeertech01/redbook",
   },
   {
-    number: "03",
+    number: "04",
     type: "CODING PLATFORM",
     name: "LeetCode Clone",
     description:
@@ -58,7 +70,7 @@ const projects: Project[] = [
     liveLink: "https://leetcode-clone-ebon.vercel.app/",
   },
   {
-    number: "04",
+    number: "05",
     type: "Messaging App",
     name: "Messenger Clone",
     description:
@@ -69,7 +81,7 @@ const projects: Project[] = [
     liveLink: "https://messenger-clone-teal.vercel.app/",
   },
   {
-    number: "05",
+    number: "06",
     type: "Web App",
     name: "Vue Dishes",
     description:
@@ -80,7 +92,7 @@ const projects: Project[] = [
     liveLink: "https://vue-dishes.web.app/",
   },
   {
-    number: "06",
+    number: "07",
     type: "Landing Page",
     name: "Animated Landing Page",
     description:
