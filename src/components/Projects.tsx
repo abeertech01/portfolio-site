@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
@@ -14,6 +15,7 @@ import animatedLandingPageImage from "@/assets/project-images/melting-pot.webp"
 
 interface Project {
   number: string
+  slug: string
   type: string
   name: string
   description: string
@@ -26,6 +28,7 @@ interface Project {
 const projects: Project[] = [
   {
     number: "01",
+    slug: "ai-resume-builder",
     type: "WEB APP",
     name: "AI Resume Builder",
     description:
@@ -37,6 +40,7 @@ const projects: Project[] = [
   },
   {
     number: "02",
+    slug: "triple-a-lms",
     type: "LMS PLATFORM",
     name: "TripleA LMS",
     description:
@@ -48,6 +52,7 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    slug: "animated-landing-page",
     type: "Landing Page",
     name: "Animated Landing Page",
     description:
@@ -59,6 +64,7 @@ const projects: Project[] = [
   },
   {
     number: "04",
+    slug: "redbook",
     type: "SOCIAL MEDIA APP",
     name: "Redbook",
     description:
@@ -69,6 +75,7 @@ const projects: Project[] = [
   },
   {
     number: "05",
+    slug: "messenger-clone",
     type: "Messaging App",
     name: "Messenger Clone",
     description:
@@ -134,7 +141,7 @@ export default function Projects() {
               {/* Project Card */}
               <div className="flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
                 {/* Project Header */}
-                <div className="p-6 pb-4">
+                <Link href={`/${project.slug}`} className="p-6 pb-4">
                   <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
                     {project.number}. {project.type.toLowerCase()}
                   </p>
@@ -144,34 +151,34 @@ export default function Projects() {
                   <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
                     {project.description}
                   </p>
+                </Link>
 
-                  {/* Links */}
-                  <div className="flex gap-4 text-sm">
-                    {project.liveLink && (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
-                      >
-                        <MdOpenInNew size={16} />
-                        Live Link
-                      </a>
-                    )}
+                {/* Links */}
+                <div className="flex gap-4 px-6 pb-4 text-sm">
+                  {project.liveLink && (
                     <a
-                      href={project.githubLink}
+                      href={project.liveLink}
                       target="_blank"
                       rel="noreferrer noopener"
                       className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
                     >
-                      <SiGithub size={16} />
-                      Github Link
+                      <MdOpenInNew size={16} />
+                      Live Link
                     </a>
-                  </div>
+                  )}
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
+                  >
+                    <SiGithub size={16} />
+                    Github Link
+                  </a>
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
-                <div className="relative flex-1 px-6">
+                <Link href={`/${project.slug}`} className="relative flex-1 px-6">
                   {/* macOS Window Header */}
                   <div className="flex items-center gap-2 bg-[#2a2a2a] px-4 py-2 border-black/8 dark:border-white/10 border-t border-r border-l rounded-t-lg">
                     <div className="bg-[#ff5f57] rounded-full w-2.5 h-2.5" />
@@ -190,7 +197,7 @@ export default function Projects() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* Tech Stack Badges - Outside Card */}
