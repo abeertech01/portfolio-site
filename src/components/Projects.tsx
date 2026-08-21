@@ -9,9 +9,7 @@ import { ChevronRight } from "lucide-react"
 import aiResumeImage from "@/assets/project-images/ai-resume-builder.webp"
 import tripleALmsImage from "@/assets/project-images/triple-a-lms.webp"
 import redbookImage from "@/assets/project-images/redbook.webp"
-import leetcodeImage from "@/assets/project-images/leetcode-clone.webp"
 import messengerImage from "@/assets/project-images/messenger-clone.webp"
-import vueDishesImage from "@/assets/project-images/vue-dishes.webp"
 import animatedLandingPageImage from "@/assets/project-images/melting-pot.webp"
 
 interface Project {
@@ -50,6 +48,17 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    type: "Landing Page",
+    name: "Animated Landing Page",
+    description:
+      "Melting Pot, a restaurant landing page with smooth animations and transitions, built with React, GSAP and framer-motion.",
+    image: animatedLandingPageImage,
+    technologies: ["React", "GSAP", "framer-motion"],
+    githubLink: "https://github.com/abeertech01/melting-pot-restaurant",
+    liveLink: "https://melting-pot-restaurant.vercel.app/",
+  },
+  {
+    number: "04",
     type: "SOCIAL MEDIA APP",
     name: "Redbook",
     description:
@@ -57,17 +66,6 @@ const projects: Project[] = [
     image: redbookImage,
     technologies: ["React", "TypeScript", "Node.js"],
     githubLink: "https://github.com/abeertech01/redbook",
-  },
-  {
-    number: "04",
-    type: "CODING PLATFORM",
-    name: "LeetCode Clone",
-    description:
-      "Leetcode clone with solid understanding of reusable components, utilizing Firebase as a database.",
-    image: leetcodeImage,
-    technologies: ["Next.js", "TypeScript", "Firebase"],
-    githubLink: "https://github.com/abeertech01/leetcode-clone",
-    liveLink: "https://leetcode-clone-ebon.vercel.app/",
   },
   {
     number: "05",
@@ -79,28 +77,6 @@ const projects: Project[] = [
     technologies: ["Next.js", "Prisma", "Pusher.js"],
     githubLink: "https://github.com/abeertech01/messenger-clone",
     liveLink: "https://messenger-clone-teal.vercel.app/",
-  },
-  {
-    number: "06",
-    type: "Web App",
-    name: "Vue Dishes",
-    description:
-      "Searching, bookmarking dishes and measuring ingredients according to the number of guests. This API is created by Jonas Schmadtmann.",
-    image: vueDishesImage,
-    technologies: ["Vue", "Vuex", "REST API"],
-    githubLink: "https://github.com/abeertech01/vue-dishes",
-    liveLink: "https://vue-dishes.web.app/",
-  },
-  {
-    number: "07",
-    type: "Landing Page",
-    name: "Animated Landing Page",
-    description:
-      "Melting Pot, a restaurant landing page with smooth animations and transitions, built with React, GSAP and framer-motion.",
-    image: animatedLandingPageImage,
-    technologies: ["React", "GSAP", "framer-motion"],
-    githubLink: "https://github.com/abeertech01/melting-pot-restaurant",
-    liveLink: "https://melting-pot-restaurant.vercel.app/",
   },
 ]
 
