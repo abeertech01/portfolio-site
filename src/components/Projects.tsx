@@ -6,13 +6,13 @@ import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
 import { ChevronRight } from "lucide-react"
-import aiResumeImage from "@/assets/project-images/ai-resume-builder.jpg"
-import tripleALmsImage from "@/assets/project-images/triple-a-lms.png"
-import redbookImage from "@/assets/project-images/redbook.png"
-import leetcodeImage from "@/assets/project-images/leetcode-clone.png"
-import messengerImage from "@/assets/project-images/messenger-clone.png"
-import vueDishesImage from "@/assets/project-images/vue-dishes.png"
-import animatedLandingPageImage from "@/assets/project-images/melting-pot.png"
+import aiResumeImage from "@/assets/project-images/ai-resume-builder.webp"
+import tripleALmsImage from "@/assets/project-images/triple-a-lms.webp"
+import redbookImage from "@/assets/project-images/redbook.webp"
+import leetcodeImage from "@/assets/project-images/leetcode-clone.webp"
+import messengerImage from "@/assets/project-images/messenger-clone.webp"
+import vueDishesImage from "@/assets/project-images/vue-dishes.webp"
+import animatedLandingPageImage from "@/assets/project-images/melting-pot.webp"
 
 interface Project {
   number: string
@@ -208,6 +208,9 @@ export default function Projects() {
                       src={project.image}
                       alt={project.name}
                       fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      placeholder="blur"
+                      priority={index < 2}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
