@@ -6,7 +6,7 @@ import Link from "next/link"
 import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
-import { ChevronRight, ArrowRight } from "lucide-react"
+import { ChevronRight, ArrowRight, Crown } from "lucide-react"
 import aiResumeImage from "@/assets/project-images/ai-resume-builder.webp"
 import tripleALmsImage from "@/assets/project-images/triple-a-lms.webp"
 import redbookImage from "@/assets/project-images/redbook.webp"
@@ -18,6 +18,7 @@ interface Project {
   slug: string
   hasDetailPage?: boolean
   underMaintenance?: boolean
+  isStarProject?: boolean
   type: string
   name: string
   description: string
@@ -90,6 +91,7 @@ const projects: Project[] = [
     number: "01",
     slug: "ai-resume-builder",
     hasDetailPage: true,
+    isStarProject: true,
     type: "WEB APP",
     name: "AI Resume Builder",
     description:
@@ -103,6 +105,7 @@ const projects: Project[] = [
     number: "02",
     slug: "triple-a-lms",
     hasDetailPage: true,
+    isStarProject: true,
     type: "LMS PLATFORM",
     name: "TripleA LMS",
     description:
@@ -211,9 +214,20 @@ export default function Projects() {
               >
                 {/* Project Header */}
                 <CardSection project={project} className="p-6 pb-4">
-                  <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
-                    {project.number}. {project.type.toLowerCase()}
-                  </p>
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
+                      {project.number}. {project.type.toLowerCase()}
+                    </p>
+                    {project.isStarProject && (
+                      <span className="inline-flex items-center gap-1 bg-emerald-600/10 dark:bg-emerald-400/10 px-2.5 py-1 rounded-full font-semibold text-emerald-600 dark:text-emerald-400 text-[0.65rem] uppercase tracking-wide">
+                        <Crown
+                          size={12}
+                          className="fill-emerald-600 dark:fill-emerald-400"
+                        />
+                        Crowned Project
+                      </span>
+                    )}
+                  </div>
                   <h3 className="mb-3 font-bold text-zinc-900 dark:text-white text-2xl">
                     {project.name}
                   </h3>
