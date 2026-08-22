@@ -16,7 +16,13 @@ export default function ProjectGallery({
   projectName,
 }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [videoActivated, setVideoActivated] = useState(false)
   const isVideo = activeIndex === 0
+
+  function showScreenshot(index: number) {
+    setActiveIndex(index)
+    setVideoActivated(false)
+  }
 
   return (
     <div className="gap-4 grid grid-cols-[104px_1fr] lg:grid-cols-[120px_1fr] mb-14">
@@ -31,7 +37,7 @@ export default function ProjectGallery({
               : "border-black/8 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25"
           }`}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-950" />
+          <div className="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-950" />
           <div className="absolute inset-0 flex justify-center items-center">
             <Play size={16} className="fill-emerald-500 text-emerald-500" />
           </div>
@@ -40,7 +46,7 @@ export default function ProjectGallery({
         {screenshots.map((shot, i) => (
           <button
             key={shot.caption}
-            onClick={() => setActiveIndex(i + 1)}
+            onClick={() => showScreenshot(i + 1)}
             aria-label={shot.caption}
             className={`relative flex-shrink-0 w-24 md:w-full aspect-video rounded-xl border-2 overflow-hidden transition-colors cursor-pointer ${
               activeIndex === i + 1
@@ -63,14 +69,32 @@ export default function ProjectGallery({
       {/* Main viewer */}
       <div className="relative order-1 md:order-2 rounded-2xl border border-black/8 dark:border-white/10 aspect-video overflow-hidden">
         {isVideo ? (
-          <iframe
-            key={video.youtubeId}
-            src={`https://www.youtube.com/embed/${video.youtubeId}`}
-            title={`${projectName} — ${video.caption}`}
-            className="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          videoActivated ? (
+            <iframe
+              key={video.youtubeId}
+              src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1`}
+              title={`${projectName} — ${video.caption}`}
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <button
+              onClick={() => setVideoActivated(true)}
+              aria-label={`Play ${video.caption}`}
+              className="group absolute inset-0 w-full h-full cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-linear-to-br from-zinc-800 to-zinc-950" />
+              <div className="absolute inset-0 flex justify-center items-center">
+                <div className="flex justify-center items-center bg-emerald-500 group-hover:bg-emerald-400 rounded-full w-16 h-16 transition-colors">
+                  <Play size={26} className="fill-zinc-950 ml-1 text-zinc-950" />
+                </div>
+              </div>
+              <span className="top-3.5 left-4 absolute bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full font-medium text-white text-xs">
+                Unlisted · YouTube
+              </span>
+            </button>
+          )
         ) : (
           <>
             <Image
