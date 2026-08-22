@@ -25,7 +25,7 @@ export default function ProjectGallery({
   }
 
   return (
-    <div className="gap-4 grid grid-cols-[104px_1fr] lg:grid-cols-[120px_1fr] mb-14">
+    <div className="gap-4 grid grid-cols-1 md:grid-cols-[104px_1fr] lg:grid-cols-[120px_1fr] mb-14">
       {/* Thumbnail rail */}
       <div className="flex md:flex-col gap-3 order-2 md:order-1 overflow-x-auto">
         <button
