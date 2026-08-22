@@ -17,6 +17,7 @@ interface Project {
   number: string
   slug: string
   hasDetailPage?: boolean
+  underMaintenance?: boolean
   type: string
   name: string
   description: string
@@ -137,6 +138,7 @@ const projects: Project[] = [
   {
     number: "05",
     slug: "messenger-clone",
+    underMaintenance: true,
     type: "Messaging App",
     name: "Messenger Clone",
     description:
@@ -200,7 +202,13 @@ export default function Projects() {
           <AnimateIn key={project.number} delay={index * 100}>
             <div>
               {/* Project Card */}
-              <div className="flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
+              <div
+                className={`flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 dark:border-white/10 rounded-3xl overflow-hidden transition-all duration-300 ${
+                  project.underMaintenance
+                    ? "hover:border-red-500/50 dark:hover:border-red-400/50"
+                    : "hover:border-emerald-600/40 dark:hover:border-emerald-400/40"
+                }`}
+              >
                 {/* Project Header */}
                 <CardSection project={project} className="p-6 pb-4">
                   <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
@@ -223,6 +231,10 @@ export default function Projects() {
                         size={14}
                         className="text-emerald-600 dark:text-emerald-400"
                       />
+                    </p>
+                  ) : project.underMaintenance ? (
+                    <p className="font-medium text-red-500/80 dark:text-red-400/80 text-sm">
+                      Under maintenance
                     </p>
                   ) : (
                     <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
