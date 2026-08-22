@@ -213,7 +213,7 @@ export default function Projects() {
                     {project.description}
                   </p>
                   {project.hasDetailPage && (
-                    <p className="flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400 text-sm">
+                    <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
                       See the full case study
                       <ArrowRight size={14} />
                     </p>
@@ -221,7 +221,7 @@ export default function Projects() {
                 </CardSection>
 
                 {/* Links */}
-                <div className="flex justify-end items-center gap-2 px-6 pb-4">
+                <div className="flex justify-start items-center gap-2 px-6 pb-4">
                   <IconLinkButton href={project.liveLink} label="Live Link">
                     <MdOpenInNew size={16} />
                   </IconLinkButton>
