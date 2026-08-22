@@ -116,8 +116,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { src: tripleALmsShot3, caption: "Lesson player" },
     ],
     caseStudy: {
+      problemLabel: "The Goal",
       problem:
-        "Course platforms usually charge one global price, which prices out learners in lower-income regions and leaves money on the table everywhere else. I wanted to see if fair, automatic regional pricing was buildable without a paid geo-pricing SaaS.",
+        "This one wasn't built to fix a specific pain point either — it was a deliberate exercise in modern full-stack architecture: geo-based discount pricing, caching strategies in Next.js, role-based authentication, and Drizzle ORM as the data layer.",
       features: [
         {
           title: "Regional pricing",
