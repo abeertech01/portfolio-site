@@ -139,7 +139,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       challenge:
         "Making sure the price a learner sees never drifts from what Stripe actually charges took care — the discount is computed server-side at checkout time, not trusted from anything the client sends.",
       whatsNext:
-        "Instructor payouts and an admin view for managing courses and coupons directly — both are still handled by hand right now.",
+        "UI/UX polish is the immediate focus. Instructor payouts and an admin view for managing courses and coupons directly — both still handled by hand right now — will get picked up in spare time after that.",
     },
   },
 }
