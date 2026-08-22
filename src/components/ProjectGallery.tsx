@@ -31,7 +31,7 @@ export default function ProjectGallery({
         <button
           onClick={() => setActiveIndex(0)}
           aria-label={`Play ${video.caption}`}
-          className={`relative flex-shrink-0 w-24 md:w-full aspect-video rounded-xl border-2 overflow-hidden transition-colors cursor-pointer ${
+          className={`relative shrink-0 w-24 md:w-full aspect-video rounded-xl border-2 overflow-hidden transition-colors cursor-pointer ${
             activeIndex === 0
               ? "border-emerald-600 dark:border-emerald-400"
               : "border-black/8 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25"
@@ -48,7 +48,7 @@ export default function ProjectGallery({
             key={shot.caption}
             onClick={() => showScreenshot(i + 1)}
             aria-label={shot.caption}
-            className={`relative flex-shrink-0 w-24 md:w-full aspect-video rounded-xl border-2 overflow-hidden transition-colors cursor-pointer ${
+            className={`relative shrink-0 w-24 md:w-full aspect-video rounded-xl border-2 overflow-hidden transition-colors cursor-pointer ${
               activeIndex === i + 1
                 ? "border-emerald-600 dark:border-emerald-400"
                 : "border-black/8 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25"
@@ -67,7 +67,7 @@ export default function ProjectGallery({
       </div>
 
       {/* Main viewer */}
-      <div className="relative order-1 md:order-2 rounded-2xl border border-black/8 dark:border-white/10 aspect-video overflow-hidden">
+      <div className="relative order-1 md:order-2 border border-black/8 dark:border-white/10 rounded-2xl aspect-video overflow-hidden">
         {isVideo ? (
           videoActivated ? (
             <iframe
