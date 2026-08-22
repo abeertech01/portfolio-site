@@ -46,30 +46,6 @@ function CardSection({
   )
 }
 
-function ExploreMoreLink({ project }: { project: Project }) {
-  if (!project.hasDetailPage) {
-    return (
-      <span
-        aria-disabled="true"
-        className="inline-flex items-center gap-1.5 font-medium text-zinc-300 dark:text-white/15 text-sm cursor-not-allowed"
-      >
-        Explore More
-        <ArrowRight size={14} />
-      </span>
-    )
-  }
-
-  return (
-    <Link
-      href={`/${project.slug}`}
-      className="inline-flex items-center gap-1.5 font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 text-sm transition-colors"
-    >
-      Explore More
-      <ArrowRight size={14} />
-    </Link>
-  )
-}
-
 function IconLinkButton({
   href,
   label,
@@ -236,19 +212,22 @@ export default function Projects() {
                   <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
                     {project.description}
                   </p>
+                  {project.hasDetailPage && (
+                    <p className="flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400 text-sm">
+                      See the full case study
+                      <ArrowRight size={14} />
+                    </p>
+                  )}
                 </CardSection>
 
                 {/* Links */}
-                <div className="flex justify-between items-center px-6 pb-4">
-                  <ExploreMoreLink project={project} />
-                  <div className="flex gap-2">
-                    <IconLinkButton href={project.liveLink} label="Live Link">
-                      <MdOpenInNew size={16} />
-                    </IconLinkButton>
-                    <IconLinkButton href={project.githubLink} label="Github Link">
-                      <SiGithub size={16} />
-                    </IconLinkButton>
-                  </div>
+                <div className="flex justify-end items-center gap-2 px-6 pb-4">
+                  <IconLinkButton href={project.liveLink} label="Live Link">
+                    <MdOpenInNew size={16} />
+                  </IconLinkButton>
+                  <IconLinkButton href={project.githubLink} label="Github Link">
+                    <SiGithub size={16} />
+                  </IconLinkButton>
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
