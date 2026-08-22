@@ -8,9 +8,11 @@ import {
   SiDrizzle,
   SiStripe,
 } from "react-icons/si"
+import aiResumeLead from "@/assets/project-images/ai-resume-builder.webp"
 import aiResumeShot1 from "@/assets/ai-resume-builder/ai-resume-1.webp"
 import aiResumeShot2 from "@/assets/ai-resume-builder/ai-resume-2.webp"
 import aiResumeShot3 from "@/assets/ai-resume-builder/ai-resume-3.webp"
+import tripleALmsLead from "@/assets/project-images/triple-a-lms.webp"
 import tripleALmsShot1 from "@/assets/triple-a-lms/triple-a-1.webp"
 import tripleALmsShot2 from "@/assets/triple-a-lms/triple-a-2.webp"
 import tripleALmsShot3 from "@/assets/triple-a-lms/triple-a-3.webp"
@@ -47,6 +49,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     technologies: [
       { name: "Next.js", Icon: SiNextdotjs },
       { name: "Prisma", Icon: SiPrisma },
+      { name: "Stripe", Icon: SiStripe },
       { name: "Vercel Blob", Icon: SiVercel },
     ],
     video: {
@@ -54,6 +57,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       caption: "Product walkthrough",
     },
     screenshots: [
+      { src: aiResumeLead, caption: "Overview" },
       { src: aiResumeShot1, caption: "Step-by-step builder with live preview" },
       { src: aiResumeShot2, caption: "Saved resumes dashboard" },
       { src: aiResumeShot3, caption: "Premium plans" },
@@ -104,6 +108,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       caption: "Product walkthrough",
     },
     screenshots: [
+      { src: tripleALmsLead, caption: "Overview" },
       { src: tripleALmsShot1, caption: "Course landing page" },
       { src: tripleALmsShot2, caption: "My Courses dashboard" },
       { src: tripleALmsShot3, caption: "Lesson player" },
