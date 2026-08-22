@@ -238,23 +238,28 @@ export default function Projects() {
 
                 {/* Links */}
                 <div className="flex justify-between items-center px-6 pt-4 pb-4">
-                  {project.hasDetailPage ? (
-                    <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
-                      See the full case study
-                      <ArrowRight
-                        size={14}
-                        className="text-emerald-600 dark:text-emerald-400"
-                      />
-                    </p>
-                  ) : project.underMaintenance ? (
-                    <p className="font-medium text-red-500/80 dark:text-red-400/80 text-sm">
-                      Under maintenance
-                    </p>
-                  ) : (
-                    <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
-                      Case study coming soon
-                    </p>
-                  )}
+                  <CardSection
+                    project={project}
+                    className="flex flex-1 items-center"
+                  >
+                    {project.hasDetailPage ? (
+                      <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
+                        See the full case study
+                        <ArrowRight
+                          size={14}
+                          className="text-emerald-600 dark:text-emerald-400"
+                        />
+                      </p>
+                    ) : project.underMaintenance ? (
+                      <p className="font-medium text-red-500/80 dark:text-red-400/80 text-sm">
+                        Under maintenance
+                      </p>
+                    ) : (
+                      <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
+                        Case study coming soon
+                      </p>
+                    )}
+                  </CardSection>
                   <div className="flex gap-2">
                     <IconLinkButton href={project.liveLink} label="Live Link">
                       <MdOpenInNew size={16} />
