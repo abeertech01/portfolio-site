@@ -38,13 +38,18 @@ export default function SmoothScroll() {
 
   // Next.js moves window.scrollY on route change without going through
   // Lenis, so its internally tracked position goes stale and the next
-  // scroll feels stuck/jammed until it "catches up". Resync on every
-  // route change to whatever the browser actually landed on.
+  // scroll feels stuck/jammed until it "catches up". Rather than reading
+  // window.scrollY (which races Next's own scroll handling and can catch
+  // a stale pre-navigation value), decide the landing position ourselves:
+  // the hash target if the URL has one, top of page otherwise.
   useEffect(() => {
     const lenis = lenisRef.current
     if (!lenis) return
     lenis.resize()
-    lenis.scrollTo(window.scrollY, { immediate: true })
+
+    const hash = window.location.hash.slice(1)
+    const target = hash ? document.getElementById(hash) : null
+    lenis.scrollTo(target ?? 0, { immediate: true })
   }, [pathname])
 
   return null
