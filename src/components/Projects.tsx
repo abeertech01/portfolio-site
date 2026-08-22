@@ -16,6 +16,7 @@ import animatedLandingPageImage from "@/assets/project-images/melting-pot.webp"
 interface Project {
   number: string
   slug: string
+  hasDetailPage?: boolean
   type: string
   name: string
   description: string
@@ -25,10 +26,31 @@ interface Project {
   liveLink?: string
 }
 
+function CardSection({
+  project,
+  className,
+  children,
+}: {
+  project: Project
+  className?: string
+  children: React.ReactNode
+}) {
+  if (!project.hasDetailPage) {
+    return <div className={className}>{children}</div>
+  }
+
+  return (
+    <Link href={`/${project.slug}`} className={className}>
+      {children}
+    </Link>
+  )
+}
+
 const projects: Project[] = [
   {
     number: "01",
     slug: "ai-resume-builder",
+    hasDetailPage: true,
     type: "WEB APP",
     name: "AI Resume Builder",
     description:
@@ -41,6 +63,7 @@ const projects: Project[] = [
   {
     number: "02",
     slug: "triple-a-lms",
+    hasDetailPage: true,
     type: "LMS PLATFORM",
     name: "TripleA LMS",
     description:
@@ -141,7 +164,7 @@ export default function Projects() {
               {/* Project Card */}
               <div className="flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
                 {/* Project Header */}
-                <Link href={`/${project.slug}`} className="p-6 pb-4">
+                <CardSection project={project} className="p-6 pb-4">
                   <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
                     {project.number}. {project.type.toLowerCase()}
                   </p>
@@ -151,7 +174,7 @@ export default function Projects() {
                   <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
                     {project.description}
                   </p>
-                </Link>
+                </CardSection>
 
                 {/* Links */}
                 <div className="flex gap-4 px-6 pb-4 text-sm">
@@ -178,7 +201,7 @@ export default function Projects() {
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
-                <Link href={`/${project.slug}`} className="relative flex-1 px-6">
+                <CardSection project={project} className="relative flex-1 px-6">
                   {/* macOS Window Header */}
                   <div className="flex items-center gap-2 bg-[#2a2a2a] px-4 py-2 border-black/8 dark:border-white/10 border-t border-r border-l rounded-t-lg">
                     <div className="bg-[#ff5f57] rounded-full w-2.5 h-2.5" />
@@ -197,7 +220,7 @@ export default function Projects() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                </Link>
+                </CardSection>
               </div>
 
               {/* Tech Stack Badges - Outside Card */}
