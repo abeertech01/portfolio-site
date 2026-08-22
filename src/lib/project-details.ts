@@ -118,7 +118,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     caseStudy: {
       problemLabel: "The Goal",
       problem:
-        "This one wasn't built to fix a specific pain point either — it was a deliberate exercise in modern full-stack architecture: geo-based discount pricing, caching strategies in Next.js, role-based authentication, and Drizzle ORM as the data layer.",
+        "This one wasn't built to fix a specific pain point either — it was a deliberate exercise in modern full-stack architecture: structured course management for students, geo-based discount pricing, caching strategies in Next.js, role-based authentication, and Drizzle ORM as the data layer.",
       features: [
         {
           title: "Regional pricing",
