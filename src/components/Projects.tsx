@@ -225,7 +225,9 @@ export default function Projects() {
                       />
                     </p>
                   ) : (
-                    <span />
+                    <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
+                      Case study coming soon
+                    </p>
                   )}
                   <div className="flex gap-2">
                     <IconLinkButton href={project.liveLink} label="Live Link">
