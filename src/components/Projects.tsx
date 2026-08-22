@@ -209,25 +209,32 @@ export default function Projects() {
                   <h3 className="mb-3 font-bold text-zinc-900 dark:text-white text-2xl">
                     {project.name}
                   </h3>
-                  <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+                  <p className="text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  {project.hasDetailPage && (
-                    <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
-                      See the full case study
-                      <ArrowRight size={14} />
-                    </p>
-                  )}
                 </CardSection>
 
                 {/* Links */}
-                <div className="flex justify-start items-center gap-2 px-6 pb-4">
-                  <IconLinkButton href={project.liveLink} label="Live Link">
-                    <MdOpenInNew size={16} />
-                  </IconLinkButton>
-                  <IconLinkButton href={project.githubLink} label="Github Link">
-                    <SiGithub size={16} />
-                  </IconLinkButton>
+                <div className="flex justify-between items-center px-6 pt-4 pb-4">
+                  {project.hasDetailPage ? (
+                    <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
+                      See the full case study
+                      <ArrowRight
+                        size={14}
+                        className="text-emerald-600 dark:text-emerald-400"
+                      />
+                    </p>
+                  ) : (
+                    <span />
+                  )}
+                  <div className="flex gap-2">
+                    <IconLinkButton href={project.liveLink} label="Live Link">
+                      <MdOpenInNew size={16} />
+                    </IconLinkButton>
+                    <IconLinkButton href={project.githubLink} label="Github Link">
+                      <SiGithub size={16} />
+                    </IconLinkButton>
+                  </div>
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
