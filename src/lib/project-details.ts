@@ -29,6 +29,7 @@ export interface ProjectDetail {
   video: { youtubeId: string; caption: string }
   screenshots: { src: StaticImageData; caption: string }[]
   caseStudy: {
+    problemLabel?: string
     problem: string
     features: { title: string; description: string }[]
     challenge: string
@@ -63,8 +64,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { src: aiResumeShot3, caption: "Premium plans" },
     ],
     caseStudy: {
+      problemLabel: "The Goal",
       problem:
-        "Most resume builders either paywall the entire tool or hand you a blank text box and call it AI. I wanted the core builder — structured sections, live preview, autosave — to work fully for free, with AI as a genuine upgrade rather than the whole product hiding behind a paywall.",
+        "This one wasn't built to fix a specific pain point — it was a deliberate exercise in showcasing modern SaaS development end to end: real AI integration, a live-updating preview, Stripe-backed subscription billing, and the kind of UX polish that makes a tool feel finished rather than a demo.",
       features: [
         {
           title: "Guided multi-step builder",

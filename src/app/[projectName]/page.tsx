@@ -121,7 +121,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="flex flex-col gap-4 mb-4">
           <div className="bg-black/3 dark:bg-white/3 backdrop-blur-[20px] px-6 py-5 border border-black/8 dark:border-white/10 border-l-2 border-l-emerald-600 dark:border-l-emerald-400 rounded-2xl">
             <span className="block mb-2 font-grotesk text-zinc-400 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
-              The Problem
+              {project.caseStudy.problemLabel ?? "The Problem"}
             </span>
             <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
               {project.caseStudy.problem}
