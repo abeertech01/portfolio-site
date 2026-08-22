@@ -2,32 +2,96 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, ArrowRight, Crown } from "lucide-react"
 import aiResumeImage from "@/assets/project-images/ai-resume-builder.webp"
 import tripleALmsImage from "@/assets/project-images/triple-a-lms.webp"
 import redbookImage from "@/assets/project-images/redbook.webp"
-import leetcodeImage from "@/assets/project-images/leetcode-clone.webp"
 import messengerImage from "@/assets/project-images/messenger-clone.webp"
-import vueDishesImage from "@/assets/project-images/vue-dishes.webp"
 import animatedLandingPageImage from "@/assets/project-images/melting-pot.webp"
 
 interface Project {
   number: string
+  slug: string
+  hasDetailPage?: boolean
+  underMaintenance?: boolean
+  isStarProject?: boolean
   type: string
   name: string
   description: string
   image: typeof aiResumeImage
   technologies: string[]
-  githubLink: string
+  githubLink?: string
   liveLink?: string
+}
+
+function CardSection({
+  project,
+  className,
+  children,
+}: {
+  project: Project
+  className?: string
+  children: React.ReactNode
+}) {
+  if (!project.hasDetailPage) {
+    return <div className={className}>{children}</div>
+  }
+
+  return (
+    <Link href={`/${project.slug}`} className={className}>
+      {children}
+    </Link>
+  )
+}
+
+function IconLinkButton({
+  href,
+  label,
+  children,
+}: {
+  href?: string
+  label: string
+  children: React.ReactNode
+}) {
+  const base =
+    "flex justify-center items-center border rounded-full w-9 h-9 transition-colors"
+
+  if (!href) {
+    return (
+      <span
+        aria-disabled="true"
+        title={`${label} unavailable`}
+        className={`${base} border-black/8 dark:border-white/10 text-zinc-300 dark:text-white/15 cursor-not-allowed`}
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={label}
+      title={label}
+      className={`${base} border-emerald-600/30 hover:border-emerald-600 dark:border-emerald-400/30 dark:hover:border-emerald-400 text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400`}
+    >
+      {children}
+    </a>
+  )
 }
 
 const projects: Project[] = [
   {
     number: "01",
+    slug: "ai-resume-builder",
+    hasDetailPage: true,
+    isStarProject: true,
     type: "WEB APP",
     name: "AI Resume Builder",
     description:
@@ -39,6 +103,9 @@ const projects: Project[] = [
   },
   {
     number: "02",
+    slug: "triple-a-lms",
+    hasDetailPage: true,
+    isStarProject: true,
     type: "LMS PLATFORM",
     name: "TripleA LMS",
     description:
@@ -50,6 +117,19 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    slug: "animated-landing-page",
+    type: "Landing Page",
+    name: "Animated Landing Page",
+    description:
+      "Melting Pot, a restaurant landing page with smooth animations and transitions, built with React, GSAP and framer-motion.",
+    image: animatedLandingPageImage,
+    technologies: ["React", "GSAP", "framer-motion"],
+    githubLink: "https://github.com/abeertech01/melting-pot-restaurant",
+    liveLink: "https://melting-pot-restaurant.vercel.app/",
+  },
+  {
+    number: "04",
+    slug: "redbook",
     type: "SOCIAL MEDIA APP",
     name: "Redbook",
     description:
@@ -59,18 +139,9 @@ const projects: Project[] = [
     githubLink: "https://github.com/abeertech01/redbook",
   },
   {
-    number: "04",
-    type: "CODING PLATFORM",
-    name: "LeetCode Clone",
-    description:
-      "Leetcode clone with solid understanding of reusable components, utilizing Firebase as a database.",
-    image: leetcodeImage,
-    technologies: ["Next.js", "TypeScript", "Firebase"],
-    githubLink: "https://github.com/abeertech01/leetcode-clone",
-    liveLink: "https://leetcode-clone-ebon.vercel.app/",
-  },
-  {
     number: "05",
+    slug: "messenger-clone",
+    underMaintenance: true,
     type: "Messaging App",
     name: "Messenger Clone",
     description:
@@ -79,28 +150,6 @@ const projects: Project[] = [
     technologies: ["Next.js", "Prisma", "Pusher.js"],
     githubLink: "https://github.com/abeertech01/messenger-clone",
     liveLink: "https://messenger-clone-teal.vercel.app/",
-  },
-  {
-    number: "06",
-    type: "Web App",
-    name: "Vue Dishes",
-    description:
-      "Searching, bookmarking dishes and measuring ingredients according to the number of guests. This API is created by Jonas Schmadtmann.",
-    image: vueDishesImage,
-    technologies: ["Vue", "Vuex", "REST API"],
-    githubLink: "https://github.com/abeertech01/vue-dishes",
-    liveLink: "https://vue-dishes.web.app/",
-  },
-  {
-    number: "07",
-    type: "Landing Page",
-    name: "Animated Landing Page",
-    description:
-      "Melting Pot, a restaurant landing page with smooth animations and transitions, built with React, GSAP and framer-motion.",
-    image: animatedLandingPageImage,
-    technologies: ["React", "GSAP", "framer-motion"],
-    githubLink: "https://github.com/abeertech01/melting-pot-restaurant",
-    liveLink: "https://melting-pot-restaurant.vercel.app/",
   },
 ]
 
@@ -156,46 +205,68 @@ export default function Projects() {
           <AnimateIn key={project.number} delay={index * 100}>
             <div>
               {/* Project Card */}
-              <div className="flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 hover:border-emerald-600/40 dark:border-white/10 dark:hover:border-emerald-400/40 rounded-3xl overflow-hidden transition-all duration-300">
+              <div
+                className={`flex flex-col bg-black/3 dark:bg-white/3 backdrop-blur-[20px] border-2 border-black/8 dark:border-white/10 rounded-3xl overflow-hidden transition-all duration-300 ${
+                  project.underMaintenance
+                    ? "hover:border-red-500/50 dark:hover:border-red-400/50"
+                    : "hover:border-emerald-600/40 dark:hover:border-emerald-400/40"
+                }`}
+              >
                 {/* Project Header */}
-                <div className="p-6 pb-4">
-                  <p className="mb-2 font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
-                    {project.number}. {project.type.toLowerCase()}
-                  </p>
+                <CardSection project={project} className="p-6 pb-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="font-grotesk text-zinc-500 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
+                      {project.number}. {project.type.toLowerCase()}
+                    </p>
+                    {project.isStarProject && (
+                      <span className="inline-flex items-center gap-1 bg-emerald-600/10 dark:bg-emerald-400/10 px-2.5 py-1 rounded-full font-semibold text-emerald-600 dark:text-emerald-400 text-[0.65rem] uppercase tracking-wide">
+                        <Crown
+                          size={12}
+                          className="fill-emerald-600 dark:fill-emerald-400"
+                        />
+                        Crowned Project
+                      </span>
+                    )}
+                  </div>
                   <h3 className="mb-3 font-bold text-zinc-900 dark:text-white text-2xl">
                     {project.name}
                   </h3>
-                  <p className="mb-4 text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+                  <p className="text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
                     {project.description}
                   </p>
+                </CardSection>
 
-                  {/* Links */}
-                  <div className="flex gap-4 text-sm">
-                    {project.liveLink && (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
-                      >
-                        <MdOpenInNew size={16} />
-                        Live Link
-                      </a>
-                    )}
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
-                    >
+                {/* Links */}
+                <div className="flex justify-between items-center px-6 pt-4 pb-4">
+                  {project.hasDetailPage ? (
+                    <p className="flex items-center gap-1.5 font-semibold text-zinc-900 dark:text-white text-sm">
+                      See the full case study
+                      <ArrowRight
+                        size={14}
+                        className="text-emerald-600 dark:text-emerald-400"
+                      />
+                    </p>
+                  ) : project.underMaintenance ? (
+                    <p className="font-medium text-red-500/80 dark:text-red-400/80 text-sm">
+                      Under maintenance
+                    </p>
+                  ) : (
+                    <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
+                      Case study coming soon
+                    </p>
+                  )}
+                  <div className="flex gap-2">
+                    <IconLinkButton href={project.liveLink} label="Live Link">
+                      <MdOpenInNew size={16} />
+                    </IconLinkButton>
+                    <IconLinkButton href={project.githubLink} label="Github Link">
                       <SiGithub size={16} />
-                      Github Link
-                    </a>
+                    </IconLinkButton>
                   </div>
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
-                <div className="relative flex-1 px-6">
+                <CardSection project={project} className="relative flex-1 px-6">
                   {/* macOS Window Header */}
                   <div className="flex items-center gap-2 bg-[#2a2a2a] px-4 py-2 border-black/8 dark:border-white/10 border-t border-r border-l rounded-t-lg">
                     <div className="bg-[#ff5f57] rounded-full w-2.5 h-2.5" />
@@ -214,7 +285,7 @@ export default function Projects() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                </div>
+                </CardSection>
               </div>
 
               {/* Tech Stack Badges - Outside Card */}

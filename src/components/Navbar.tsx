@@ -2,6 +2,7 @@
 
 import { Moon, Sun, FileText, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useRouter, usePathname } from "next/navigation"
 import { useState, useSyncExternalStore } from "react"
 
 const navItems: { label: string; target: string }[] = [
@@ -16,10 +17,18 @@ export default function Navbar() {
   const [active, setActive] = useState("Home")
   const [drawerOpen, setDrawerOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const router = useRouter()
+  const pathname = usePathname()
 
   function handleNavClick(item: (typeof navItems)[number]) {
     setActive(item.label)
     setDrawerOpen(false)
+
+    if (pathname !== "/") {
+      router.push(item.target === "top" ? "/" : `/#${item.target}`)
+      return
+    }
+
     if (item.target === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
@@ -59,7 +68,7 @@ export default function Navbar() {
                 className={`px-4 py-1.5 rounded-full text-sm font-medium
                             transition-all duration-200 cursor-pointer
                             ${
-                              active === item.label
+                              pathname === "/" && active === item.label
                                 ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
                                 : "text-black/65 dark:text-white/65 hover:text-black dark:hover:text-white/90"
                             }`}
@@ -128,7 +137,7 @@ export default function Navbar() {
               onClick={() => handleNavClick(item)}
               className={`px-4 py-3.5 rounded-xl text-left font-medium text-[0.95rem] transition-all duration-200 cursor-pointer
                 ${
-                  active === item.label
+                  pathname === "/" && active === item.label
                     ? "bg-emerald-600/10 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-600/20 dark:border-emerald-500/20"
                     : "text-zinc-500 dark:text-white/50 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 border border-transparent"
                 }`}
