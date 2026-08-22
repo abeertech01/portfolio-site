@@ -6,7 +6,7 @@ import Link from "next/link"
 import AnimateIn from "@/components/AnimateIn"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, ArrowRight } from "lucide-react"
 import aiResumeImage from "@/assets/project-images/ai-resume-builder.webp"
 import tripleALmsImage from "@/assets/project-images/triple-a-lms.webp"
 import redbookImage from "@/assets/project-images/redbook.webp"
@@ -22,7 +22,7 @@ interface Project {
   description: string
   image: typeof aiResumeImage
   technologies: string[]
-  githubLink: string
+  githubLink?: string
   liveLink?: string
 }
 
@@ -43,6 +43,68 @@ function CardSection({
     <Link href={`/${project.slug}`} className={className}>
       {children}
     </Link>
+  )
+}
+
+function ExploreMoreLink({ project }: { project: Project }) {
+  if (!project.hasDetailPage) {
+    return (
+      <span
+        aria-disabled="true"
+        className="inline-flex items-center gap-1.5 font-medium text-zinc-300 dark:text-white/15 text-sm cursor-not-allowed"
+      >
+        Explore More
+        <ArrowRight size={14} />
+      </span>
+    )
+  }
+
+  return (
+    <Link
+      href={`/${project.slug}`}
+      className="inline-flex items-center gap-1.5 font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 text-sm transition-colors"
+    >
+      Explore More
+      <ArrowRight size={14} />
+    </Link>
+  )
+}
+
+function IconLinkButton({
+  href,
+  label,
+  children,
+}: {
+  href?: string
+  label: string
+  children: React.ReactNode
+}) {
+  const base =
+    "flex justify-center items-center border rounded-full w-9 h-9 transition-colors"
+
+  if (!href) {
+    return (
+      <span
+        aria-disabled="true"
+        title={`${label} unavailable`}
+        className={`${base} border-black/8 dark:border-white/10 text-zinc-300 dark:text-white/15 cursor-not-allowed`}
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={label}
+      title={label}
+      className={`${base} border-emerald-600/30 hover:border-emerald-600 dark:border-emerald-400/30 dark:hover:border-emerald-400 text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400`}
+    >
+      {children}
+    </a>
   )
 }
 
@@ -177,27 +239,16 @@ export default function Projects() {
                 </CardSection>
 
                 {/* Links */}
-                <div className="flex gap-4 px-6 pb-4 text-sm">
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
-                    >
+                <div className="flex justify-between items-center px-6 pb-4">
+                  <ExploreMoreLink project={project} />
+                  <div className="flex gap-2">
+                    <IconLinkButton href={project.liveLink} label="Live Link">
                       <MdOpenInNew size={16} />
-                      Live Link
-                    </a>
-                  )}
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="flex items-center gap-1.5 border-emerald-600 hover:border-emerald-700 dark:border-emerald-400 dark:hover:border-emerald-300 border-b font-medium text-emerald-600 hover:text-emerald-700 dark:hover:text-emerald-300 dark:text-emerald-400 transition-colors"
-                  >
-                    <SiGithub size={16} />
-                    Github Link
-                  </a>
+                    </IconLinkButton>
+                    <IconLinkButton href={project.githubLink} label="Github Link">
+                      <SiGithub size={16} />
+                    </IconLinkButton>
+                  </div>
                 </div>
 
                 {/* Project Image with macOS Window Frame */}
