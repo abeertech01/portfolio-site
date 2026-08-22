@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Crown } from "lucide-react"
 import { SiGithub } from "react-icons/si"
 import { MdOpenInNew } from "react-icons/md"
 import AnimateIn from "@/components/AnimateIn"
@@ -56,9 +56,17 @@ export default async function ProjectPage({ params }: Props) {
           All Projects
         </Link>
 
-        <p className="mb-2 font-grotesk text-emerald-600 dark:text-emerald-400 text-xs uppercase tracking-[0.15em]">
-          {project.type} · {project.number} / 0{projectDetailOrder.length}
-        </p>
+        <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
+          <p className="font-grotesk text-emerald-600 dark:text-emerald-400 text-xs uppercase tracking-[0.15em]">
+            {project.type} · {project.number} / 0{projectDetailOrder.length}
+          </p>
+          {project.isStarProject && (
+            <span className="inline-flex items-center gap-1 bg-emerald-600/10 dark:bg-emerald-400/10 px-2.5 py-1 rounded-full font-semibold text-emerald-600 dark:text-emerald-400 text-[0.65rem] uppercase tracking-wide">
+              <Crown size={12} className="fill-emerald-600 dark:fill-emerald-400" />
+              Crowned Project
+            </span>
+          )}
+        </div>
         <h1 className="mb-4 font-bold text-zinc-900 dark:text-white text-[2rem] lg:text-[2.5rem] leading-[1.1] tracking-[-0.02em]">
           {project.name}
         </h1>

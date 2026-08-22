@@ -20,6 +20,7 @@ import tripleALmsShot3 from "@/assets/triple-a-lms/triple-a-3.webp"
 export interface ProjectDetail {
   slug: string
   number: string
+  isStarProject?: boolean
   type: string
   name: string
   intro: string
@@ -41,6 +42,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   "ai-resume-builder": {
     slug: "ai-resume-builder",
     number: "01",
+    isStarProject: true,
     type: "Web App",
     name: "AI Resume Builder",
     intro:
@@ -93,6 +95,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   "triple-a-lms": {
     slug: "triple-a-lms",
     number: "02",
+    isStarProject: true,
     type: "LMS Platform",
     name: "TripleA LMS",
     intro:
