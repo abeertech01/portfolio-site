@@ -85,7 +85,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       challenge:
         "Keeping the live preview in sync with the form without re-rendering the whole page on every keystroke took some care — the preview only re-renders the section tied to whatever field changed, not the entire document.",
       whatsNext:
-        "Extending the AI tools past text generation — matching a resume against a specific job description is next.",
+        "UI/UX polish is the immediate focus. Extending the AI tools past text generation — matching a resume against a specific job description — comes after that, as time allows.",
     },
   },
   "triple-a-lms": {
