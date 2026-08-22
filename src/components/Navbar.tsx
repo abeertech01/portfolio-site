@@ -2,6 +2,7 @@
 
 import { Moon, Sun, FileText, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useRouter, usePathname } from "next/navigation"
 import { useState, useSyncExternalStore } from "react"
 
 const navItems: { label: string; target: string }[] = [
@@ -16,10 +17,18 @@ export default function Navbar() {
   const [active, setActive] = useState("Home")
   const [drawerOpen, setDrawerOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const router = useRouter()
+  const pathname = usePathname()
 
   function handleNavClick(item: (typeof navItems)[number]) {
     setActive(item.label)
     setDrawerOpen(false)
+
+    if (pathname !== "/") {
+      router.push(item.target === "top" ? "/" : `/#${item.target}`)
+      return
+    }
+
     if (item.target === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return
