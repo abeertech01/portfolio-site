@@ -97,6 +97,12 @@ export default async function ProjectPage({ params }: Props) {
           </a>
         </div>
 
+        {project.liveLinkNote && (
+          <p className="mb-8 -mt-4 max-w-xl text-zinc-400 dark:text-white/40 text-xs leading-relaxed">
+            {project.liveLinkNote}
+          </p>
+        )}
+
         <div className="flex flex-wrap gap-3 mb-12">
           {project.technologies.map(({ name, Icon }) => (
             <span
@@ -131,7 +137,7 @@ export default async function ProjectPage({ params }: Props) {
             <span className="block mb-2 font-grotesk text-zinc-400 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
               {project.caseStudy.problemLabel ?? "The Problem"}
             </span>
-            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-base leading-relaxed">
               {project.caseStudy.problem}
             </p>
           </div>
@@ -144,7 +150,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.caseStudy.features.map((feature) => (
                 <li
                   key={feature.title}
-                  className="max-w-2xl text-zinc-500 dark:text-white/65 text-sm leading-relaxed"
+                  className="max-w-2xl text-zinc-500 dark:text-white/65 text-base leading-relaxed"
                 >
                   <strong className="font-semibold text-zinc-800 dark:text-white/90">
                     {feature.title}
@@ -159,7 +165,7 @@ export default async function ProjectPage({ params }: Props) {
             <span className="block mb-2 font-grotesk text-zinc-400 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
               The Hard Part
             </span>
-            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-base leading-relaxed">
               {project.caseStudy.challenge}
             </p>
           </div>
@@ -168,7 +174,7 @@ export default async function ProjectPage({ params }: Props) {
             <span className="block mb-2 font-grotesk text-zinc-400 dark:text-white/40 text-xs uppercase tracking-[0.15em]">
               What&apos;s Next
             </span>
-            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-sm leading-relaxed">
+            <p className="max-w-2xl text-zinc-500 dark:text-white/65 text-base leading-relaxed">
               {project.caseStudy.whatsNext}
             </p>
           </div>
