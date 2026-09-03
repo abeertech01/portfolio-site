@@ -117,6 +117,20 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    slug: "redbook",
+    hasDetailPage: true,
+    isStarProject: true,
+    type: "SOCIAL MEDIA APP",
+    name: "Redbook",
+    description:
+      "A social app with voting, comments, and realtime chat — my own take on ideas from Reddit and Facebook.",
+    image: redbookImage,
+    technologies: ["React", "Express", "PostgreSQL", "Socket.io"],
+    githubLink: "https://github.com/abeertech01/redbook",
+    liveLink: "https://redbook-client.abeer-technology.workers.dev",
+  },
+  {
+    number: "04",
     slug: "animated-landing-page",
     type: "Landing Page",
     name: "Animated Landing Page",
@@ -126,17 +140,6 @@ const projects: Project[] = [
     technologies: ["React", "GSAP", "framer-motion"],
     githubLink: "https://github.com/abeertech01/melting-pot-restaurant",
     liveLink: "https://melting-pot-restaurant.vercel.app/",
-  },
-  {
-    number: "04",
-    slug: "redbook",
-    type: "SOCIAL MEDIA APP",
-    name: "Redbook",
-    description:
-      "A social media project where I tried to stuff some of the coolest social media features.",
-    image: redbookImage,
-    technologies: ["React", "TypeScript", "Node.js"],
-    githubLink: "https://github.com/abeertech01/redbook",
   },
   {
     number: "05",
@@ -256,7 +259,7 @@ export default function Projects() {
                       </p>
                     ) : (
                       <p className="font-medium text-zinc-400 dark:text-white/30 text-sm">
-                        Case study coming soon
+                        No case study — see it live
                       </p>
                     )}
                   </CardSection>
