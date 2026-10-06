@@ -13,14 +13,14 @@ import {
   SiSocketdotio,
   SiDocker,
 } from "react-icons/si"
-import aiResumeLead from "@/assets/project-images/ai-resume-builder.webp"
-import aiResumeShot1 from "@/assets/ai-resume-builder/ai-resume-1.webp"
-import aiResumeShot2 from "@/assets/ai-resume-builder/ai-resume-2.webp"
-import aiResumeShot3 from "@/assets/ai-resume-builder/ai-resume-3.webp"
-import tripleALmsLead from "@/assets/project-images/triple-a-lms.webp"
-import tripleALmsShot1 from "@/assets/triple-a-lms/triple-a-1.webp"
-import tripleALmsShot2 from "@/assets/triple-a-lms/triple-a-2.webp"
-import tripleALmsShot3 from "@/assets/triple-a-lms/triple-a-3.webp"
+import aiResumeLead from "@/assets/project-images/ai-resume.png"
+import aiResumeShot1 from "@/assets/ai-resume-builder/ai-resume-1.png"
+import aiResumeShot2 from "@/assets/ai-resume-builder/ai-resume-2.png"
+import aiResumeShot3 from "@/assets/ai-resume-builder/ai-resume-3.png"
+import tripleALmsLead from "@/assets/project-images/triplea-lms.png"
+import tripleALmsShot1 from "@/assets/triple-a-lms/triplea-1.png"
+import tripleALmsShot2 from "@/assets/triple-a-lms/triplea-2.png"
+import tripleALmsShot3 from "@/assets/triple-a-lms/triplea-3.png"
 import redbookLead from "@/assets/project-images/redbook.webp"
 import redbookShot1 from "@/assets/redbook/redbook-1.webp"
 import redbookShot3 from "@/assets/redbook/redbook-3.webp"
@@ -65,7 +65,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { name: "Vercel Blob", Icon: SiVercel },
     ],
     video: {
-      youtubeId: "AG3h9BzHjV0",
+      youtubeId: "pFLDFamvgY8",
       caption: "Product walkthrough",
     },
     screenshots: [
@@ -118,7 +118,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { name: "Stripe", Icon: SiStripe },
     ],
     video: {
-      youtubeId: "GkQ1PYdc53U",
+      youtubeId: "36NviB7ZaT4",
       caption: "Product walkthrough",
     },
     screenshots: [
@@ -216,4 +216,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
 }
 
-export const projectDetailOrder = ["ai-resume-builder", "triple-a-lms", "redbook"]
+export const projectDetailOrder = [
+  "ai-resume-builder",
+  "triple-a-lms",
+  "redbook",
+]
