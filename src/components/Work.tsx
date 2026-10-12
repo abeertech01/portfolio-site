@@ -82,7 +82,7 @@ export default function Work() {
   return (
     <section
       id="projects"
-      className="box-border mx-auto w-full max-w-[calc(1280px_+_2_*_clamp(16px,3vw,32px))] px-[clamp(16px,3vw,32px)] pb-[clamp(72px,10vw,140px)] font-grotesk leading-[normal] text-d-fg scroll-mt-20"
+      className="box-border mx-auto w-full max-w-[calc(1280px+2*clamp(16px,3vw,32px))] px-[clamp(16px,3vw,32px)] pb-[clamp(72px,10vw,140px)] font-grotesk leading-[normal] text-d-fg scroll-mt-20"
     >
       <AnimateIn threshold={0.05} duration={900}>
         <div className="flex flex-wrap justify-between items-end gap-6 mb-7">
@@ -175,9 +175,9 @@ export default function Work() {
 
                   <div className="flex flex-col flex-1 border border-[rgb(var(--d-ink)/0.08)] rounded-[18px] min-h-45 box-content overflow-hidden">
                     <div className="flex gap-1.5 bg-[#1e2422] px-3 py-2.5">
-                      <span className="bg-[#ff5f57] rounded-full w-[9px] h-[9px]" />
-                      <span className="bg-[#febc2e] rounded-full w-[9px] h-[9px]" />
-                      <span className="bg-[#28c840] rounded-full w-[9px] h-[9px]" />
+                      <span className="bg-[#ff5f57] rounded-full w-2.25 h-2.25" />
+                      <span className="bg-[#febc2e] rounded-full w-2.25 h-2.25" />
+                      <span className="bg-[#28c840] rounded-full w-2.25 h-2.25" />
                     </div>
                     <div className="relative flex-1 bg-[#1a201e]">
                       <Image
