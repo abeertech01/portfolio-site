@@ -1,5 +1,11 @@
 import type { Metadata } from "next"
-import { Inter, Geist_Mono, Space_Grotesk, Bebas_Neue } from "next/font/google"
+import {
+  Inter,
+  Geist_Mono,
+  Space_Grotesk,
+  Bebas_Neue,
+  JetBrains_Mono,
+} from "next/font/google"
 import "./globals.css"
 import CursorSpotlight from "@/components/CursorSpotlight"
 import Navbar from "@/components/Navbar"
@@ -14,11 +20,20 @@ const inter = Inter({
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  // symbols like → and ↗ aren't in the latin subset; fall back to the system
+  // UI font (as the design does) instead of an Arial-metric clone
+  adjustFontFallback: false,
+  fallback: ["system-ui", "sans-serif"],
 })
 
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
   weight: "400",
+  subsets: ["latin"],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 })
 
@@ -40,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${bebasNeue.variable} h-full antialiased`}
+      className={`${inter.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${bebasNeue.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="relative z-0 flex flex-col min-h-full">

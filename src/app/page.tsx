@@ -1,95 +1,23 @@
-import Image from "next/image"
-import avatar from "@/assets/abeer-avatar.png"
-import TiltCard from "@/components/TiltCard"
-import AnimateIn from "@/components/AnimateIn"
+import Hero from "@/components/Hero"
+import Marquee from "@/components/Marquee"
 import About from "@/components/About"
-import Skills from "@/components/Skills"
-import Projects from "@/components/Projects"
+import Work from "@/components/Work"
+import Terminal from "@/components/Terminal"
+import Writing from "@/components/Writing"
 import Contact from "@/components/Contact"
-import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
-    <>
-      <main className="flex flex-1 justify-center items-center pt-20 min-h-svh md:min-h-screen">
-        {/* Hero group — card + text, centered together */}
-        <div className="flex flex-col items-center gap-5 lg:gap-6 xl:gap-8">
-          {/* Glass card */}
-          <AnimateIn delay={0}>
-          <TiltCard className="relative w-62 lg:w-70 xl:w-77.5 h-72 lg:h-88 xl:h-100">
-            <div className="absolute inset-0 shadow-[0_0_50px_rgba(35,148,125,0.14),inset_0_1px_0_rgba(255,255,255,0.09)] border border-[rgba(35,148,125,0.6)] rounded-[22px] overflow-hidden">
-              <Image
-                src={avatar}
-                alt="Abdul Ahad Abeer"
-                fill
-                className="object-[top_center] object-cover"
-                priority
-              />
-              {/* Emerald tint overlay — gradient kept inline (verbose as a class) */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(160deg, rgba(35,148,125,0.12) 0%, transparent 50%)",
-                }}
-              />
-              {/* Top edge glow */}
-              <div
-                className="top-0 left-1/2 absolute w-3/5 h-px -translate-x-1/2"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, rgba(35,148,125,0.9), transparent)",
-                }}
-              />
-            </div>
-          </TiltCard>
-          </AnimateIn>
-
-          {/* Greeting */}
-          <AnimateIn delay={150}>
-          <h1 className="text-center leading-[1.3]">
-            <span className="block mb-3 lg:mb-2 xl:mb-[0.4rem] font-grotesk font-semibold text-[1.5rem] lg:text-[1.7rem] xl:text-[1.9rem] text-zinc-500 dark:text-white/60">
-              Hey, I&apos;m
-            </span>
-
-            {/* Bebas Neue name on solid emerald background */}
-            <span className="inline-block bg-[#23947d] p-[0.12em_0.3em_0.07em] lg:p-[0.15em_0.4em_0.09em] xl:p-[0.18em_0.5em_0.10em] font-bebas text-[2.5rem] lg:text-[2.85rem] xl:text-[3.2rem] text-white leading-none tracking-[0.04em]">
-              Abdul Ahad Abeer
-            </span>
-          </h1>
-          </AnimateIn>
-
-          {/* Scroll indicator */}
-          <AnimateIn delay={300} from="fade">
-          <div className="flex flex-col items-center gap-1.5 animate-[float-y_2.2s_ease-in-out_infinite]">
-            <span className="text-zinc-400 dark:text-white/35 text-xs uppercase tracking-[0.12em]">
-              Scroll to explore
-            </span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="text-zinc-400 dark:text-white/35"
-            >
-              <path
-                d="M7 1v12M7 13l-4-4M7 13l4-4"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          </AnimateIn>
-        </div>
-      </main>
-
+    // opaque backdrop so the global cursor glow only shows on the pages that
+    // still use it (project detail), like the design's flat page background
+    <div className="bg-d-bg">
+      <Hero />
+      <Marquee />
       <About />
-      <Projects />
-      <Skills />
+      <Work />
+      <Terminal />
+      <Writing />
       <Contact />
-      <Footer />
-    </>
+    </div>
   )
 }
