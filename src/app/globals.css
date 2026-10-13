@@ -10,8 +10,19 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
-  --font-grotesk: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-grotesk: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   --font-bebas: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+  --font-jbmono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+  --color-d-bg: var(--d-bg);
+  --color-d-bg2: var(--d-bg2);
+  --color-d-card: var(--d-card);
+  --color-d-fg: var(--d-fg);
+  --color-d-fg2: var(--d-fg2);
+  --color-d-mut: var(--d-mut);
+  --color-d-mut2: var(--d-mut2);
+  --color-d-mut3: var(--d-mut3);
+  --color-d-acc: var(--d-acc);
+  --color-d-on-acc: var(--d-on-acc);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -52,11 +63,25 @@
 
 :root {
   --accent-green: #23947d;
+  /* Redesign tokens (light) */
+  --d-bg: #e8ecea;
+  --d-bg2: #dfe5e2;
+  --d-card: #f5f8f6;
+  --d-fg: #111615;
+  --d-fg2: #33413c;
+  --d-mut: #4f5d58;
+  --d-mut2: #5c6a65;
+  --d-mut3: #97a6a0;
+  --d-acc: #0e9466;
+  --d-on-acc: #ffffff;
+  --d-glow: #b4d8cb;
+  --d-ink: 12 17 16;
+  --d-num: #bfcdc8;
   /* Light mode dot + gradient colours */
   --dot-faint: rgba(0, 0, 0, 0.08);
   --dot-bright: rgba(0, 0, 0, 0.45);
   --emerald-glow: rgba(35, 148, 125, 0.35);
-  --background: #e8e8e8;
+  --background: #e8ecea;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -91,7 +116,21 @@
 }
 
 .dark {
-  --background: #121212;
+  --background: #111413;
+  /* Redesign tokens (dark) */
+  --d-bg: #111413;
+  --d-bg2: #0e1110;
+  --d-card: #171c1a;
+  --d-fg: #ecf2ef;
+  --d-fg2: #c9d4d0;
+  --d-mut: #9fb0a9;
+  --d-mut2: #8fa39b;
+  --d-mut3: #5f736b;
+  --d-acc: #3ddc9f;
+  --d-on-acc: #0c1110;
+  --d-glow: #18332c;
+  --d-ink: 255 255 255;
+  --d-num: #2a3531;
   --accent-green: #23947d;
   --dot-faint: rgba(255, 255, 255, 0.01);
   --dot-bright: rgba(255, 255, 255, 0.75);
@@ -128,6 +167,13 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* theme switch: let the circular clip-path reveal run on its own */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @keyframes float-y {
   0%,
   100% {
@@ -145,33 +191,6 @@
   100% {
     background-position: -200% center;
   }
-}
-
-@keyframes map-scan {
-  0% {
-    left: 0%;
-  } /* sweep left → past the right edge over the first 4s ... */
-  57.14% {
-    left: 104%;
-  }
-  100% {
-    left: 104%;
-  } /* ... then hold off-screen for 3s before repeating */
-}
-
-/* referenced here so Lightning CSS keeps the @keyframes (inline-style
-   animation refs alone get tree-shaken out) */
-.map-scan {
-  animation: map-scan 7s linear infinite;
-}
-
-/* Name heading glow — white shimmer only in dark mode */
-.about-name-glow {
-  text-shadow: none;
-}
-.dark .about-name-glow {
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.6),
-    0 0 50px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
 }
 
 @keyframes marquee-ltr {
@@ -192,38 +211,73 @@
   }
 }
 
-.marquee-ltr {
-  animation: marquee-ltr 22s linear infinite;
+/* Skills strip under the hero — slow, opposite directions, pause on hover */
+.marquee-slow-a {
+  animation: marquee-rtl 38s linear infinite;
 }
 
-.marquee-rtl {
-  animation: marquee-rtl 22s linear infinite;
+.marquee-slow-b {
+  animation: marquee-ltr 44s linear infinite;
 }
 
-@keyframes scroll-ltr {
+.marquee-pause:hover .marquee-slow-a,
+.marquee-pause:hover .marquee-slow-b {
+  animation-play-state: paused;
+}
+
+/* Hero / About entrance — staggered with --d */
+@keyframes rise-in {
   from {
-    transform: translateX(-50%);
+    opacity: 0;
+    transform: translateY(28px);
   }
   to {
-    transform: translateX(0);
+    opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes scroll-rtl {
+.rise-in {
+  animation: rise-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes line-in {
   from {
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateY(6px);
   }
   to {
-    transform: translateX(-50%);
+    opacity: 1;
+    transform: none;
   }
 }
 
-.animate-scroll-ltr {
-  animation: scroll-ltr 20s linear infinite;
+.line-in {
+  animation: line-in 0.28s ease-out both;
 }
 
-.animate-scroll-rtl {
-  animation: scroll-rtl 20s linear infinite;
+@keyframes dot-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgb(61 220 159 / 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgb(61 220 159 / 0);
+  }
+}
+
+.dot-ping {
+  animation: dot-ping 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .line-in,
+  .dot-ping,
+  .marquee-slow-a,
+  .marquee-slow-b {
+    animation: none;
+  }
 }
 
 @layer base {

@@ -1,186 +1,163 @@
 "use client"
 
-import React from "react"
+import { useEffect, useRef, useState } from "react"
 import AnimateIn from "@/components/AnimateIn"
+import Footer from "@/components/Footer"
+
+const EMAIL = "abeer.technology@gmail.com"
+
+const SOCIALS = [
+  { name: "GitHub", url: "https://github.com/abeertech01" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/abeertech01" },
+  { name: "X", url: "https://x.com/abeertech01" },
+  { name: "Facebook", url: "https://facebook.com/abeertech01" },
+]
+
+const field =
+  "px-3.5 py-3.5 border border-white/10 focus:border-[#3ddc9f] rounded-xl bg-[#151a18] outline-none text-[15px] text-[#ecf2ef] placeholder:text-[#7d8f88] transition-colors duration-200"
 
 export default function Contact() {
-  const [name, setName] = React.useState("")
-  const [email, setEmail] = React.useState("")
-  const [message, setMessage] = React.useState("")
+  const [copied, setCopied] = useState(false)
+  const [sentTo, setSentTo] = useState<string | null>(null)
+  const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    return () => {
+      if (copyTimer.current) clearTimeout(copyTimer.current)
+    }
+  }, [])
+
+  function copyEmail() {
+    navigator.clipboard?.writeText(EMAIL)
+    setCopied(true)
+    if (copyTimer.current) clearTimeout(copyTimer.current)
+    copyTimer.current = setTimeout(() => setCopied(false), 1800)
+  }
+
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const name = String(data.get("name") ?? "").trim()
+    const email = String(data.get("email") ?? "").trim()
+    const message = String(data.get("message") ?? "").trim()
+
+    // No backend: open a pre-filled Gmail compose window, as the site did before
     const subject = encodeURIComponent(`Message from ${name}`)
     const body = encodeURIComponent(
       `From: ${name}\nEmail: ${email}\n\n${message}`,
     )
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=abeer.technology@gmail.com&su=${subject}&body=${body}`
-    window.open(gmailUrl, "_blank")
+    window.open(
+      `https://mail.google.com/mail/?view=cm&to=${EMAIL}&su=${subject}&body=${body}`,
+      "_blank",
+      "noopener",
+    )
+    setSentTo(name.split(" ")[0] || "friend")
   }
 
   return (
     <section
       id="contact"
-      className="mx-auto px-4 xl:px-8 py-16 lg:py-22 xl:py-28 w-full max-w-243.75 scroll-mt-24"
+      className="relative bg-[#3ddc9f] overflow-hidden font-grotesk leading-[normal] text-[#0c1110] scroll-mt-0"
     >
-      {/* Eyebrow */}
-      <AnimateIn>
-        <div className="mb-8 lg:mb-10 xl:mb-12 text-center">
-          <p className="mb-2 font-grotesk text-[0.75rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.18em]">
-            Contact
-          </p>
-          <h2 className="font-extrabold text-[2rem] lg:text-[2.6rem] xl:text-[3.2rem] leading-[1.1] tracking-[-0.02em]">
-            <span className="text-zinc-900 dark:text-white">Let&apos;s Build </span>
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-700 via-emerald-500 to-emerald-400 dark:from-white dark:via-emerald-300 dark:to-emerald-500">
-              Something
-            </span>
+      <div className="box-border flex flex-col gap-[clamp(36px,5vw,60px)] mx-auto px-[clamp(16px,3vw,32px)] pt-[clamp(72px,10vw,130px)] pb-10 w-full max-w-[calc(1280px_+_2_*_clamp(16px,3vw,32px))]">
+        <AnimateIn threshold={0.1} duration={900}>
+          <h2 className="m-0 font-bebas font-normal text-[clamp(76px,15vw,240px)] leading-[0.84]">
+            Let&apos;s build something.
           </h2>
-        </div>
-      </AnimateIn>
-
-      {/* Two-column body */}
-      <div className="items-stretch gap-6 lg:gap-8 xl:gap-12 grid grid-cols-1 md:grid-cols-2">
-        {/* Left — info side */}
-        <AnimateIn from="left" delay={100} className="h-full">
-          <div className="flex flex-col gap-6 xl:gap-8 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 lg:p-5 xl:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full">
-            <p className="text-[1rem] text-zinc-500 dark:text-white/60 leading-[1.75]">
-              There was a period where things went quiet for me — professionally
-              and personally. I&apos;m not hiding from that. What I am doing is
-              coming back stronger, being intentional about it, and sharing the
-              journey openly. This portfolio is part of that. I&apos;m available
-              for full-stack roles and open to conversations.
-            </p>
-
-            {/* Status cards */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-3 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] px-5 py-4 border border-black/[0.08] dark:border-white/8 rounded-[12px]">
-                <span className="relative flex w-2.5 h-2.5 shrink-0">
-                  <span className="inline-flex absolute bg-emerald-600 dark:bg-emerald-400 opacity-75 rounded-full w-full h-full animate-ping" />
-                  <span className="inline-flex relative bg-emerald-600 dark:bg-emerald-400 rounded-full w-2.5 h-2.5" />
-                </span>
-                <span className="font-grotesk text-[0.9rem] text-zinc-700 dark:text-white/80">
-                  Open to full-time &amp; freelance opportunities
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] px-5 py-4 border border-black/[0.08] dark:border-white/8 rounded-[12px]">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-emerald-600 dark:text-emerald-400 shrink-0"
-                >
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <span className="font-grotesk text-[0.9rem] text-zinc-700 dark:text-white/80">
-                  Based in Bangladesh &mdash; available remotely worldwide
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] px-5 py-4 border border-black/[0.08] dark:border-white/8 rounded-[12px]">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-emerald-600 dark:text-emerald-400 shrink-0"
-                >
-                  <path
-                    d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14.93V17a1 1 0 0 1-2 0v-.07A8.002 8.002 0 0 1 4.07 9H5a1 1 0 0 1 0 2 6.002 6.002 0 0 0 5 5.93zm0-4.86A6.002 6.002 0 0 0 8.07 7H9a1 1 0 0 1 0 2 4 4 0 0 1 3 3.32v.68a1 1 0 0 1-2 0v-.68A4.002 4.002 0 0 1 7 9a1 1 0 0 1 0-2h.07A6.002 6.002 0 0 0 11 4.07V5a1 1 0 0 1 2 0v-.07A6.002 6.002 0 0 0 16.93 9H17a1 1 0 0 1 0 2 4 4 0 0 1-3 3.32V15a1 1 0 0 1-2 0v-.93z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <span className="font-grotesk text-[0.9rem] text-zinc-700 dark:text-white/80">
-                  Documenting the comeback on{" "}
-                  <a
-                    href="#about"
-                    className="border-black/30 dark:border-white/30 hover:border-emerald-600/60 dark:hover:border-emerald-400/60 border-b text-zinc-700 dark:text-white/80 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-                  >
-                    social networks
-                  </a>
-                </span>
-              </div>
-            </div>
-
-            {/* Reply time note */}
-            <p className="text-[0.82rem] text-zinc-400 dark:text-white/30">
-              I typically reply within 24 hours.
-            </p>
-          </div>
         </AnimateIn>
 
-        {/* Right — form side */}
-        <AnimateIn from="right" delay={100} className="h-full">
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4 bg-black/[0.04] dark:bg-white/4 backdrop-blur-[20px] p-4 lg:p-5 xl:p-7 border border-black/[0.08] dark:border-white/8 rounded-[16px] h-full"
-          >
-            <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="name"
-                  className="font-grotesk text-[0.72rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.12em]"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  className="bg-black/[0.04] dark:bg-white/4 px-4 py-3 border border-black/[0.08] dark:border-white/8 focus:border-emerald-600/40 dark:focus:border-emerald-400/40 rounded-[10px] outline-none text-[0.9rem] text-zinc-800 dark:text-white/85 placeholder:text-zinc-400 dark:placeholder:text-white/25 transition-colors"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label
-                  htmlFor="email"
-                  className="font-grotesk text-[0.72rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.12em]"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="bg-black/[0.04] dark:bg-white/4 px-4 py-3 border border-black/[0.08] dark:border-white/8 focus:border-emerald-600/40 dark:focus:border-emerald-400/40 rounded-[10px] outline-none text-[0.9rem] text-zinc-800 dark:text-white/85 placeholder:text-zinc-400 dark:placeholder:text-white/25 transition-colors"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 gap-1.5">
-              <label
-                htmlFor="message"
-                className="font-grotesk text-[0.72rem] text-zinc-500 dark:text-white/40 uppercase tracking-[0.12em]"
+        <div className="gap-[clamp(28px,4vw,56px)] grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))]">
+          <AnimateIn threshold={0.1} duration={900}>
+            <div className="flex flex-col gap-5.5">
+              <p className="m-0 max-w-115 text-lg text-[#0f2a21] leading-[1.55]">
+                Open to full-stack roles and freelance work. Based in
+                Bangladesh, working remotely worldwide.
+              </p>
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="flex flex-wrap items-center self-start gap-x-3.5 gap-y-2.5 bg-[#0c1110] hover:bg-[#1b2b26] px-5 py-4 rounded-2xl max-w-full font-medium text-[#ecf2ef] text-[clamp(16px,1.8vw,20px)] transition-colors duration-200 cursor-pointer"
               >
-                Message
-              </label>
-              <textarea
-                id="message"
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="What's on your mind?"
-                className="flex-1 bg-black/[0.04] dark:bg-white/4 px-4 py-3 border border-black/[0.08] dark:border-white/8 focus:border-emerald-600/40 dark:focus:border-emerald-400/40 rounded-[10px] outline-none min-h-35 md:min-h-0 text-[0.9rem] text-zinc-800 dark:text-white/85 placeholder:text-zinc-400 dark:placeholder:text-white/25 transition-colors resize-none"
-              />
+                {EMAIL}
+                <span className="bg-[#3ddc9f] px-2.25 py-1.25 rounded-lg font-jbmono text-xs text-[#0c1110]">
+                  {copied ? "COPIED ✓" : "COPY"}
+                </span>
+              </button>
+              <div className="flex flex-wrap gap-2">
+                {SOCIALS.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="hover:bg-[#0c1110] px-4 py-2.5 border-[1.5px] border-[#0c1110] rounded-full font-medium text-[#0c1110] hover:text-[#3ddc9f] text-sm leading-[normal] transition-colors duration-200"
+                  >
+                    {s.name}
+                  </a>
+                ))}
+              </div>
             </div>
+          </AnimateIn>
 
-            <button
-              type="submit"
-              className="bg-emerald-700 hover:bg-emerald-600 mt-1 py-3 rounded-[10px] font-grotesk font-semibold text-white transition-colors cursor-pointer"
+          <AnimateIn threshold={0.1} duration={900} delay={120}>
+            <form
+              onSubmit={onSubmit}
+              className="flex flex-col gap-3 bg-[#0c1110] p-[clamp(18px,2.5vw,28px)] rounded-3xl text-[#ecf2ef]"
             >
-              Send Message
-            </button>
-          </form>
-        </AnimateIn>
+              {sentTo ? (
+                <div className="flex flex-col items-center gap-2.5 px-2 py-12 text-center">
+                  <span className="font-bebas text-5xl text-[#3ddc9f] leading-none">
+                    Message ready
+                  </span>
+                  <span className="text-[15px] text-[#9fb0a9]">
+                    Thanks, {sentTo}. Press send in the Gmail tab that just
+                    opened and I&apos;ll reply within a day.
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSentTo(null)}
+                    className="mt-1.5 font-jbmono text-[13px] text-[#3ddc9f] hover:opacity-70 transition-opacity cursor-pointer"
+                  >
+                    write another →
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="gap-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,180px),1fr))]">
+                    <input
+                      name="name"
+                      required
+                      placeholder="Your name"
+                      className={field}
+                    />
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your@email.com"
+                      className={field}
+                    />
+                  </div>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="What's on your mind?"
+                    className={`${field} resize-y`}
+                  />
+                  <button
+                    type="submit"
+                    className="bg-[#3ddc9f] hover:bg-[#ecf2ef] p-3.75 border-none rounded-xl font-semibold text-[#0c1110] text-[15px] transition-colors duration-200 cursor-pointer"
+                  >
+                    Send message →
+                  </button>
+                </>
+              )}
+            </form>
+          </AnimateIn>
+        </div>
+
+        <Footer />
       </div>
     </section>
   )

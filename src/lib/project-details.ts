@@ -43,6 +43,8 @@ export interface ProjectDetail {
     problem: string
     features: { title: string; description: string }[]
     challenge: string
+    /** one-line rule highlighted under "The Hard Part" */
+    callout?: string
     whatsNext: string
   }
 }
@@ -108,7 +110,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     type: "LMS Platform",
     name: "TripleA LMS",
     intro:
-      "A course marketplace that prices itself. TripleA LMS adjusts course pricing by region and takes payment through Stripe, so access isn't gated by a single global price.",
+      "A course marketplace that prices itself. Pricing adjusts by region and checkout runs through Stripe, so access isn't gated by one global price.",
     liveLink: "https://triple-a-lms.vercel.app/",
     githubLink: "https://github.com/abeertech01/lms-site/tree/main",
     technologies: [
@@ -130,7 +132,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     caseStudy: {
       problemLabel: "The Goal",
       problem:
-        "This one wasn't built to fix a specific pain point either — it was a deliberate exercise in modern full-stack architecture: structured course management for students, geo-based discount pricing, caching strategies in Next.js, role-based authentication, and Drizzle ORM as the data layer.",
+        "This one wasn't built to fix a specific pain point. It was a deliberate exercise in modern full-stack architecture: structured course management, geo-based discount pricing, caching strategies in Next.js, role-based auth, and Drizzle ORM as the data layer.",
       features: [
         {
           title: "Regional pricing",
@@ -140,7 +142,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         {
           title: "Structured course player",
           description:
-            "Each course is broken into sections and lessons in a sidebar outline, with the active lesson highlighted and progress tracked per enrollment — visible as a completion bar on the My Courses dashboard.",
+            "Each course is broken into sections and lessons in a sidebar outline, with the active lesson highlighted and progress tracked per enrollment, visible as a completion bar on the My Courses dashboard.",
         },
         {
           title: "Stripe checkout",
@@ -149,9 +151,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
         },
       ],
       challenge:
-        "Making sure the price a learner sees never drifts from what Stripe actually charges took care — the discount is computed server-side at checkout time, not trusted from anything the client sends.",
+        "Making sure the price a learner sees never drifts from what Stripe actually charges. The discount is computed server-side at checkout time, not trusted from anything the client sends.",
+      callout: "Never trust the client with the price.",
       whatsNext:
-        "UI/UX polish is the immediate focus. Instructor payouts and an admin view for managing courses and coupons directly — both still handled by hand right now — will get picked up in spare time after that.",
+        "The UI/UX redesign is done. The immediate focus is a chatbot, so new visitors can learn about the platform and find the right course without digging through pages. Instructor payouts and an admin view for managing courses and coupons, both still handled by hand right now, come after that.",
     },
   },
   redbook: {

@@ -1,13 +1,14 @@
+/** Bottom row of the contact block — rendered inside the green Contact section. */
 export default function Footer() {
   return (
-    <footer className="bg-background w-full">
-      <div className="mx-auto px-4 xl:px-8 pb-8 xl:pb-10 w-full max-w-6xl">
-        <div className="border-black/[0.08] dark:border-white/8 border-t pt-8 text-center">
-          <p className="font-grotesk text-[0.78rem] text-zinc-500 dark:text-white/60">
-            © {new Date().getFullYear()} Abeer Abdul-Ahad. All rights reserved.
-          </p>
-        </div>
-      </div>
+    <footer className="flex flex-wrap justify-between gap-4 pt-5.5 border-[rgb(12_17_16/0.25)] border-t-[1.5px] font-jbmono text-xs text-[#0f2a21]">
+      <span>© {new Date().getFullYear()} Abeer Abdul-Ahad</span>
+      <a
+        href="#top"
+        className="text-[#0c1110] hover:opacity-70 transition-opacity"
+      >
+        back to top ↑
+      </a>
     </footer>
   )
 }
