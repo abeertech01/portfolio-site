@@ -154,7 +154,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
         "Making sure the price a learner sees never drifts from what Stripe actually charges. The discount is computed server-side at checkout time, not trusted from anything the client sends.",
       callout: "Never trust the client with the price.",
       whatsNext:
-        "UI/UX polish is the immediate focus. Instructor payouts and an admin view for managing courses and coupons, both still handled by hand right now, come after that.",
+        "The UI/UX redesign is done. The immediate focus is a chatbot, so new visitors can learn about the platform and find the right course without digging through pages. Instructor payouts and an admin view for managing courses and coupons, both still handled by hand right now, come after that.",
     },
   },
   redbook: {
