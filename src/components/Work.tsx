@@ -6,7 +6,7 @@ import Link from "next/link"
 import AnimateIn from "@/components/AnimateIn"
 import aiResume from "@/assets/project-images/ai-resume.webp"
 import tripleALms from "@/assets/project-images/triplea-lms.webp"
-import redbook from "@/assets/project-images/redbook.webp"
+import redbook from "@/assets/project-images/redbook-redesigned.webp"
 
 type Project = {
   num: string

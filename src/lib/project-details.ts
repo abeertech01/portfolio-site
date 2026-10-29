@@ -21,9 +21,9 @@ import tripleALmsLead from "@/assets/project-images/triplea-lms.webp"
 import tripleALmsShot1 from "@/assets/triple-a-lms/triplea-1.webp"
 import tripleALmsShot2 from "@/assets/triple-a-lms/triplea-2.webp"
 import tripleALmsShot3 from "@/assets/triple-a-lms/triplea-3.webp"
-import redbookLead from "@/assets/project-images/redbook.webp"
-import redbookShot1 from "@/assets/redbook/redbook-1.webp"
-import redbookShot3 from "@/assets/redbook/redbook-3.webp"
+import redbookLead from "@/assets/project-images/redbook-redesigned.webp"
+import redbookShot1 from "@/assets/redbook/redbook-redesigned-1.webp"
+import redbookShot3 from "@/assets/redbook/redbook-redesigned-2.webp"
 
 export interface ProjectDetail {
   slug: string
@@ -177,7 +177,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { name: "Docker", Icon: SiDocker },
     ],
     video: {
-      youtubeId: "YaNuFr7TuVI",
+      youtubeId: "IMdNTNPoanw",
       caption: "Product walkthrough",
     },
     screenshots: [
