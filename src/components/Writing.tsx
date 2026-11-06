@@ -11,7 +11,7 @@ export default function Writing() {
         <div className="flex flex-wrap justify-between items-end gap-5 mb-5">
           <div className="flex flex-col gap-2.5">
             <span className="font-jbmono text-d-acc text-xs tracking-[0.08em]">
-              04 / WRITING
+              05 / WRITING
             </span>
             <h2 className="m-0 font-bebas font-normal text-[clamp(48px,6vw,88px)] leading-[0.9]">
               Featured by the platforms

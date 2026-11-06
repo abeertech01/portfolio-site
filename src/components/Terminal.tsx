@@ -31,7 +31,7 @@ function respond(raw: string): { lines: Line[]; clear?: boolean } {
     return {
       lines: [
         out(
-          "whoami · stack · projects · writing · contact · resume · coffee · clear",
+          "whoami · stack · experience · projects · writing · contact · resume · coffee · clear",
         ),
       ],
     }
@@ -49,6 +49,15 @@ function respond(raw: string): { lines: Line[]; clear?: boolean } {
         out(
           "frontend  React · Next.js · TypeScript · Redux · TanStack Query · Tailwind\nbackend   Node · Express · GraphQL · PostgreSQL · MongoDB · Prisma · Drizzle\ntools     Git · Docker · NextAuth · Figma",
         ),
+      ],
+    }
+  if (c === "experience")
+    return {
+      lines: [
+        out(
+          "2022–2023  Full-Stack Developer · MoonHoldings (remote, USA)\n           Vue → Next.js migration · live price charts · 1,000+ users",
+        ),
+        out("→ scrolling to #experience", COLORS.echo),
       ],
     }
   if (c === "projects")
@@ -83,7 +92,7 @@ function respond(raw: string): { lines: Line[]; clear?: boolean } {
     }
   if (c === "ls")
     return {
-      lines: [out("about/  projects/  writing/  resume.pdf  contact.txt")],
+      lines: [out("about/  experience/  projects/  writing/  resume.pdf  contact.txt")],
     }
   return {
     lines: [out(`command not found: ${c}. Try "help".`, COLORS.err)],
@@ -117,10 +126,10 @@ export default function Terminal() {
       ...res.lines,
     ])
 
-    if (c === "projects") {
+    if (c === "projects" || c === "experience") {
       setTimeout(() => {
         document
-          .getElementById("projects")
+          .getElementById(c)
           ?.scrollIntoView({ behavior: "smooth", block: "start" })
       }, 700)
     } else if (c === "resume") {
@@ -140,7 +149,7 @@ export default function Terminal() {
       <AnimateIn threshold={0.1} duration={900}>
         <div className="flex flex-col gap-4.5">
           <span className="font-jbmono text-d-acc text-xs tracking-[0.08em]">
-            03 / INTERACTIVE
+            04 / INTERACTIVE
           </span>
           <h2 className="m-0 font-bebas font-normal text-[clamp(56px,7vw,104px)] leading-[0.88]">
             Skip the scroll. Ask my terminal.

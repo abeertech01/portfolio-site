@@ -11,6 +11,7 @@ const RESUME = "/abeer_resume.pdf"
 /** target = element id on the home page ("top" scrolls to the very top) */
 const DESKTOP_LINKS = [
   { label: "About", target: "about" },
+  { label: "Experience", target: "experience" },
   { label: "Work", target: "projects" },
   { label: "Terminal", target: "terminal" },
   { label: "Contact", target: "contact" },
@@ -18,6 +19,7 @@ const DESKTOP_LINKS = [
 
 const MENU_LINKS = [
   { label: "About", target: "about" },
+  { label: "Experience", target: "experience" },
   { label: "Work", target: "projects" },
   { label: "Terminal", target: "terminal" },
   { label: "Writing", target: "writing" },

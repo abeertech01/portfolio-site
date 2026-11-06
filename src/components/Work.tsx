@@ -88,7 +88,7 @@ export default function Work() {
         <div className="flex flex-wrap justify-between items-end gap-6 mb-7">
           <div className="flex flex-col gap-2.5">
             <span className="font-jbmono text-d-acc text-xs tracking-[0.08em]">
-              02 / CROWNED PROJECTS
+              03 / CROWNED PROJECTS
             </span>
             <h2 className="m-0 font-bebas font-normal text-[clamp(56px,8vw,120px)] leading-[0.88]">
               Things I shipped

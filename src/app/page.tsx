@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero"
 import Marquee from "@/components/Marquee"
 import About from "@/components/About"
+import Experience from "@/components/Experience"
 import Work from "@/components/Work"
 import Terminal from "@/components/Terminal"
 import Writing from "@/components/Writing"
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <About />
+      <Experience />
       <Work />
       <Terminal />
       <Writing />
