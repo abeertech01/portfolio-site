@@ -77,7 +77,7 @@ function respond(raw: string): { lines: Line[]; clear?: boolean } {
       ],
     }
   if (c === "resume")
-    return { lines: [out("opening abeer_resume.pdf…", COLORS.echo)] }
+    return { lines: [out("opening abeer_updated_resume.pdf…", COLORS.echo)] }
   if (c === "coffee")
     return {
       lines: [
@@ -133,7 +133,7 @@ export default function Terminal() {
           ?.scrollIntoView({ behavior: "smooth", block: "start" })
       }, 700)
     } else if (c === "resume") {
-      window.open("/abeer_resume.pdf", "_blank", "noopener")
+      window.open("/abeer_updated_resume.pdf", "_blank", "noopener")
     } else if (c.startsWith("sudo hire")) {
       window.location.assign(
         "mailto:abeer.technology@gmail.com?subject=Let%27s%20work%20together",

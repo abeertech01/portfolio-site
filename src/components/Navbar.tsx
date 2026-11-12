@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 import { usePathname, useRouter } from "next/navigation"
 
-const RESUME = "/abeer_resume.pdf"
+const RESUME = "/abeer_updated_resume.pdf"
 
 /** target = element id on the home page ("top" scrolls to the very top) */
 const DESKTOP_LINKS = [
